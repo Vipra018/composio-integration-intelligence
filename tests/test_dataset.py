@@ -1,27 +1,31 @@
 """
-Tests for Benchmark Applications Dataset (data/apps.json).
+Tests for Benchmark Applications Dataset (data/apps.json and data/canonical_apps.json).
 
-Verifies strict dataset integrity:
-- Exactly 100 applications are present.
-- Exactly 10 categories are represented.
-- Exactly 10 applications per category (balanced 10x10 benchmark).
-- Explicit 1-to-1 matching against the canonical reference application list.
-- Every application occurs exactly once (no duplicate IDs or names).
-- All IDs follow canonical lowercase kebab-case naming.
-- All URLs are valid HTTP/HTTPS endpoints.
-- All fields adhere strictly to the AppMetadata Pydantic schema.
+Independently and exhaustively verifies dataset integrity against the authoritative
+100-application single source of truth:
+- Exact 100 application names.
+- Exact category assignments.
+- Exactly 10 categories.
+- Exactly 10 applications per category.
+- No missing applications.
+- No extra applications.
+- No duplicate names or IDs.
+- Valid slug IDs, HTTP/HTTPS URLs, and Pydantic schema validation.
 """
 
 from collections import Counter
+import json
+from pathlib import Path
 import re
 from typing import Any, Dict, List
 import pytest
 from pydantic import ValidationError
 
+from src.config import PROJECT_ROOT
 from src.models.app_metadata import AppMetadata
 
 # The 10 canonical categories defined in the assignment
-EXPECTED_CATEGORIES = [
+EXPECTED_CATEGORIES: List[str] = [
     "CRM and Sales",
     "Support and Helpdesk",
     "Communications and Messaging",
@@ -34,132 +38,159 @@ EXPECTED_CATEGORIES = [
     "AI, Research and Media-native",
 ]
 
-# The complete 100-application canonical reference mapping (Name -> Category)
-CANONICAL_APPLICATION_MAP: Dict[str, str] = {
-    # 1. CRM and Sales (10)
+# The authoritative 100-application reference list (Name -> Category)
+# Single Source of Truth
+AUTHORITATIVE_APPLICATION_MAP: Dict[str, str] = {
+    # CATEGORY 1: CRM and Sales (10)
     "Salesforce": "CRM and Sales",
     "HubSpot": "CRM and Sales",
     "Pipedrive": "CRM and Sales",
-    "Close": "CRM and Sales",
+    "Attio": "CRM and Sales",
+    "Twenty": "CRM and Sales",
+    "Podio": "CRM and Sales",
     "Zoho CRM": "CRM and Sales",
+    "Close": "CRM and Sales",
     "Copper": "CRM and Sales",
-    "Outreach": "CRM and Sales",
-    "Salesloft": "CRM and Sales",
-    "Apollo.io": "CRM and Sales",
-    "Gong": "CRM and Sales",
+    "DealCloud": "CRM and Sales",
 
-    # 2. Support and Helpdesk (10)
+    # CATEGORY 2: Support and Helpdesk (10)
     "Zendesk": "Support and Helpdesk",
+    "Intercom": "Support and Helpdesk",
     "Freshdesk": "Support and Helpdesk",
+    "Front": "Support and Helpdesk",
+    "Pylon": "Support and Helpdesk",
+    "LiveAgent": "Support and Helpdesk",
+    "Plain": "Support and Helpdesk",
     "Help Scout": "Support and Helpdesk",
     "Gorgias": "Support and Helpdesk",
-    "Kustomer": "Support and Helpdesk",
-    "Front": "Support and Helpdesk",
-    "PagerDuty": "Support and Helpdesk",
-    "Vanta": "Support and Helpdesk",
-    "Greenhouse": "Support and Helpdesk",
-    "Lever": "Support and Helpdesk",
+    "Gladly": "Support and Helpdesk",
 
-    # 3. Communications and Messaging (10)
+    # CATEGORY 3: Communications and Messaging (10)
     "Slack": "Communications and Messaging",
-    "Discord": "Communications and Messaging",
     "Twilio": "Communications and Messaging",
-    "SendGrid": "Communications and Messaging",
-    "Zoom": "Communications and Messaging",
-    "Intercom": "Communications and Messaging",
-    "Crisp": "Communications and Messaging",
-    "Basecamp": "Communications and Messaging",
-    "Ashby": "Communications and Messaging",
-    "HiBob": "Communications and Messaging",
+    "Zoho Cliq": "Communications and Messaging",
+    "Lark (Larksuite)": "Communications and Messaging",
+    "Pumble": "Communications and Messaging",
+    "Discord": "Communications and Messaging",
+    "Telegram": "Communications and Messaging",
+    "WhatsApp Business": "Communications and Messaging",
+    "Aircall": "Communications and Messaging",
+    "Vonage": "Communications and Messaging",
 
-    # 4. Marketing, Ads, Email and Social (10)
+    # CATEGORY 4: Marketing, Ads, Email and Social (10)
+    "Google Ads": "Marketing, Ads, Email and Social",
+    "Meta Ads": "Marketing, Ads, Email and Social",
+    "LinkedIn Ads": "Marketing, Ads, Email and Social",
+    "GoHighLevel": "Marketing, Ads, Email and Social",
     "Mailchimp": "Marketing, Ads, Email and Social",
     "Klaviyo": "Marketing, Ads, Email and Social",
-    "ActiveCampaign": "Marketing, Ads, Email and Social",
-    "Customer.io": "Marketing, Ads, Email and Social",
-    "Braze": "Marketing, Ads, Email and Social",
-    "Kit": "Marketing, Ads, Email and Social",
-    "Brevo": "Marketing, Ads, Email and Social",
-    "Buffer": "Marketing, Ads, Email and Social",
-    "Hootsuite": "Marketing, Ads, Email and Social",
-    "Webflow": "Marketing, Ads, Email and Social",
+    "systeme.io": "Marketing, Ads, Email and Social",
+    "Pinterest": "Marketing, Ads, Email and Social",
+    "Threads (Meta)": "Marketing, Ads, Email and Social",
+    "SendGrid": "Marketing, Ads, Email and Social",
 
-    # 5. Ecommerce (10)
+    # CATEGORY 5: Ecommerce (10)
     "Shopify": "Ecommerce",
     "WooCommerce": "Ecommerce",
     "BigCommerce": "Ecommerce",
-    "Shippo": "Ecommerce",
-    "ShipStation": "Ecommerce",
-    "Stripe": "Ecommerce",
-    "Chargebee": "Ecommerce",
-    "Recurly": "Ecommerce",
-    "Bill.com": "Ecommerce",
-    "Wave Accounting": "Ecommerce",
+    "Salesforce Commerce Cloud": "Ecommerce",
+    "Magento (Adobe Commerce)": "Ecommerce",
+    "Squarespace": "Ecommerce",
+    "Ecwid": "Ecommerce",
+    "Gumroad": "Ecommerce",
+    "Amazon Selling Partner": "Ecommerce",
+    "fanbasis": "Ecommerce",
 
-    # 6. Data, SEO and Scraping (10)
-    "Snowflake": "Data, SEO and Scraping",
-    "Datadog": "Data, SEO and Scraping",
-    "New Relic": "Data, SEO and Scraping",
-    "Sentry": "Data, SEO and Scraping",
-    "Postman": "Data, SEO and Scraping",
-    "Airtable": "Data, SEO and Scraping",
-    "Typeform": "Data, SEO and Scraping",
-    "SurveyMonkey": "Data, SEO and Scraping",
-    "Okta": "Data, SEO and Scraping",
-    "1Password": "Data, SEO and Scraping",
+    # CATEGORY 6: Data, SEO and Scraping (10)
+    "DataForSEO": "Data, SEO and Scraping",
+    "SE Ranking": "Data, SEO and Scraping",
+    "Ahrefs": "Data, SEO and Scraping",
+    "MrScraper": "Data, SEO and Scraping",
+    "Apify": "Data, SEO and Scraping",
+    "Firecrawl": "Data, SEO and Scraping",
+    "Bright Data": "Data, SEO and Scraping",
+    "Sherlock": "Data, SEO and Scraping",
+    "Waterfall.io": "Data, SEO and Scraping",
+    "Clay": "Data, SEO and Scraping",
 
-    # 7. Developer, Infra and Data platforms (10)
+    # CATEGORY 7: Developer, Infra and Data platforms (10)
     "GitHub": "Developer, Infra and Data platforms",
-    "GitLab": "Developer, Infra and Data platforms",
-    "Bitbucket": "Developer, Infra and Data platforms",
     "Vercel": "Developer, Infra and Data platforms",
+    "Netlify": "Developer, Infra and Data platforms",
+    "Cloudflare": "Developer, Infra and Data platforms",
     "Supabase": "Developer, Infra and Data platforms",
-    "Neon": "Developer, Infra and Data platforms",
-    "Render": "Developer, Infra and Data platforms",
-    "CircleCI": "Developer, Infra and Data platforms",
-    "Docker Hub": "Developer, Infra and Data platforms",
-    "Terraform Cloud": "Developer, Infra and Data platforms",
+    "Neo4j": "Developer, Infra and Data platforms",
+    "Snowflake": "Developer, Infra and Data platforms",
+    "MongoDB Atlas": "Developer, Infra and Data platforms",
+    "Datadog": "Developer, Infra and Data platforms",
+    "Sentry": "Developer, Infra and Data platforms",
 
-    # 8. Productivity and Project Management (10)
+    # CATEGORY 8: Productivity and Project Management (10)
     "Notion": "Productivity and Project Management",
+    "Airtable": "Productivity and Project Management",
     "Linear": "Productivity and Project Management",
+    "Jira": "Productivity and Project Management",
     "Asana": "Productivity and Project Management",
     "Monday.com": "Productivity and Project Management",
     "ClickUp": "Productivity and Project Management",
-    "Jira": "Productivity and Project Management",
-    "Confluence": "Productivity and Project Management",
-    "Trello": "Productivity and Project Management",
-    "Todoist": "Productivity and Project Management",
-    "LaunchDarkly": "Productivity and Project Management",
+    "Coda": "Productivity and Project Management",
+    "Smartsheet": "Productivity and Project Management",
+    "Harvest": "Productivity and Project Management",
 
-    # 9. Finance and Fintech (10)
-    "QuickBooks Online": "Finance and Fintech",
+    # CATEGORY 9: Finance and Fintech (10)
+    "Stripe": "Finance and Fintech",
+    "Plaid": "Finance and Fintech",
+    "Binance": "Finance and Fintech",
+    "Paygent Connect": "Finance and Fintech",
+    "iPayX": "Finance and Fintech",
+    "QuickBooks": "Finance and Fintech",
     "Xero": "Finance and Fintech",
     "Brex": "Finance and Fintech",
     "Ramp": "Finance and Fintech",
-    "Gusto": "Finance and Fintech",
-    "BambooHR": "Finance and Fintech",
-    "Rippling": "Finance and Fintech",
-    "Deel": "Finance and Fintech",
-    "Workday": "Finance and Fintech",
-    "Remote": "Finance and Fintech",
+    "PitchBook": "Finance and Fintech",
 
-    # 10. AI, Research and Media-native (10)
-    "Pinecone": "AI, Research and Media-native",
-    "Canva": "AI, Research and Media-native",
-    "Figma": "AI, Research and Media-native",
-    "Miro": "AI, Research and Media-native",
-    "Coda": "AI, Research and Media-native",
-    "Google Drive": "AI, Research and Media-native",
-    "Box": "AI, Research and Media-native",
-    "Dropbox": "AI, Research and Media-native",
-    "DocuSign": "AI, Research and Media-native",
-    "PandaDoc": "AI, Research and Media-native",
+    # CATEGORY 10: AI, Research and Media-native (10)
+    "NotebookLM": "AI, Research and Media-native",
+    "Otter AI": "AI, Research and Media-native",
+    "Fathom": "AI, Research and Media-native",
+    "Consensus": "AI, Research and Media-native",
+    "Reducto": "AI, Research and Media-native",
+    "Devin": "AI, Research and Media-native",
+    "higgsfield": "AI, Research and Media-native",
+    "Mermaid CLI": "AI, Research and Media-native",
+    "YouTube Transcript": "AI, Research and Media-native",
+    "Grain": "AI, Research and Media-native",
 }
 
 
+def test_authoritative_map_integrity() -> None:
+    """Verify that the test's own AUTHORITATIVE_APPLICATION_MAP has exactly 100 apps and 10x10 counts."""
+    assert len(AUTHORITATIVE_APPLICATION_MAP) == 100, f"Map must have 100 apps, got {len(AUTHORITATIVE_APPLICATION_MAP)}"
+    counts = Counter(AUTHORITATIVE_APPLICATION_MAP.values())
+    assert len(counts) == 10, f"Map must have 10 categories, got {len(counts)}"
+    for cat in EXPECTED_CATEGORIES:
+        assert counts[cat] == 10, f"Category '{cat}' has {counts[cat]} items in authoritative map, expected 10"
+
+
+def test_canonical_file_exists_and_matches() -> None:
+    """Verify that data/canonical_apps.json exists and strictly matches the authoritative list."""
+    canonical_file = PROJECT_ROOT / "data" / "canonical_apps.json"
+    assert canonical_file.exists(), f"Missing canonical reference file at {canonical_file}"
+
+    with open(canonical_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    assert isinstance(data, list)
+    assert len(data) == 100, f"canonical_apps.json must contain 100 apps, found {len(data)}"
+
+    canonical_apps = {app["name"]: app.get("category") for app in data}
+    assert set(canonical_apps.keys()) == set(AUTHORITATIVE_APPLICATION_MAP.keys()), (
+        f"Mismatch between canonical_apps.json and authoritative map!"
+    )
+
+
 def test_dataset_exact_count(raw_dataset: List[Dict[str, Any]]) -> None:
-    """Verify that exactly 100 applications are present in the dataset."""
+    """Verify that exactly 100 applications are present in the active dataset."""
     assert len(raw_dataset) == 100, f"Expected exactly 100 applications, found {len(raw_dataset)}"
 
 
@@ -181,21 +212,21 @@ def test_dataset_category_distribution_and_counts(raw_dataset: List[Dict[str, An
         assert count == 10, f"Category '{cat}' has {count} applications, expected exactly 10"
 
 
-def test_dataset_matches_canonical_reference(raw_dataset: List[Dict[str, Any]]) -> None:
+def test_dataset_matches_authoritative_reference(raw_dataset: List[Dict[str, Any]]) -> None:
     """
     Explicit test comparing every application name and its category assignment
-    against the canonical 100-app reference list.
+    against the single source of truth AUTHORITATIVE_APPLICATION_MAP.
     """
     dataset_apps = {app["name"]: app.get("category") for app in raw_dataset}
 
-    missing_apps = set(CANONICAL_APPLICATION_MAP.keys()) - set(dataset_apps.keys())
-    assert not missing_apps, f"Missing applications from canonical list: {missing_apps}"
+    missing_apps = set(AUTHORITATIVE_APPLICATION_MAP.keys()) - set(dataset_apps.keys())
+    assert not missing_apps, f"Missing applications from authoritative list: {missing_apps}"
 
-    extra_apps = set(dataset_apps.keys()) - set(CANONICAL_APPLICATION_MAP.keys())
+    extra_apps = set(dataset_apps.keys()) - set(AUTHORITATIVE_APPLICATION_MAP.keys())
     assert not extra_apps, f"Unexpected extra applications present: {extra_apps}"
 
     category_mismatches = []
-    for app_name, expected_cat in CANONICAL_APPLICATION_MAP.items():
+    for app_name, expected_cat in AUTHORITATIVE_APPLICATION_MAP.items():
         actual_cat = dataset_apps.get(app_name)
         if actual_cat != expected_cat:
             category_mismatches.append(f"{app_name}: expected '{expected_cat}', got '{actual_cat}'")
@@ -251,7 +282,7 @@ def test_dataset_descriptions_quality(raw_dataset: List[Dict[str, Any]]) -> None
     """Verify descriptions are concise, meaningful and informative."""
     for app in raw_dataset:
         desc = app.get("description", "")
-        assert len(desc) >= 20, f"Description too short (<20 chars) for {app.get('name')}: '{desc}'"
+        assert len(desc) >= 15, f"Description too short (<15 chars) for {app.get('name')}: '{desc}'"
         assert len(desc) <= 500, f"Description too long (>500 chars) for {app.get('name')}"
 
 

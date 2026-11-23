@@ -163,16 +163,16 @@ The 100 applications are balanced across the 10 required categories (10 applicat
 
 | # | Category | Count | Applications |
 | :-: | :--- | :---: | :--- |
-| 1 | **CRM and Sales** | 10 | Salesforce, HubSpot, Pipedrive, Close, Zoho CRM, Copper, Outreach, Salesloft, Apollo.io, Gong |
-| 2 | **Support and Helpdesk** | 10 | Zendesk, Freshdesk, Help Scout, Gorgias, Kustomer, Front, PagerDuty, Vanta, Greenhouse, Lever |
-| 3 | **Communications and Messaging** | 10 | Slack, Discord, Twilio, SendGrid, Zoom, Intercom, Crisp, Basecamp, Ashby, HiBob |
-| 4 | **Marketing, Ads, Email and Social** | 10 | Mailchimp, Klaviyo, ActiveCampaign, Customer.io, Braze, Kit, Brevo, Buffer, Hootsuite, Webflow |
-| 5 | **Ecommerce** | 10 | Shopify, WooCommerce, BigCommerce, Shippo, ShipStation, Stripe, Chargebee, Recurly, Bill.com, Wave Accounting |
-| 6 | **Data, SEO and Scraping** | 10 | Snowflake, Datadog, New Relic, Sentry, Postman, Airtable, Typeform, SurveyMonkey, Okta, 1Password |
-| 7 | **Developer, Infra and Data platforms** | 10 | GitHub, GitLab, Bitbucket, Vercel, Supabase, Neon, Render, CircleCI, Docker Hub, Terraform Cloud |
-| 8 | **Productivity and Project Management** | 10 | Notion, Linear, Asana, Monday.com, ClickUp, Jira, Confluence, Trello, Todoist, LaunchDarkly |
-| 9 | **Finance and Fintech** | 10 | QuickBooks Online, Xero, Brex, Ramp, Gusto, BambooHR, Rippling, Deel, Workday, Remote |
-| 10 | **AI, Research and Media-native** | 10 | Pinecone, Canva, Figma, Miro, Coda, Google Drive, Box, Dropbox, DocuSign, PandaDoc |
+| 1 | **CRM and Sales** | 10 | Salesforce, HubSpot, Pipedrive, Attio, Twenty, Podio, Zoho CRM, Close, Copper, DealCloud |
+| 2 | **Support and Helpdesk** | 10 | Zendesk, Intercom, Freshdesk, Front, Pylon, LiveAgent, Plain, Help Scout, Gorgias, Gladly |
+| 3 | **Communications and Messaging** | 10 | Slack, Twilio, Zoho Cliq, Lark (Larksuite), Pumble, Discord, Telegram, WhatsApp Business, Aircall, Vonage |
+| 4 | **Marketing, Ads, Email and Social** | 10 | Google Ads, Meta Ads, LinkedIn Ads, GoHighLevel, Mailchimp, Klaviyo, systeme.io, Pinterest, Threads (Meta), SendGrid |
+| 5 | **Ecommerce** | 10 | Shopify, WooCommerce, BigCommerce, Salesforce Commerce Cloud, Magento (Adobe Commerce), Squarespace, Ecwid, Gumroad, Amazon Selling Partner, fanbasis |
+| 6 | **Data, SEO and Scraping** | 10 | DataForSEO, SE Ranking, Ahrefs, MrScraper, Apify, Firecrawl, Bright Data, Sherlock, Waterfall.io, Clay |
+| 7 | **Developer, Infra and Data platforms** | 10 | GitHub, Vercel, Netlify, Cloudflare, Supabase, Neo4j, Snowflake, MongoDB Atlas, Datadog, Sentry |
+| 8 | **Productivity and Project Management** | 10 | Notion, Airtable, Linear, Jira, Asana, Monday.com, ClickUp, Coda, Smartsheet, Harvest |
+| 9 | **Finance and Fintech** | 10 | Stripe, Plaid, Binance, Paygent Connect, iPayX, QuickBooks, Xero, Brex, Ramp, PitchBook |
+| 10 | **AI, Research and Media-native** | 10 | NotebookLM, Otter AI, Fathom, Consensus, Reducto, Devin, higgsfield, Mermaid CLI, YouTube Transcript, Grain |
 | | **Total** | **100** | **10 categories × 10 applications = 100 benchmark SaaS platforms** |
 
 ---
