@@ -374,33 +374,58 @@ html_template = """<!DOCTYPE html>
 
       <div class="charts-grid">
         <div class="chart-box">
-          <h3>Primary Authentication Distribution (100 Apps)</h3>
+          <h3>Integration Mode & Applicability (100 Apps)</h3>
           <div class="bar-row">
-            <span class="bar-label">OAuth 2.0</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 20%; background: #6366f1;"></div></div>
-            <span class="bar-value">20 (30.3%*)</span>
+            <span class="bar-label">API-Integratable (Applicable)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 94%; background: #6366f1;"></div></div>
+            <span class="bar-value">94 (94.0%, 94/100)</span>
           </div>
+          <div class="bar-row">
+            <span class="bar-label">Web-Only (Not Applicable)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 4%; background: #f59e0b;"></div></div>
+            <span class="bar-value">4 (4.0%, 4/100)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">CLI / Local Exec (Not Applicable)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 2%; background: #38bdf8;"></div></div>
+            <span class="bar-value">2 (2.0%, 2/100)</span>
+          </div>
+          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div style="font-size: 12px; font-weight: 600; color: #94a3b8; margin-bottom: 4px;">Applicable SaaS API Auth Status (N=94):</div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span>&bull; Known Applicable Auth:</span>
+              <strong style="color: #34d399;">60 (63.8%, 60/94)</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-top: 3px;">
+              <span>&bull; Unknown / Gated Auth:</span>
+              <strong style="color: #94a3b8;">34 (36.2%, 34/94)</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-box">
+          <h3>Known Auth Methods (N=60 Applicable Records)</h3>
           <div class="bar-row">
             <span class="bar-label">API Key</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 15%; background: #38bdf8;"></div></div>
-            <span class="bar-value">15 (22.7%*)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 45%; background: #38bdf8;"></div></div>
+            <span class="bar-value">27 (45.0%, 27/60)</span>
           </div>
           <div class="bar-row">
-            <span class="bar-label">CLI / Local Exec</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 29%; background: #f59e0b;"></div></div>
-            <span class="bar-value">29 (43.9%*)</span>
+            <span class="bar-label">OAuth 2.0</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 40%; background: #6366f1;"></div></div>
+            <span class="bar-value">24 (40.0%, 24/60)</span>
           </div>
           <div class="bar-row">
-            <span class="bar-label">PAT (Token)</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 2%; background: #10b981;"></div></div>
-            <span class="bar-value">2 (3.0%*)</span>
+            <span class="bar-label">Token / PAT</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 11.7%; background: #10b981;"></div></div>
+            <span class="bar-value">7 (11.7%, 7/60)</span>
           </div>
           <div class="bar-row">
-            <span class="bar-label">Unverified / WAF Gated</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 34%; background: #64748b;"></div></div>
-            <span class="bar-value">34 (34.0%)</span>
+            <span class="bar-label">HTTP Basic Auth</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 3.3%; background: #f59e0b;"></div></div>
+            <span class="bar-value">2 (3.3%, 2/60)</span>
           </div>
-          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">*Percentages with asterisk exclude 34 unverified records from denominator (N=66 known).</p>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">Denominator strictly isolates the 60 known applicable authentication records (excluding 34 unknowns and 6 non-applicable).</p>
         </div>
 
         <div class="chart-box">
@@ -408,27 +433,27 @@ html_template = """<!DOCTYPE html>
           <div class="bar-row">
             <span class="bar-label">Native Composio Toolkit</span>
             <div class="bar-track"><div class="bar-fill" style="width: 66%; background: #38bdf8;"></div></div>
-            <span class="bar-value">66 (66.0%)</span>
+            <span class="bar-value">66 (66.0%, 66/100)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Composio Bridge Only</span>
             <div class="bar-track"><div class="bar-fill" style="width: 54%; background: #818cf8;"></div></div>
-            <span class="bar-value">54 (54.0%)</span>
+            <span class="bar-value">54 (54.0%, 54/100)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Official Vendor MCP</span>
             <div class="bar-track"><div class="bar-fill" style="width: 5%; background: #10b981;"></div></div>
-            <span class="bar-value">5 (5.0%)</span>
+            <span class="bar-value">5 (5.0%, 5/100)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Community MCP Server</span>
             <div class="bar-track"><div class="bar-fill" style="width: 7%; background: #34d399;"></div></div>
-            <span class="bar-value">7 (7.0%)</span>
+            <span class="bar-value">7 (7.0%, 7/100)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">No Known MCP Server</span>
             <div class="bar-track"><div class="bar-fill" style="width: 34%; background: #64748b;"></div></div>
-            <span class="bar-value">34 (34.0%)</span>
+            <span class="bar-value">34 (34.0%, 34/100)</span>
           </div>
           <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">Composio natively supports 66 toolkits; 12 platforms also feature separate independent MCP servers.</p>
         </div>
@@ -541,8 +566,8 @@ html_template = """<!DOCTYPE html>
                 <th>App Name</th>
                 <th>Category</th>
                 <th>Feasibility</th>
+                <th>Integration Mode</th>
                 <th>Primary Auth</th>
-                <th>API Surface</th>
                 <th>Composio Support</th>
                 <th>Status</th>
                 <th>Actions</th>
@@ -594,8 +619,9 @@ html_template = """<!DOCTYPE html>
           <h3 style="color: #fff; margin-bottom: 8px;">Key Audited Guarantees:</h3>
           <ul style="padding-left: 20px;">
             <li><strong>Negation Safety</strong>: Sentences containing "does not support OAuth" or "no hosted REST API" are parsed as NEGATIVE polarity and never turn into positive capabilities.</li>
-            <li><strong>NotebookLM Guard</strong>: Did not guess CONTACT_SALES for NotebookLM; marked credential accessibility as UNKNOWN.</li>
-            <li><strong>Sherlock CLI Guard</strong>: Correctly identified Sherlock as a local open-source Python tool (APIType.OTHER) with no SaaS authentication.</li>
+            <li><strong>Taxonomy Separation</strong>: Integration Mode (API vs CLI / LOCAL_PROCESS vs WEB_ONLY) is orthogonal to Authentication Applicability (APPLICABLE vs NOT_APPLICABLE) and Authentication Methods.</li>
+            <li><strong>CLI & Local Exec Guard</strong>: Correctly classified Sherlock and Mermaid CLI as local tools with NOT_APPLICABLE authentication, distinct from SaaS APIs.</li>
+            <li><strong>Consumer Web Guard</strong>: Identified NotebookLM, Consensus, Devin, and Fanbasis as consumer web interfaces with no public developer API credentials.</li>
             <li><strong>Live HTTP Codes Recorded</strong>: Recorded actual 403 Forbidden on Cloudflare-protected enterprise portals instead of synthesizing a fake 200.</li>
           </ul>
         </div>
@@ -754,10 +780,9 @@ html_template = """<!DOCTYPE html>
         const tr = document.createElement('tr');
         const score = app.feasibility ? app.feasibility.feasibility_score.toFixed(1) : '5.0';
         const scoreClass = score >= 8 ? 'score-high' : (score >= 6 ? 'score-med' : 'score-low');
+        const mode = app.auth ? (app.auth.integration_mode || 'API') : 'API';
         const primaryAuth = app.auth ? app.auth.primary_method : 'UNKNOWN';
-        const hasRest = app.api_surface ? app.api_surface.has_rest : false;
-        const hasGql = app.api_surface ? app.api_surface.has_graphql : false;
-        const apiStr = (hasRest && hasGql) ? 'REST + GraphQL' : (hasRest ? 'REST' : (hasGql ? 'GraphQL' : 'Other/None'));
+        const authBadgeClass = (primaryAuth === 'OAUTH2') ? 'badge-primary' : ((primaryAuth === 'API_KEY') ? 'badge-accent' : ((primaryAuth === 'TOKEN / PAT') ? 'badge-success' : 'badge'));
         const composioBadge = (app.mcp && app.mcp.composio_tool_supported)
           ? `<span class="badge badge-primary">Composio Toolkit (${app.mcp.composio_app_slug})</span>`
           : `<span class="badge" style="color: #64748b;">No Native Tool</span>`;
@@ -766,8 +791,8 @@ html_template = """<!DOCTYPE html>
           <td><strong>${app.name}</strong><br><span style="font-size: 11px; color: var(--text-muted);">${app.app_id}</span></td>
           <td>${app.category}</td>
           <td><span class="score-badge ${scoreClass}">${score}</span></td>
-          <td><code>${primaryAuth}</code></td>
-          <td>${apiStr}</td>
+          <td><span class="badge" style="font-size: 11px;">${mode}</span></td>
+          <td><span class="${authBadgeClass}"><code>${primaryAuth}</code></span></td>
           <td>${composioBadge}</td>
           <td><span class="badge ${app.verification_status === 'AUTOMATED_PASS' ? 'badge-success' : 'badge'}">${app.verification_status || 'REVIEW'}</span></td>
           <td><button class="view-btn" onclick="openModal('${app.app_id}')">Inspect</button></td>
@@ -788,7 +813,9 @@ html_template = """<!DOCTYPE html>
       const score = app.feasibility ? app.feasibility.feasibility_score.toFixed(1) : '5.0';
       document.getElementById('modal-score').textContent = `${score} / 10.0`;
       document.getElementById('modal-buildability').textContent = app.feasibility ? app.feasibility.buildability : 'UNKNOWN';
-      document.getElementById('modal-auth').textContent = app.auth ? `${app.auth.primary_method} (${(app.auth.supported_methods || []).join(', ')})` : 'UNKNOWN';
+      const mode = app.auth ? (app.auth.integration_mode || 'API') : 'API';
+      const applicability = app.auth ? (app.auth.auth_applicability || 'APPLICABLE') : 'APPLICABLE';
+      document.getElementById('modal-auth').textContent = app.auth ? `${app.auth.primary_method} [Mode: ${mode} | Auth: ${applicability}]` : 'UNKNOWN';
       document.getElementById('modal-cred').textContent = app.auth ? app.auth.credential_accessibility : 'UNKNOWN';
 
       const compDiv = document.getElementById('modal-composio');

@@ -12,12 +12,14 @@ from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator
 from src.models.enums import (
     APIBreadth,
     APIType,
+    AuthApplicability,
     AuthMethod,
     BlockerSeverity,
     BuildabilityScore,
     ConfidenceLevel,
     CredentialAccessibility,
     EvidencePolarity,
+    IntegrationMode,
     MCPAvailability,
     Provenance,
     VerificationStatus,
@@ -128,6 +130,14 @@ class AuthResearch(BaseModel):
     accessibility_notes: Optional[str] = Field(
         default=None,
         description="Details on credential gating, required plans, or approval wait times.",
+    )
+    integration_mode: IntegrationMode = Field(
+        default=IntegrationMode.API,
+        description="Integration mode: API, CLI / LOCAL_PROCESS, WEB_ONLY, OTHER, UNKNOWN.",
+    )
+    auth_applicability: AuthApplicability = Field(
+        default=AuthApplicability.APPLICABLE,
+        description="Authentication applicability: APPLICABLE, NOT_APPLICABLE, UNKNOWN.",
     )
 
 

@@ -21,8 +21,9 @@
 | **Claim Citation Integrity** | Confirmed claims cite excerpt | **PASS (100% cited)** | All 121 `LIVE_FETCHED` claims reference valid URLs and non-empty DOM excerpts |
 | **Negation Safety** | Negative evidence != positive capability | **PASS (Enforced)** | Sentences with negation cues (`no`, `never`, `does not provide`) yield `NEGATIVE` polarity |
 | **Unknown Value Preservation** | Missing facts remain `UNKNOWN` | **PASS (Enforced)** | 117 claims preserved as `UNKNOWN` rather than guessed |
-| **NotebookLM Safety Guard** | No speculative `CONTACT_SALES` | **PASS (Guard Verified)** | Credential accessibility marked `UNKNOWN`; `has_rest=False` |
-| **Sherlock Safety Guard** | CLI != hosted SaaS REST API | **PASS (Guard Verified)** | Primary auth marked `OTHER`; `has_rest=False` |
+| **NotebookLM Safety Guard** | No speculative `CONTACT_SALES` | **PASS (Guard Verified)** | Credential accessibility marked `UNKNOWN`; `has_rest=False`; integration mode: `WEB_ONLY` |
+| **Sherlock & CLI Guard** | CLI != hosted SaaS REST API | **PASS (Guard Verified)** | Integration mode: `CLI / LOCAL_PROCESS`; auth applicability: `NOT_APPLICABLE`; `has_rest=False` |
+| **Taxonomy Orthogonality** | Integration mode separated from auth | **PASS (Separated)** | 94 API, 4 Web-only, 2 CLI; auth evaluated only where applicable |
 | **Composio Catalog Attribution** | No guessed tool slugs | **PASS (Verified Slugs)** | 66 apps matched against authoritative Composio registry with real tool slugs |
 | **Independent MCP Separation** | Independent MCPs != Composio bridge | **PASS (Separated)** | 5 official vendor MCPs, 7 community/reference MCPs, 54 Composio bridge, 34 no known MCP |
 
@@ -61,7 +62,40 @@ Total Structured Claims:           541
 
 ---
 
-## 4. Network Retrieval Health & Error Auditing
+## 4. Authentication Taxonomy & Applicability Audit
+
+A critical quality audit was conducted to resolve a taxonomy conflation where CLI/local execution was previously lumped under authentication method `OTHER`. CLI and Web-only tools are execution interfaces and integration types, not SaaS authentication protocols.
+
+The corrected taxonomy strictly separates three orthogonal dimensions:
+
+### A. Integration Mode vs. Authentication Applicability (N=100)
+
+| Integration Mode | Auth Applicability | App Count | Percentage | Exemplar Applications |
+| :--- | :--- | :---: | :---: | :--- |
+| **API** | **APPLICABLE** | **94** | **94.0%** | Salesforce, Slack, HubSpot, Stripe, Twilio, GitHub, Shopify, Attio, Twenty |
+| **WEB_ONLY** | **NOT_APPLICABLE** | **4** | **4.0%** | NotebookLM, Consensus, Devin, Fanbasis (consumer platforms without developer APIs) |
+| **CLI / LOCAL_PROCESS** | **NOT_APPLICABLE** | **2** | **2.0%** | Sherlock (Python OSINT scraper), Mermaid CLI (Node.js diagram compiler) |
+
+### B. Authentication Status for Applicable SaaS APIs (N=94)
+
+| Authentication Status | App Count | Percentage of Applicable | Description |
+| :--- | :---: | :---: | :--- |
+| **Known Applicable Records** | **60** | **63.8%** (60/94) | Verified developer authentication documentation. |
+| **Unknown / Gated Records** | **34** | **36.2%** (34/94) | Developer documentation protected by enterprise logins, partner gating, or WAFs. Preserved as `UNKNOWN`. |
+
+### C. Distribution of Known Authentication Methods (N=60 Known Applicable Records)
+
+| Primary Authentication Method | App Count | Percentage | Verified Protocol Details |
+| :--- | :---: | :---: | :--- |
+| **API_KEY** | **27** | **45.0%** (27/60) | Static API Keys, Token Secrets, or Basic Key Pairs (e.g. Twilio, Zendesk, Stripe, Cloudflare, Apify, Attio, Twenty). |
+| **OAUTH2** | **24** | **40.0%** (24/60) | OAuth 2.0 Authorization Code or Client Credentials grant flows (e.g. Salesforce, Slack, HubSpot, Google Ads, Shopify, Linear). |
+| **TOKEN / PAT** | **7** | **11.7%** (7/60) | Personal Access Tokens or Bearer JWTs (e.g. GitHub, Coda, Front, Harvest, Sentry, Snowflake, Telegram). |
+| **BASIC** | **2** | **3.3%** (2/60) | HTTP Basic Authentication with username/password credentials (DataForSEO, Neo4j). |
+| **Total Known Applicable** | **60** | **100.0%** (60/60) | Denominator strictly isolates the 60 known applicable records. |
+
+---
+
+## 5. Network Retrieval Health & Error Auditing
 
 During the full 100-app crawl:
 - **Total Successful Live Fetches**: 395 successful HTTP 200 responses were captured across documentation anchors.
@@ -72,7 +106,7 @@ During the full 100-app crawl:
 
 ---
 
-## 5. Automated Test Suite Execution Results
+## 6. Automated Test Suite Execution Results
 
 All 44 automated tests in the test suite pass with zero failures:
 
@@ -97,7 +131,7 @@ Duration: 1.50s
 
 ---
 
-## 6. Audit Statement on Verification Metrics
+## 7. Audit Statement on Verification Metrics
 
 **Research Quality Statement**:
 This study does not assert generalized human ground-truth accuracy. Instead, it provides **verifiable programmatic audit metrics**:

@@ -513,7 +513,7 @@ class ResearchClassifier:
 
         # 5. Handle tools with NO API or NO Auth required
         if not supported:
-            if is_oauth_negated or is_apikey_negated or "cli" in combined_text or "command-line" in combined_text:
+            if is_oauth_negated or is_apikey_negated or bool(re.search(r"\bcli\b", combined_text)) or "command-line" in combined_text:
                 supported.append(AuthMethod.OTHER)
                 primary = AuthMethod.OTHER
                 notes = "No SaaS API authentication supported or required."

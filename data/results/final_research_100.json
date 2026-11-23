@@ -20,7 +20,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -186,7 +188,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -495,7 +499,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -599,7 +605,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -719,7 +727,9 @@
         "credential_evidence": "For example: { \"error\" : { \"type\" : \"record-not-found\" , \"message\" : \"Store was not found.\" } } Here is the table of the most common errors that can occur for many API endpoints: status type message 400 invalid-request POST data must be a JSON object 400 invalid-value Invalid value provided: Comments required 400 invalid-record-key Record key contains invalid character 401 token-not-provided Authentication token was not provided 404 record-not-found Store was not found 429 rate-limit-exceeded You have exceeded the rate limit of ...",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -979,7 +989,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -1173,14 +1185,16 @@
       "one_line_description": "Next-generation data-driven CRM built with customizable objects, real-time sync, and automated workflows.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (attio).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -1264,12 +1278,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (attio).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.has_rest",
@@ -1321,14 +1335,16 @@
       "one_line_description": "Open SaaS e-commerce platform offering enterprise storefront functionality, headless APIs, and multi-storefront routing.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "SELF_SERVE_FREE",
         "credential_evidence": "Open source codebase available without credential gating.",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (bigcommerce).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -1503,12 +1519,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (bigcommerce).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.has_rest",
@@ -1576,7 +1592,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -1680,7 +1698,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -1796,7 +1816,9 @@
         "credential_evidence": "See the free tier .",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -1946,7 +1968,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -2043,14 +2067,16 @@
       "one_line_description": "All-in-one productivity platform offering tasks, docs, goals, whiteboards, chat, and custom automations.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (clickup).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -2122,12 +2148,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (clickup).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -2181,7 +2207,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -2382,7 +2410,9 @@
         "credential_evidence": "Read the guide Security Stop malicious bots while allowing legitimate traffic Block malicious bots while allowing legitimate traffic using Bot Fight Mode, Turnstile, custom rules, and rate limiting on Free, Pro, and Business plans.",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -2523,15 +2553,17 @@
       "one_line_description": "Interactive document platform unifying word processing, relational tables, buttons, and app-like integrations.",
       "auth": {
         "supported_methods": [
-          "PERSONAL_ACCESS_TOKEN",
-          "API_KEY"
+          "TOKEN / PAT",
+          "OAUTH2"
         ],
-        "primary_method": "PERSONAL_ACCESS_TOKEN",
+        "primary_method": "TOKEN / PAT",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: PERSONAL_ACCESS_TOKEN."
+        "accessibility_notes": "Primary authentication: PERSONAL_ACCESS_TOKEN.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -2710,14 +2742,16 @@
       "one_line_description": "AI-powered academic search engine extracting research-backed insights and evidence directly from peer-reviewed scientific papers.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "NOT_APPLICABLE"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "NOT_APPLICABLE",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Consumer web interface; no public developer API or API authentication documented.",
+        "integration_mode": "WEB_ONLY",
+        "auth_applicability": "NOT_APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -2762,10 +2796,10 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "NOT_APPLICABLE",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Consumer web interface; no public developer API or API authentication documented.",
           "confidence": "HIGH",
           "polarity": "NEGATIVE"
         },
@@ -2810,14 +2844,16 @@
       "one_line_description": "Google Workspace-native CRM platform that embeds relationship tracking directly inside Gmail and Google Calendar.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (copper).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -2866,12 +2902,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (copper).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -2921,7 +2957,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3063,14 +3101,17 @@
       "one_line_description": "Comprehensive API provider for SEO data, SERP scraping, keyword research, backlinks, and on-page audits.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "BASIC",
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "BASIC",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "HTTP Basic Auth credentials (dataforseo).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3180,12 +3221,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "BASIC",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "HTTP Basic Auth credentials (dataforseo).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -3228,14 +3269,16 @@
       "one_line_description": "Specialized CRM and deal management platform for private equity, investment banking, and capital markets.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "UNKNOWN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "UNKNOWN",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Enterprise private CRM API; credentials and auth specifications require partner / sales contact.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3280,7 +3323,7 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "UNKNOWN",
           "provenance": "INFERRED",
           "source_url": null,
           "supporting_excerpt": "Application does not expose API authentication.",
@@ -3328,14 +3371,16 @@
       "one_line_description": "Autonomous AI software engineer developed by Cognition capable of executing end-to-end development tasks.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "NOT_APPLICABLE"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "NOT_APPLICABLE",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Consumer web interface; no public developer API or API authentication documented.",
+        "integration_mode": "WEB_ONLY",
+        "auth_applicability": "NOT_APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3380,10 +3425,10 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "NOT_APPLICABLE",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Consumer web interface; no public developer API or API authentication documented.",
           "confidence": "HIGH",
           "polarity": "NEGATIVE"
         },
@@ -3435,7 +3480,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3532,14 +3579,16 @@
       "one_line_description": "Embeddable e-commerce shopping cart software allowing businesses to add online stores to existing websites.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "OAUTH2"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "OAUTH2",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "OAuth 2.0 authorization framework (ecwid).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3596,12 +3645,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "OAUTH2",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "OAuth 2.0 authorization framework (ecwid).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -3644,14 +3693,16 @@
       "one_line_description": "Monetization and digital commerce platform for creators, musicians, and athletes to sell experiences and digital content.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "NOT_APPLICABLE"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "NOT_APPLICABLE",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Consumer web interface; no public developer API or API authentication documented.",
+        "integration_mode": "WEB_ONLY",
+        "auth_applicability": "NOT_APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3696,10 +3747,10 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "NOT_APPLICABLE",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Consumer web interface; no public developer API or API authentication documented.",
           "confidence": "HIGH",
           "polarity": "NEGATIVE"
         },
@@ -3751,7 +3802,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -3851,7 +3904,9 @@
         "credential_evidence": "Build and test directly Get your API key Create a free account for direct API access and higher limits Try it in the Playground Test Firecrawl in the browser without writing code What can Firecrawl do?",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -4091,14 +4146,16 @@
       "one_line_description": "Cloud-based customer support software converting incoming emails, chats, and calls into managed tickets.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (freshdesk).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -4255,12 +4312,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (freshdesk).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.has_rest",
@@ -4312,14 +4369,17 @@
       "one_line_description": "Customer operations platform combining shared inboxes and ticketing with team collaboration.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "TOKEN / PAT",
+          "BEARER_TOKEN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "TOKEN / PAT",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Access token / Personal Access Token credentials (front).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -4413,12 +4473,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "TOKEN / PAT",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Access token / Personal Access Token credentials (front).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -4461,12 +4521,10 @@
       "one_line_description": "Developer platform for distributed Git version control, pull requests, issue tracking, and CI/CD actions.",
       "auth": {
         "supported_methods": [
-          "PERSONAL_ACCESS_TOKEN",
-          "OAUTH2",
-          "BEARER_TOKEN",
-          "OTHER"
+          "TOKEN / PAT",
+          "OAUTH2"
         ],
-        "primary_method": "PERSONAL_ACCESS_TOKEN",
+        "primary_method": "TOKEN / PAT",
         "credential_accessibility": "SELF_SERVE_FREE",
         "credential_evidence": "Free developer access: Personal access tokens (PATs) and GitHub Apps are self-serve and free for all users.",
         "oauth_grant_types": [
@@ -4474,7 +4532,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "PATs can be perpetual or expiring; GitHub App installation tokens expire in 1 hour; OAuth tokens persist until revoked.",
-        "accessibility_notes": "Supports Personal Access Tokens (classic and fine-grained), GitHub Apps (Bearer token installation tokens), and OAuth 2.0. Unauthenticated public access permitted up to 60 requests/hr; authenticated access up to 5,000 requests/hr."
+        "accessibility_notes": "Supports Personal Access Tokens (classic and fine-grained), GitHub Apps (Bearer token installation tokens), and OAuth 2.0. Unauthenticated public access permitted up to 60 requests/hr; authenticated access up to 5,000 requests/hr.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -4690,10 +4750,10 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "PERSONAL_ACCESS_TOKEN",
+          "extracted_value": "TOKEN / PAT",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.github.com/en/rest",
-          "supporting_excerpt": "Primary authentication via fine-grained or classic PAT.",
+          "supporting_excerpt": "Supports Personal Access Tokens (classic and fine-grained), GitHub Apps (Bearer token installation tokens), and OAuth 2.0. Unauthenticated public access permitted up to 60 requests/hr; authenticated access up to 5,000 requests/hr.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -4736,7 +4796,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -4882,7 +4944,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5041,7 +5105,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5169,7 +5235,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5294,7 +5362,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5394,7 +5464,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5491,14 +5563,17 @@
       "one_line_description": "Time tracking and invoicing software designed to track team hours, monitor project budgets, and bill clients.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "TOKEN / PAT",
+          "BEARER_TOKEN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "TOKEN / PAT",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Access token / Personal Access Token credentials (harvest).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5547,12 +5622,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "TOKEN / PAT",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Access token / Personal Access Token credentials (harvest).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -5605,7 +5680,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5732,7 +5809,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5859,14 +5938,17 @@
       "one_line_description": "Inbound marketing, sales pipeline management, customer service, and CRM software suite.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "OAUTH2",
+          "BEARER_TOKEN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "OAUTH2",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "OAuth 2.0 authorization framework (hubspot).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -5927,12 +6009,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "OAUTH2",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "OAuth 2.0 authorization framework (hubspot).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -5982,7 +6064,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -6086,7 +6170,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -6191,7 +6277,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -6497,7 +6585,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -6782,7 +6872,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -6886,7 +6978,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7021,7 +7115,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7121,7 +7217,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7225,7 +7323,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7396,7 +7496,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7536,14 +7638,16 @@
       "one_line_description": "Command-line interface to compile Markdown-inspired text definitions into rendered diagrams, charts, and SVG graphics.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "NOT_APPLICABLE"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "NOT_APPLICABLE",
         "credential_accessibility": "SELF_SERVE_FREE",
         "credential_evidence": "Open source codebase available without credential gating.",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Local CLI utility execution; runs locally without SaaS API authentication.",
+        "integration_mode": "CLI / LOCAL_PROCESS",
+        "auth_applicability": "NOT_APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7590,10 +7694,10 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "NOT_APPLICABLE",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Local CLI utility execution; runs locally without SaaS API authentication.",
           "confidence": "HIGH",
           "polarity": "NEGATIVE"
         },
@@ -7645,7 +7749,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7749,7 +7855,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -7988,14 +8096,16 @@
       "one_line_description": "Fully managed multi-cloud document database service featuring automated scaling, sharding, and flexible schemas.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (mongodb-atlas).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -8057,12 +8167,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (mongodb-atlas).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.has_rest",
@@ -8114,14 +8224,16 @@
       "one_line_description": "Visual and automated web scraping platform extracting structured JSON data from web pages without coding.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (mrscraper).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -8248,12 +8360,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (mrscraper).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -8296,14 +8408,16 @@
       "one_line_description": "Graph database management system designed for optimizing connected data queries and relationship traversal.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "BASIC"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "BASIC",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "HTTP Basic Auth credentials (neo4j).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -8348,12 +8462,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "BASIC",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "HTTP Basic Auth credentials (neo4j).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -8408,7 +8522,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -8673,14 +8789,16 @@
       "one_line_description": "Personalized AI research assistant from Google designed to interact with, summarize, and query uploaded source notes.",
       "auth": {
         "supported_methods": [
-          "UNKNOWN"
+          "NOT_APPLICABLE"
         ],
-        "primary_method": "UNKNOWN",
+        "primary_method": "NOT_APPLICABLE",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No public developer API or API authentication documented."
+        "accessibility_notes": "Consumer web interface; no public developer API or API authentication documented.",
+        "integration_mode": "WEB_ONLY",
+        "auth_applicability": "NOT_APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -8766,7 +8884,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -8926,7 +9046,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9073,7 +9195,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9173,7 +9297,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9334,7 +9460,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9471,7 +9599,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9571,7 +9701,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9709,7 +9841,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9834,7 +9968,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -9979,7 +10115,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10079,7 +10217,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10183,7 +10323,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10287,7 +10429,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10396,14 +10540,16 @@
       "one_line_description": "Document parsing and OCR API engineered to convert complex PDFs and scans into clean, chunked markdown for LLMs.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (reducto).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10462,12 +10608,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (reducto).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -10522,7 +10668,9 @@
           "jwt_bearer"
         ],
         "token_lifespan_notes": "Configurable session timeout with refresh token policy.",
-        "accessibility_notes": "OAuth2 Connected Apps with JWT Bearer Token or Web Server authorization code grant."
+        "accessibility_notes": "OAuth2 Connected Apps with JWT Bearer Token or Web Server authorization code grant.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10621,7 +10769,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10721,7 +10871,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -10966,7 +11118,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -11110,14 +11264,17 @@
       "one_line_description": "Application monitoring and error tracking software providing real-time crash stack traces and performance telemetry.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "TOKEN / PAT",
+          "BEARER_TOKEN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "TOKEN / PAT",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Access token / Personal Access Token credentials (sentry).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -11185,12 +11342,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "TOKEN / PAT",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Access token / Personal Access Token credentials (sentry).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -11233,14 +11390,16 @@
       "one_line_description": "Open-source intelligence OSINT scraping tool hunting down social media accounts by username across hundreds of networks.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "NOT_APPLICABLE"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "NOT_APPLICABLE",
         "credential_accessibility": "SELF_SERVE_FREE",
         "credential_evidence": "Open source CLI codebase available without credential gating.",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required; open-source CLI utility."
+        "accessibility_notes": "Local CLI utility execution; runs locally without SaaS API authentication.",
+        "integration_mode": "CLI / LOCAL_PROCESS",
+        "auth_applicability": "NOT_APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -11328,7 +11487,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation.",
-        "accessibility_notes": "OAuth 2.0 authorization code flow for public/custom apps; Admin API access tokens for merchant-scoped integrations."
+        "accessibility_notes": "OAuth 2.0 authorization code flow for public/custom apps; Admin API access tokens for merchant-scoped integrations.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -11481,7 +11642,7 @@
           "extracted_value": "OAUTH2",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://shopify.dev/docs/api/admin-rest",
-          "supporting_excerpt": "Primary authentication method is OAuth 2.0.",
+          "supporting_excerpt": "OAuth 2.0 authorization code flow for public/custom apps; Admin API access tokens for merchant-scoped integrations.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -11517,14 +11678,17 @@
       "one_line_description": "Channel-based messaging platform connecting teams, automated bots, and enterprise developer toolchains.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "OAUTH2",
+          "BEARER_TOKEN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "OAUTH2",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "OAuth 2.0 authorization framework (slack).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -11871,12 +12035,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "OAUTH2",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.slack.dev/",
-          "supporting_excerpt": "How you build A coding agent Claude Code, Cursor, Codex The Slack CLI Five steps in your terminal App Settings In your browser, nothing to install A coding agent 1 Give your coding agent Slack skills One install adds the Slack developer skills, plus the Slack MCP server in Claude Code and Cursor.",
+          "supporting_excerpt": "OAuth 2.0 authorization framework (slack).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -11926,7 +12090,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -12023,14 +12189,17 @@
       "one_line_description": "Cloud data warehouse and data cloud platform enabling scalable SQL querying, data sharing, and machine learning workloads.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "TOKEN / PAT",
+          "BEARER_TOKEN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "TOKEN / PAT",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Access token / Personal Access Token credentials (snowflake).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -12092,12 +12261,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "TOKEN / PAT",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Access token / Personal Access Token credentials (snowflake).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.has_rest",
@@ -12156,7 +12325,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -12273,7 +12444,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -12590,7 +12763,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -12930,7 +13105,9 @@
         "credential_evidence": "Features Resources Tutorials Testimonials Podcast Blog Glossary Free tools Pricing Sign in Sign in Start for free now En ⌄ Your platform for sales funnels email marketing online courses selling online blogging sales funnels Your platform for sales funnels email marketing online courses selling online blogging sales funnels Powering 500,000+ entrepreneurs Get your free account now!",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -13154,14 +13331,17 @@
       "one_line_description": "Cloud-based messaging app with end-to-end encrypted chats, high-capacity broadcasting, and open bot APIs.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "TOKEN / PAT",
+          "BEARER_TOKEN"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "TOKEN / PAT",
         "credential_accessibility": "SELF_SERVE_FREE",
         "credential_evidence": "Open source codebase available without credential gating.",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "Access token / Personal Access Token credentials (telegram).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -13223,12 +13403,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "TOKEN / PAT",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "Access token / Personal Access Token credentials (telegram).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -13278,7 +13458,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -13371,14 +13553,16 @@
       "one_line_description": "Open-source modern CRM platform providing full data transparency, customizable views, and extensible APIs.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (twenty).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -13427,12 +13611,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (twenty).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -13475,14 +13659,16 @@
       "one_line_description": "Developer communications platform for programmatic SMS, voice calling, WhatsApp messaging, and verification.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (twilio).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -13543,12 +13729,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (twilio).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -13598,7 +13784,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -13811,14 +13999,16 @@
       "one_line_description": "Global communications API platform providing SMS, voice, video, verification, and interactive messaging.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "SELF_SERVE_FREE",
         "credential_evidence": "Create a free account now!",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (vonage).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -13914,12 +14104,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (vonage).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.has_rest",
@@ -13978,7 +14168,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -14163,7 +14355,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -14263,7 +14457,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Primary authentication: API_KEY."
+        "accessibility_notes": "Primary authentication: API_KEY.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -14714,14 +14910,16 @@
       "one_line_description": "Cloud-based accounting platform connecting small businesses with advisors, bank feeds, and financial reporting.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "OAUTH2"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "OAUTH2",
         "credential_accessibility": "SELF_SERVE_FREE",
         "credential_evidence": "Xero Global App Awards Become an App Partner Start Building Sign up for a free account to build on the Xero platform.",
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "OAuth 2.0 authorization framework (xero).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -14794,12 +14992,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "OAUTH2",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "OAuth 2.0 authorization framework (xero).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -14849,7 +15047,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -14942,14 +15142,16 @@
       "one_line_description": "Customer service and support ticketing platform managing omnichannel user requests and knowledge bases.",
       "auth": {
         "supported_methods": [
-          "OTHER"
+          "API_KEY"
         ],
-        "primary_method": "OTHER",
+        "primary_method": "API_KEY",
         "credential_accessibility": "UNKNOWN",
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "No SaaS API authentication supported or required."
+        "accessibility_notes": "API Key / token credentials (zendesk).",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -15010,12 +15212,12 @@
         },
         {
           "field_name": "auth.primary_method",
-          "extracted_value": "OTHER",
+          "extracted_value": "API_KEY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Application does not expose API authentication.",
+          "supporting_excerpt": "API Key / token credentials (zendesk).",
           "confidence": "HIGH",
-          "polarity": "NEGATIVE"
+          "polarity": "POSITIVE"
         },
         {
           "field_name": "api_surface.breadth",
@@ -15068,7 +15270,9 @@
           "refresh_token"
         ],
         "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
-        "accessibility_notes": "Primary authentication: OAUTH2."
+        "accessibility_notes": "Primary authentication: OAUTH2.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [
@@ -15260,7 +15464,9 @@
         "credential_evidence": null,
         "oauth_grant_types": [],
         "token_lifespan_notes": null,
-        "accessibility_notes": "Authentication details could not be verified from available documentation."
+        "accessibility_notes": "Authentication details could not be verified from available documentation.",
+        "integration_mode": "API",
+        "auth_applicability": "APPLICABLE"
       },
       "api_surface": {
         "api_types": [

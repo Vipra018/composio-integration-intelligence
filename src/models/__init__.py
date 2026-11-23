@@ -6,12 +6,14 @@ from src.models.app_metadata import AppMetadata
 from src.models.enums import (
     APIBreadth,
     APIType,
+    AuthApplicability,
     AuthMethod,
     BlockerSeverity,
     BuildabilityScore,
     ConfidenceLevel,
     CredentialAccessibility,
     EvidencePolarity,
+    IntegrationMode,
     MCPAvailability,
     Provenance,
     VerificationStatus,
@@ -30,6 +32,8 @@ from src.models.research import (
 __all__ = [
     "AppMetadata",
     "AuthMethod",
+    "IntegrationMode",
+    "AuthApplicability",
     "CredentialAccessibility",
     "APIType",
     "APIBreadth",

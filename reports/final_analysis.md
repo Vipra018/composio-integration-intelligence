@@ -16,7 +16,11 @@ This report evaluates the programmatic integration feasibility of 100 canonical 
 - **Native Composio Toolkit Coverage**: **66 of the 100 applications (66.0%)** have verified, native Composio toolkits with pre-built actions and triggers.
 - **Independent MCP Server Footprint**: **12 applications (12.0%)** feature independently verified Model Context Protocol (MCP) servers outside Composio (5 official vendor-published servers, 7 community/reference servers). 54 applications are accessible via Composio's managed MCP bridge, and 34 applications currently have no verified MCP server.
 - **Feasibility Readiness**: **13 applications (13.0%)** are classified as `BUILDABLE_NOW` with self-serve free developer access and documented public APIs. **87 applications (87.0%)** are classified as `BUILDABLE_WITH_LIMITATIONS` primarily due to request rate limits, enterprise licensing requirements, or OAuth approval governance.
-- **Authentication Distribution (Known Denominator N=66)**: Among the 66 applications where primary authentication was verified, **OAuth 2.0 represents 30.3% (20 apps)**, **API Keys represent 22.7% (15 apps)**, **CLI / Local Process execution represents 43.9% (29 apps)**, and **Personal Access Tokens represent 3.0% (2 apps)**. 34 applications remain unverified (`UNKNOWN`) due to enterprise paywalls or bot mitigations.
+- **Authentication & Integration Taxonomy**:
+  - **Integration Mode (N=100)**: **94 applications (94.0%)** expose remote API interfaces, **4 applications (4.0%)** are consumer Web-Only platforms without developer APIs, and **2 applications (2.0%)** are local CLI utilities.
+  - **Authentication Applicability (N=100)**: **94 applications (94.0%)** are authentication-applicable SaaS APIs, while **6 applications (6.0%)** are not applicable (local tools and consumer web interfaces).
+  - **Authentication Status (N=94 Applicable APIs)**: **60 applications (63.8%)** have verified, known authentication methods, while **34 applications (36.2%)** remain unverified (`UNKNOWN`) due to enterprise paywalls or bot mitigations.
+  - **Distribution of Known Authentication Methods (N=60 Known Applicable Records)**: **API Keys represent 45.0% (27 apps)**, **OAuth 2.0 represents 40.0% (24 apps)**, **Token / PAT represents 11.7% (7 apps)**, and **HTTP Basic Auth represents 3.3% (2 apps)**. Zero applications are mislabeled as `OTHER`.
 - **Evidence Provenance**: 395 live HTTP citations were retrieved across 82 distinct documentation endpoints. Across 541 evaluated claims, **121 claims (22.4%)** are directly corroborated by live HTTP 200 text (`LIVE_FETCHED`), **303 claims (56.0%)** are algorithmic classifications (`INFERRED`), and **117 claims (21.6%)** are preserved as `UNKNOWN` due to unverified documentation. Zero claims were derived from test mock fixtures.
 - **Automated Verification Status**: **65 applications passed automated corroboration checks** (`AUTOMATED_PASS`). **35 applications are flagged for human review** (`REQUIRES_HUMAN_REVIEW`) due to bot protection or paywalled developer portals.
 
@@ -25,18 +29,29 @@ This report evaluates the programmatic integration feasibility of 100 canonical 
 ## Detailed Findings: The 14 Core Research Questions
 
 ### 1. Which authentication methods dominate?
-Across the 100 applications investigated:
-- **Total Dataset View (N=100)**:
-  - Unverified / WAF-Gated (`UNKNOWN`): 34 apps (34.0%)
-  - CLI / Local Process (`OTHER`): 29 apps (29.0%)
-  - OAuth 2.0: 20 apps (20.0%)
-  - API Key / Token: 15 apps (15.0%)
-  - Personal Access Token: 2 apps (2.0%)
-- **Verified Denominator View (N=66 Known)**:
-  - **CLI / Local Execution**: 43.9% (29 of 66) — concentrated in OSINT scraping tools (Sherlock), command-line engines (Mermaid CLI), and local client scripts.
-  - **OAuth 2.0**: 30.3% (20 of 66) — dominant protocol for multi-tenant, user-facing SaaS applications.
-  - **API Keys**: 22.7% (15 of 66) — dominant for headless developer platforms, web scrapers, and infrastructure APIs.
-  - **Personal Access Tokens**: 3.0% (2 of 66) — developer-scoped bridges for automation (e.g. GitHub, Shopify custom apps).
+To accurately evaluate authentication, we strictly separate **Integration Mode**, **Authentication Applicability**, and **Authentication Method**. "CLI / Local Process" and "Web-Only" represent execution interfaces and integration styles, not authentication mechanisms.
+
+#### A. Macro Taxonomy Breakdown (N=100 Applications)
+1. **Integration Mode**:
+   - **API-Integratable**: **94 apps (94.0%, 94/100)** — standard remote cloud APIs (REST, GraphQL, gRPC, Webhooks).
+   - **Web-Only Platform**: **4 apps (4.0%, 4/100)** — consumer/web platforms lacking public developer APIs (NotebookLM, Consensus, Devin, Fanbasis).
+   - **CLI / Local Process**: **2 apps (2.0%, 2/100)** — standalone local command-line utilities (Sherlock, Mermaid CLI).
+
+2. **Authentication Applicability**:
+   - **Applicable (SaaS APIs)**: **94 apps (94.0%, 94/100)** — remote services requiring client authentication.
+   - **Not Applicable**: **6 apps (6.0%, 6/100)** — local execution tools requiring zero credentials (Sherlock, Mermaid CLI) and consumer web applications with no developer API provisioning (NotebookLM, Consensus, Devin, Fanbasis).
+
+3. **Authentication Verification Status (N=94 Applicable SaaS APIs)**:
+   - **Known Authentication Records**: **60 apps (63.8%, 60/94)** — documented, verified authentication mechanisms.
+   - **Unknown / Gated Records**: **34 apps (36.2%, 34/94)** — developer portals protected by enterprise logins, partner agreements, or Cloudflare bot mitigations. Preserved as `UNKNOWN` rather than guessed.
+
+#### B. Distribution of Known Authentication Methods (N=60 Known Applicable Records)
+When isolating the 60 applications with verified, applicable authentication documentation:
+- **API Key**: **45.0% (27 of 60)** — Dominates headless developer platforms, programmatic scrapers, and infrastructure APIs where machine-to-machine throughput is prioritized (e.g., Twilio, Zendesk, Stripe, Cloudflare, Apify, SendGrid, Attio, Twenty).
+- **OAuth 2.0**: **40.0% (24 of 60)** — Dominates multi-tenant, user-facing collaboration and CRM platforms enforcing delegated authorization and granular user scopes (e.g., Salesforce, Slack, HubSpot, Google Ads, Notion, Shopify, Linear, Asana, Xero).
+- **Token / PAT**: **11.7% (7 of 60)** — Developer-scoped Personal Access Tokens and Bearer JWTs used for bot integrations and automation (GitHub, Coda, Front, Harvest, Sentry, Snowflake, Telegram).
+- **HTTP Basic Auth**: **3.3% (2 of 60)** — Username/password and basic credential schemes (DataForSEO, Neo4j).
+- **Other / Not Applicable**: **0.0% (0 of 60)** — Cleanly separated from SaaS authentication methods.
 
 ### 2. Which categories most commonly use OAuth?
 OAuth2 is concentrated in collaborative, multi-user SaaS where granular scopes and user authorization are standard:

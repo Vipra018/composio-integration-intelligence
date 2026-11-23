@@ -69,7 +69,36 @@ class CaseInsensitiveEnum(str, Enum):
                         return cls.INSUFFICIENT_EVIDENCE
                     if hasattr(cls, "UNVERIFIED"):
                         return cls.UNVERIFIED
+                if val_clean in ("CLI", "LOCAL_PROCESS", "CLI_LOCAL_PROCESS", "CLI_/_LOCAL_PROCESS"):
+                    if hasattr(cls, "CLI_LOCAL_PROCESS"):
+                        return cls.CLI_LOCAL_PROCESS
+                if val_clean in ("TOKEN", "PAT", "TOKEN_PAT", "TOKEN_/_PAT", "TOKEN_PAT"):
+                    if hasattr(cls, "TOKEN_PAT"):
+                        return cls.TOKEN_PAT
+                    if hasattr(cls, "PERSONAL_ACCESS_TOKEN"):
+                        return cls.PERSONAL_ACCESS_TOKEN
+                if val_clean in ("BASIC", "BASIC_AUTH"):
+                    if hasattr(cls, "BASIC"):
+                        return cls.BASIC
+                    if hasattr(cls, "BASIC_AUTH"):
+                        return cls.BASIC_AUTH
         return super()._missing_(value)
+
+
+class IntegrationMode(CaseInsensitiveEnum):
+    """Integration mode and execution environment of the software."""
+    API = "API"
+    CLI_LOCAL_PROCESS = "CLI / LOCAL_PROCESS"
+    WEB_ONLY = "WEB_ONLY"
+    OTHER = "OTHER"
+    UNKNOWN = "UNKNOWN"
+
+
+class AuthApplicability(CaseInsensitiveEnum):
+    """Whether authentication mechanisms are applicable to this integration."""
+    APPLICABLE = "APPLICABLE"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
+    UNKNOWN = "UNKNOWN"
 
 
 class AuthMethod(CaseInsensitiveEnum):
@@ -78,12 +107,15 @@ class AuthMethod(CaseInsensitiveEnum):
     API_KEY = "API_KEY"
     BEARER_TOKEN = "BEARER_TOKEN"
     PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN"
+    TOKEN_PAT = "TOKEN / PAT"
     BASIC_AUTH = "BASIC_AUTH"
+    BASIC = "BASIC"
     SESSION_COOKIE = "SESSION_COOKIE"
     WEBHOOK_HMAC = "WEBHOOK_HMAC"
     MTLS = "MTLS"
     OTHER = "OTHER"
     UNKNOWN = "UNKNOWN"
+    NOT_APPLICABLE = "NOT_APPLICABLE"
 
 
 class CredentialAccessibility(CaseInsensitiveEnum):
