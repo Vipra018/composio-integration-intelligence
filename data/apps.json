@@ -1,0 +1,802 @@
+[
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "category": "CRM & Sales",
+    "website": "https://www.salesforce.com",
+    "documentation_url": "https://developer.salesforce.com/docs",
+    "description": "Cloud-based customer relationship management (CRM) platform providing sales, service, and marketing automation for enterprises."
+  },
+  {
+    "id": "hubspot",
+    "name": "HubSpot",
+    "category": "CRM & Sales",
+    "website": "https://www.hubspot.com",
+    "documentation_url": "https://developers.hubspot.com/docs",
+    "description": "Inbound marketing, sales enablement, customer service, and CRM software suite for scaling businesses."
+  },
+  {
+    "id": "pipedrive",
+    "name": "Pipedrive",
+    "category": "CRM & Sales",
+    "website": "https://www.pipedrive.com",
+    "documentation_url": "https://developers.pipedrive.com/docs/api/v1",
+    "description": "Pipeline-centric CRM platform designed by salespeople to visualize, track, and accelerate deal progress."
+  },
+  {
+    "id": "close",
+    "name": "Close",
+    "category": "CRM & Sales",
+    "website": "https://www.close.com",
+    "documentation_url": "https://developer.close.com",
+    "description": "High-velocity sales CRM featuring integrated VoIP calling, two-way email sync, and automated SMS sequences."
+  },
+  {
+    "id": "zoho-crm",
+    "name": "Zoho CRM",
+    "category": "CRM & Sales",
+    "website": "https://www.zoho.com/crm",
+    "documentation_url": "https://www.zoho.com/crm/developer/docs/api/v6/",
+    "description": "Omnichannel CRM suite managing contacts, automated pipelines, workflows, and global customer engagement."
+  },
+  {
+    "id": "copper",
+    "name": "Copper",
+    "category": "CRM & Sales",
+    "website": "https://www.copper.com",
+    "documentation_url": "https://developer.copper.com",
+    "description": "Google Workspace-native CRM platform that embeds relationship tracking directly inside Gmail and Google Calendar."
+  },
+  {
+    "id": "outreach",
+    "name": "Outreach",
+    "category": "CRM & Sales",
+    "website": "https://www.outreach.io",
+    "documentation_url": "https://api.outreach.io/api/v2/docs",
+    "description": "Sales engagement and execution platform optimizing rep workflows, automated cadences, and pipeline conversion."
+  },
+  {
+    "id": "salesloft",
+    "name": "Salesloft",
+    "category": "CRM & Sales",
+    "website": "https://salesloft.com",
+    "documentation_url": "https://developers.salesloft.com",
+    "description": "Revenue orchestration platform helping B2B sales teams execute outreach plays, track deals, and forecast revenue."
+  },
+  {
+    "id": "apollo-io",
+    "name": "Apollo.io",
+    "category": "CRM & Sales",
+    "website": "https://www.apollo.io",
+    "documentation_url": "https://apolloio.github.io/apollo-api-docs",
+    "description": "B2B lead intelligence and sales engagement platform with extensive global contact and company prospecting databases."
+  },
+  {
+    "id": "gong",
+    "name": "Gong",
+    "category": "CRM & Sales",
+    "website": "https://www.gong.io",
+    "documentation_url": "https://help.gong.io/docs/gong-api",
+    "description": "Revenue intelligence platform capturing and analyzing customer interactions across calls, video meetings, and email."
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "category": "Project Management & Collaboration",
+    "website": "https://www.notion.so",
+    "documentation_url": "https://developers.notion.com",
+    "description": "Connected workspace combining docs, relational databases, wikis, project boards, and team notes."
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "category": "Project Management & Collaboration",
+    "website": "https://slack.com",
+    "documentation_url": "https://api.slack.com",
+    "description": "Channel-based messaging platform connecting teams, automated bot applications, and enterprise toolchains."
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "category": "Project Management & Collaboration",
+    "website": "https://linear.app",
+    "documentation_url": "https://developers.linear.app/docs/graphql/working-with-the-graphql-api",
+    "description": "Streamlined, keyboard-centric issue tracking and software project management platform for modern engineering teams."
+  },
+  {
+    "id": "asana",
+    "name": "Asana",
+    "category": "Project Management & Collaboration",
+    "website": "https://asana.com",
+    "documentation_url": "https://developers.asana.com/docs",
+    "description": "Work management software organizing team tasks, project timelines, strategic goals, and cross-functional operations."
+  },
+  {
+    "id": "monday-com",
+    "name": "Monday.com",
+    "category": "Project Management & Collaboration",
+    "website": "https://monday.com",
+    "documentation_url": "https://developer.monday.com/api-reference/docs",
+    "description": "Configurable Work OS enabling teams to build custom workflow management boards, automations, and dashboards."
+  },
+  {
+    "id": "clickup",
+    "name": "ClickUp",
+    "category": "Project Management & Collaboration",
+    "website": "https://clickup.com",
+    "documentation_url": "https://clickup.com/api",
+    "description": "All-in-one productivity platform offering tasks, docs, goals, whiteboards, chat, and custom automations."
+  },
+  {
+    "id": "jira",
+    "name": "Jira",
+    "category": "Project Management & Collaboration",
+    "website": "https://www.atlassian.com/software/jira",
+    "documentation_url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+    "description": "Issue and agile project tracking tool used by development teams to plan, release, and monitor software."
+  },
+  {
+    "id": "confluence",
+    "name": "Confluence",
+    "category": "Project Management & Collaboration",
+    "website": "https://www.atlassian.com/software/confluence",
+    "documentation_url": "https://developer.atlassian.com/cloud/confluence/rest/v2/intro/",
+    "description": "Collaborative enterprise wiki and document repository for remote teamwork, architectural specs, and company knowledge."
+  },
+  {
+    "id": "trello",
+    "name": "Trello",
+    "category": "Project Management & Collaboration",
+    "website": "https://trello.com",
+    "documentation_url": "https://developer.atlassian.com/cloud/trello/rest/",
+    "description": "Visual Kanban board application organizing projects into lists and interactive task cards."
+  },
+  {
+    "id": "airtable",
+    "name": "Airtable",
+    "category": "Project Management & Collaboration",
+    "website": "https://airtable.com",
+    "documentation_url": "https://airtable.com/developers/web/api/introduction",
+    "description": "No-code relational database platform combining spreadsheet flexibility with rich records, views, and automations."
+  },
+  {
+    "id": "basecamp",
+    "name": "Basecamp",
+    "category": "Project Management & Collaboration",
+    "website": "https://basecamp.com",
+    "documentation_url": "https://github.com/basecamp/bc3-api",
+    "description": "Calm team communication and project tracking software organizing discussions, to-dos, schedules, and documents."
+  },
+  {
+    "id": "coda",
+    "name": "Coda",
+    "category": "Project Management & Collaboration",
+    "website": "https://coda.io",
+    "documentation_url": "https://coda.io/developers/apis/v1",
+    "description": "Interactive document platform unifying word processing, relational tables, buttons, and app-like integrations."
+  },
+  {
+    "id": "miro",
+    "name": "Miro",
+    "category": "Project Management & Collaboration",
+    "website": "https://miro.com",
+    "documentation_url": "https://developers.miro.com",
+    "description": "Visual collaboration workspace offering digital whiteboards for brainstorming, diagramming, and sprint mapping."
+  },
+  {
+    "id": "todoist",
+    "name": "Todoist",
+    "category": "Project Management & Collaboration",
+    "website": "https://todoist.com",
+    "documentation_url": "https://developer.todoist.com/rest/v2",
+    "description": "Task management and to-do list application for individuals and collaborative team task coordination."
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://github.com",
+    "documentation_url": "https://docs.github.com/en/rest",
+    "description": "Developer platform for distributed Git version control, pull requests, issue tracking, and CI/CD actions."
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://gitlab.com",
+    "documentation_url": "https://docs.gitlab.com/ee/api/rest/",
+    "description": "Complete DevSecOps lifecycle platform delivering Git repositories, automated CI/CD pipelines, and security scanning."
+  },
+  {
+    "id": "bitbucket",
+    "name": "Bitbucket",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://bitbucket.org",
+    "documentation_url": "https://developer.atlassian.com/cloud/bitbucket/rest/intro/",
+    "description": "Atlassian-native Git code management solution featuring deep Jira integration and built-in CI/CD pipelines."
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://sentry.io",
+    "documentation_url": "https://docs.sentry.io/api/",
+    "description": "Application monitoring and error tracking software providing real-time crash stack traces and performance telemetry."
+  },
+  {
+    "id": "datadog",
+    "name": "Datadog",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://www.datadoghq.com",
+    "documentation_url": "https://docs.datadoghq.com/api/latest/",
+    "description": "Observability and security platform monitoring cloud infrastructure, application metrics, traces, and server logs."
+  },
+  {
+    "id": "postman",
+    "name": "Postman",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://www.postman.com",
+    "documentation_url": "https://learning.postman.com/docs/developer/postman-api/intro-api/",
+    "description": "API platform for developers to design, mock, debug, test, document, and monitor HTTP/REST/GraphQL APIs."
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://vercel.com",
+    "documentation_url": "https://vercel.com/docs/rest-api",
+    "description": "Frontend cloud platform for developing, previewing, and shipping Jamstack and Next.js web applications."
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://supabase.com",
+    "documentation_url": "https://supabase.com/docs/reference/api/introduction",
+    "description": "Open-source Firebase alternative delivering managed PostgreSQL, authentication, instant REST APIs, and edge functions."
+  },
+  {
+    "id": "neon",
+    "name": "Neon",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://neon.tech",
+    "documentation_url": "https://neon.tech/docs/reference/api-reference",
+    "description": "Serverless, multi-cloud Postgres database platform separating compute from storage with instant branching."
+  },
+  {
+    "id": "render",
+    "name": "Render",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://render.com",
+    "documentation_url": "https://api-docs.render.com/reference/introduction",
+    "description": "Unified cloud hosting platform to build and run web apps, static sites, docker containers, and databases."
+  },
+  {
+    "id": "circleci",
+    "name": "CircleCI",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://circleci.com",
+    "documentation_url": "https://circleci.com/docs/api/v2/",
+    "description": "Continuous integration and delivery platform automating software testing, builds, and cloud deployments."
+  },
+  {
+    "id": "docker-hub",
+    "name": "Docker Hub",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://hub.docker.com",
+    "documentation_url": "https://docs.docker.com/docker-hub/api/latest/",
+    "description": "Global container registry for developers to find, share, and collaborate on Docker container images."
+  },
+  {
+    "id": "pagerduty",
+    "name": "PagerDuty",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://www.pagerduty.com",
+    "documentation_url": "https://developer.pagerduty.com/api-reference/",
+    "description": "Digital operations management platform coordinating automated incident response, on-call schedules, and alerts."
+  },
+  {
+    "id": "launchdarkly",
+    "name": "LaunchDarkly",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://launchdarkly.com",
+    "documentation_url": "https://apidocs.launchdarkly.com",
+    "description": "Feature management platform enabling engineering teams to safely control code rollout flags and run targeted experiments."
+  },
+  {
+    "id": "terraform-cloud",
+    "name": "Terraform Cloud",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://app.terraform.io",
+    "documentation_url": "https://developer.hashicorp.com/terraform/cloud-docs/api-docs",
+    "description": "Managed service providing remote state storage, policy enforcement, and infrastructure-as-code automation."
+  },
+  {
+    "id": "new-relic",
+    "name": "New Relic",
+    "category": "Developer Tools & Infrastructure",
+    "website": "https://newrelic.com",
+    "documentation_url": "https://docs.newrelic.com/docs/apis/",
+    "description": "Full-stack observability platform monitoring software performance, distributed microservices, and user experiences."
+  },
+  {
+    "id": "zendesk",
+    "name": "Zendesk",
+    "category": "Customer Support & Communication",
+    "website": "https://www.zendesk.com",
+    "documentation_url": "https://developer.zendesk.com/api-reference/",
+    "description": "Customer service and support ticketing platform managing omnichannel user requests and help center knowledge bases."
+  },
+  {
+    "id": "intercom",
+    "name": "Intercom",
+    "category": "Customer Support & Communication",
+    "website": "https://www.intercom.com",
+    "documentation_url": "https://developers.intercom.com/docs/references/rest-api/api.config.json/",
+    "description": "AI-first customer service platform delivering interactive live chat, bots, omnichannel ticketing, and in-app tours."
+  },
+  {
+    "id": "freshdesk",
+    "name": "Freshdesk",
+    "category": "Customer Support & Communication",
+    "website": "https://freshdesk.com",
+    "documentation_url": "https://developers.freshdesk.com/api/",
+    "description": "Cloud-based customer support software converting incoming emails, chats, and calls into managed tickets."
+  },
+  {
+    "id": "front",
+    "name": "Front",
+    "category": "Customer Support & Communication",
+    "website": "https://front.com",
+    "documentation_url": "https://dev.frontapp.com/docs",
+    "description": "Shared inbox and customer operations platform combining email ticketing with internal team collaboration."
+  },
+  {
+    "id": "help-scout",
+    "name": "Help Scout",
+    "category": "Customer Support & Communication",
+    "website": "https://www.helpscout.com",
+    "documentation_url": "https://developer.helpscout.com/mailbox-api/",
+    "description": "Dedicated customer support desk platform emphasizing personalized human support, shared mailboxes, and docs."
+  },
+  {
+    "id": "crisp",
+    "name": "Crisp",
+    "category": "Customer Support & Communication",
+    "website": "https://crisp.chat",
+    "documentation_url": "https://docs.crisp.chat/references/rest-api/v1/",
+    "description": "All-in-one multichannel customer messaging platform for live chat, CRM, status pages, and marketing campaigns."
+  },
+  {
+    "id": "gorgias",
+    "name": "Gorgias",
+    "category": "Customer Support & Communication",
+    "website": "https://www.gorgias.com",
+    "documentation_url": "https://developers.gorgias.com/reference/introduction",
+    "description": "E-commerce customer service platform deeply integrated with Shopify, BigCommerce, and Magento store records."
+  },
+  {
+    "id": "kustomer",
+    "name": "Kustomer",
+    "category": "Customer Support & Communication",
+    "website": "https://www.kustomer.com",
+    "documentation_url": "https://developer.kustomer.com/kustomer-apps-platform/docs/api-introduction",
+    "description": "CRM-centric customer service platform delivering a continuous omnichannel timeline of all customer touchpoints."
+  },
+  {
+    "id": "twilio",
+    "name": "Twilio",
+    "category": "Customer Support & Communication",
+    "website": "https://www.twilio.com",
+    "documentation_url": "https://www.twilio.com/docs/usage/api",
+    "description": "Developer platform for programmatic SMS, voice calling, WhatsApp messaging, and two-factor verification APIs."
+  },
+  {
+    "id": "sendgrid",
+    "name": "SendGrid",
+    "category": "Customer Support & Communication",
+    "website": "https://sendgrid.com",
+    "documentation_url": "https://docs.sendgrid.com/api-reference",
+    "description": "Cloud-based email infrastructure platform delivering high-volume transactional and marketing email delivery."
+  },
+  {
+    "id": "discord",
+    "name": "Discord",
+    "category": "Customer Support & Communication",
+    "website": "https://discord.com",
+    "documentation_url": "https://discord.com/developers/docs/intro",
+    "description": "Voice, video, and text communication platform popular with communities, gaming groups, and developer bots."
+  },
+  {
+    "id": "zoom",
+    "name": "Zoom",
+    "category": "Customer Support & Communication",
+    "website": "https://zoom.us",
+    "documentation_url": "https://developers.zoom.us/docs/api/",
+    "description": "Video communications platform providing virtual meetings, webinars, cloud phone systems, and team chat."
+  },
+  {
+    "id": "mailchimp",
+    "name": "Mailchimp",
+    "category": "Marketing & Email Automation",
+    "website": "https://mailchimp.com",
+    "documentation_url": "https://mailchimp.com/developer/marketing/api/",
+    "description": "Marketing automation platform and email marketing service for creating campaigns, managing lists, and audience insights."
+  },
+  {
+    "id": "klaviyo",
+    "name": "Klaviyo",
+    "category": "Marketing & Email Automation",
+    "website": "https://www.klaviyo.com",
+    "documentation_url": "https://developers.klaviyo.com/en/reference/api_overview",
+    "description": "Intelligent marketing automation platform for e-commerce brands utilizing unified customer data for SMS and email."
+  },
+  {
+    "id": "activecampaign",
+    "name": "ActiveCampaign",
+    "category": "Marketing & Email Automation",
+    "website": "https://www.activecampaign.com",
+    "documentation_url": "https://developers.activecampaign.com/reference/overview",
+    "description": "Customer experience automation platform combining email marketing, visual marketing automation, and sales CRM."
+  },
+  {
+    "id": "customer-io",
+    "name": "Customer.io",
+    "category": "Marketing & Email Automation",
+    "website": "https://customer.io",
+    "documentation_url": "https://customer.io/docs/api/",
+    "description": "Automated messaging platform for tech companies to craft data-driven behavioral emails, push, and SMS sequences."
+  },
+  {
+    "id": "braze",
+    "name": "Braze",
+    "category": "Marketing & Email Automation",
+    "website": "https://www.braze.com",
+    "documentation_url": "https://www.braze.com/docs/api/basics/",
+    "description": "Customer engagement platform powering personalized multi-channel consumer messaging across web, push, and mobile apps."
+  },
+  {
+    "id": "kit",
+    "name": "Kit",
+    "category": "Marketing & Email Automation",
+    "website": "https://kit.com",
+    "documentation_url": "https://developers.kit.com",
+    "description": "Creator-focused marketing platform (formerly ConvertKit) for building email newsletters, landing pages, and digital sales."
+  },
+  {
+    "id": "brevo",
+    "name": "Brevo",
+    "category": "Marketing & Email Automation",
+    "website": "https://www.brevo.com",
+    "documentation_url": "https://developers.brevo.com/reference/getting-started-1",
+    "description": "CRM and relationship suite (formerly Sendinblue) managing marketing campaigns, transactional emails, and SMS."
+  },
+  {
+    "id": "buffer",
+    "name": "Buffer",
+    "category": "Marketing & Email Automation",
+    "website": "https://buffer.com",
+    "documentation_url": "https://buffer.com/developers/api",
+    "description": "Social media scheduling, analytics, and community management toolkit for brands and creators."
+  },
+  {
+    "id": "hootsuite",
+    "name": "Hootsuite",
+    "category": "Marketing & Email Automation",
+    "website": "https://hootsuite.com",
+    "documentation_url": "https://developer.hootsuite.com/docs",
+    "description": "Enterprise social media management platform enabling multi-network scheduling, listening, and ROI analytics."
+  },
+  {
+    "id": "typeform",
+    "name": "Typeform",
+    "category": "Marketing & Email Automation",
+    "website": "https://www.typeform.com",
+    "documentation_url": "https://www.typeform.com/developers/get-started/",
+    "description": "Conversational online form, quiz, and survey builder designed for high respondent engagement and data collection."
+  },
+  {
+    "id": "surveymonkey",
+    "name": "SurveyMonkey",
+    "category": "Marketing & Email Automation",
+    "website": "https://www.surveymonkey.com",
+    "documentation_url": "https://developer.surveymonkey.com/api/v3/",
+    "description": "Online survey software helping organizations gather customer feedback, employee opinions, and market research."
+  },
+  {
+    "id": "webflow",
+    "name": "Webflow",
+    "category": "Marketing & Email Automation",
+    "website": "https://webflow.com",
+    "documentation_url": "https://developers.webflow.com",
+    "description": "Visual web design, content management system, and hosting platform translating visual layouts into clean HTML/CSS/JS."
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "category": "Accounting & Finance",
+    "website": "https://stripe.com",
+    "documentation_url": "https://docs.stripe.com/api",
+    "description": "Financial infrastructure platform facilitating online payment processing, subscription billing, and payout rails."
+  },
+  {
+    "id": "quickbooks-online",
+    "name": "QuickBooks Online",
+    "category": "Accounting & Finance",
+    "website": "https://quickbooks.intuit.com",
+    "documentation_url": "https://developer.intuit.com/app/developer/qbo/docs/api",
+    "description": "Cloud accounting software for small businesses to track expenses, generate invoices, and manage tax reporting."
+  },
+  {
+    "id": "xero",
+    "name": "Xero",
+    "category": "Accounting & Finance",
+    "website": "https://www.xero.com",
+    "documentation_url": "https://developer.xero.com/documentation/api/accounting/overview",
+    "description": "Cloud-based accounting platform connecting small businesses with advisors, bank feeds, and financial reporting."
+  },
+  {
+    "id": "brex",
+    "name": "Brex",
+    "category": "Accounting & Finance",
+    "website": "https://www.brex.com",
+    "documentation_url": "https://developer.brex.com/openapi/",
+    "description": "Corporate card and spend management platform unifying expense tracking, travel booking, and bill pay."
+  },
+  {
+    "id": "ramp",
+    "name": "Ramp",
+    "category": "Accounting & Finance",
+    "website": "https://ramp.com",
+    "documentation_url": "https://docs.ramp.com/developer-api/rest/",
+    "description": "Finance automation and corporate credit card platform designed to control corporate spending and streamline receipt reconciliation."
+  },
+  {
+    "id": "bill-com",
+    "name": "Bill.com",
+    "category": "Accounting & Finance",
+    "website": "https://www.bill.com",
+    "documentation_url": "https://developer.bill.com/api-docs",
+    "description": "Accounts payable and receivable automation software streamlining digital business invoice payments and approvals."
+  },
+  {
+    "id": "chargebee",
+    "name": "Chargebee",
+    "category": "Accounting & Finance",
+    "website": "https://www.chargebee.com",
+    "documentation_url": "https://apidocs.chargebee.com/docs/api/v2",
+    "description": "Subscription billing and revenue management platform automating recurring invoicing, taxes, and customer retention."
+  },
+  {
+    "id": "recurly",
+    "name": "Recurly",
+    "category": "Accounting & Finance",
+    "website": "https://recurly.com",
+    "documentation_url": "https://recurly.com/developers/api/v2021-10-25/",
+    "description": "Enterprise recurring billing and subscription management platform optimizing subscriber lifetime value and payments."
+  },
+  {
+    "id": "wave-accounting",
+    "name": "Wave Accounting",
+    "category": "Accounting & Finance",
+    "website": "https://www.waveapps.com",
+    "documentation_url": "https://developer.waveapps.com/hc/en-us",
+    "description": "Free invoicing and accounting software suite tailored for solo entrepreneurs, freelancers, and small businesses."
+  },
+  {
+    "id": "gusto",
+    "name": "Gusto",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://gusto.com",
+    "documentation_url": "https://docs.gusto.com",
+    "description": "People platform providing automated payroll processing, employee benefits administration, and HR tools for modern teams."
+  },
+  {
+    "id": "bamboohr",
+    "name": "BambooHR",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.bamboohr.com",
+    "documentation_url": "https://documentation.bamboohr.com/docs",
+    "description": "Complete human resources information system (HRIS) tracking employee records, PTO, hiring, and performance."
+  },
+  {
+    "id": "rippling",
+    "name": "Rippling",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.rippling.com",
+    "documentation_url": "https://developer.rippling.com/docs/rippling-api",
+    "description": "Workforce management platform unifying global HR, payroll processing, benefits, corporate IT, and device provisioning."
+  },
+  {
+    "id": "deel",
+    "name": "Deel",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.deel.com",
+    "documentation_url": "https://developer.deel.com/docs",
+    "description": "Global payroll and compliance platform helping companies hire, manage, and pay international employees and contractors."
+  },
+  {
+    "id": "workday",
+    "name": "Workday",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.workday.com",
+    "documentation_url": "https://developer.workday.com/api",
+    "description": "Enterprise cloud ERP system delivering human capital management, financial management, and workforce planning."
+  },
+  {
+    "id": "hibob",
+    "name": "HiBob",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.hibob.com",
+    "documentation_url": "https://apidocs.hibob.com/reference",
+    "description": "Modern HR platform (Bob) driving employee engagement, company culture, compensation, and onboarding workflows."
+  },
+  {
+    "id": "greenhouse",
+    "name": "Greenhouse",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.greenhouse.com",
+    "documentation_url": "https://developers.greenhouse.io",
+    "description": "Applicant tracking system (ATS) and recruiting software standardizing talent interviews, candidate pipelines, and hiring."
+  },
+  {
+    "id": "lever",
+    "name": "Lever",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.lever.co",
+    "documentation_url": "https://hire.lever.co/developer/documentation",
+    "description": "Talent relationship management and applicant tracking platform combining CRM sourcing with structured ATS hiring."
+  },
+  {
+    "id": "ashby",
+    "name": "Ashby",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://www.ashbyhq.com",
+    "documentation_url": "https://developers.ashbyhq.com/reference",
+    "description": "All-in-one recruiting platform combining high-powered ATS functionality with advanced talent analytics and CRM."
+  },
+  {
+    "id": "remote",
+    "name": "Remote",
+    "category": "HR, Payroll & Recruiting",
+    "website": "https://remote.com",
+    "documentation_url": "https://remote.com/resources/api",
+    "description": "Global HR platform acting as Employer of Record (EOR) to manage international payroll, tax compliance, and benefits."
+  },
+  {
+    "id": "google-drive",
+    "name": "Google Drive",
+    "category": "Content, Design & Media",
+    "website": "https://www.google.com/drive",
+    "documentation_url": "https://developers.google.com/drive/api/v3/about-sdk",
+    "description": "Cloud file storage and synchronization service integrated with Google Docs, Sheets, Slides, and Google Workspace."
+  },
+  {
+    "id": "box",
+    "name": "Box",
+    "category": "Content, Design & Media",
+    "website": "https://www.box.com",
+    "documentation_url": "https://developer.box.com/reference/",
+    "description": "Secure enterprise content management and cloud file sharing platform featuring compliance controls and workflows."
+  },
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "category": "Content, Design & Media",
+    "website": "https://www.dropbox.com",
+    "documentation_url": "https://www.dropbox.com/developers/documentation",
+    "description": "File hosting service offering cloud storage, seamless file synchronization, personal cloud folders, and team sharing."
+  },
+  {
+    "id": "docusign",
+    "name": "DocuSign",
+    "category": "Content, Design & Media",
+    "website": "https://www.docusign.com",
+    "documentation_url": "https://developers.docusign.com",
+    "description": "Electronic signature and agreement cloud platform enabling secure digital signing and contract lifecycle management."
+  },
+  {
+    "id": "pandadoc",
+    "name": "PandaDoc",
+    "category": "Content, Design & Media",
+    "website": "https://www.pandadoc.com",
+    "documentation_url": "https://developers.pandadoc.com/reference/about",
+    "description": "Document automation platform for creating, sending, tracking, and e-signing sales proposals, quotes, and contracts."
+  },
+  {
+    "id": "canva",
+    "name": "Canva",
+    "category": "Content, Design & Media",
+    "website": "https://www.canva.com",
+    "documentation_url": "https://www.canva.dev/docs/connect/",
+    "description": "Visual graphic design platform enabling users to create presentations, graphics, social media posts, and marketing collateral."
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "category": "Content, Design & Media",
+    "website": "https://www.figma.com",
+    "documentation_url": "https://www.figma.com/developers/api",
+    "description": "Collaborative cloud-based UI/UX interface design and prototyping tool with real-time multiplayer editing."
+  },
+  {
+    "id": "shopify",
+    "name": "Shopify",
+    "category": "E-Commerce & Billing",
+    "website": "https://www.shopify.com",
+    "documentation_url": "https://shopify.dev/docs/api/admin-rest",
+    "description": "Global commerce platform providing digital storefronts, inventory management, point-of-sale systems, and checkout."
+  },
+  {
+    "id": "woocommerce",
+    "name": "WooCommerce",
+    "category": "E-Commerce & Billing",
+    "website": "https://woocommerce.com",
+    "documentation_url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+    "description": "Open-source, customizable e-commerce plugin built for WordPress websites managing product catalogs and checkouts."
+  },
+  {
+    "id": "bigcommerce",
+    "name": "BigCommerce",
+    "category": "E-Commerce & Billing",
+    "website": "https://www.bigcommerce.com",
+    "documentation_url": "https://developer.bigcommerce.com/docs/rest",
+    "description": "Open SaaS e-commerce platform offering enterprise storefront functionality, headless APIs, and multi-storefront routing."
+  },
+  {
+    "id": "shippo",
+    "name": "Shippo",
+    "category": "E-Commerce & Billing",
+    "website": "https://goshippo.com",
+    "documentation_url": "https://goshippo.com/docs/reference",
+    "description": "Multi-carrier shipping API platform connecting e-commerce merchants with discounted label creation and parcel tracking."
+  },
+  {
+    "id": "shipstation",
+    "name": "ShipStation",
+    "category": "E-Commerce & Billing",
+    "website": "https://www.shipstation.com",
+    "documentation_url": "https://www.shipstation.com/docs/api/",
+    "description": "Web-based shipping software helping online retailers import, organize, process, and fulfill parcel orders efficiently."
+  },
+  {
+    "id": "okta",
+    "name": "Okta",
+    "category": "Security, Identity & Compliance",
+    "website": "https://www.okta.com",
+    "documentation_url": "https://developer.okta.com/docs/reference/",
+    "description": "Enterprise cloud identity and access management provider delivering single sign-on (SSO), MFA, and directory federation."
+  },
+  {
+    "id": "one-password",
+    "name": "1Password",
+    "category": "Security, Identity & Compliance",
+    "website": "https://1password.com",
+    "documentation_url": "https://developer.1password.com/docs/connect/",
+    "description": "Enterprise password and secrets management platform protecting team credentials, SSH keys, and sensitive environment variables."
+  },
+  {
+    "id": "vanta",
+    "name": "Vanta",
+    "category": "Security, Identity & Compliance",
+    "website": "https://www.vanta.com",
+    "documentation_url": "https://developer.vanta.com/docs",
+    "description": "Automated security and compliance platform streamlining SOC 2, ISO 27001, HIPAA, and GDPR continuous audit readiness."
+  },
+  {
+    "id": "snowflake",
+    "name": "Snowflake",
+    "category": "Analytics & Data Platforms",
+    "website": "https://www.snowflake.com",
+    "documentation_url": "https://docs.snowflake.com/en/developer-guide/sql-api/index",
+    "description": "Cloud data warehouse and data cloud platform enabling scalable SQL querying, data sharing, and machine learning workloads."
+  },
+  {
+    "id": "pinecone",
+    "name": "Pinecone",
+    "category": "AI & Knowledge Systems",
+    "website": "https://www.pinecone.io",
+    "documentation_url": "https://docs.pinecone.io/reference/api/introduction",
+    "description": "Managed vector database engineered for high-performance semantic search, similarity matching, and AI retrieval-augmented generation (RAG)."
+  }
+]
