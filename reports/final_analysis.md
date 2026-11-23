@@ -10,13 +10,15 @@
 
 ## Executive Summary
 
-This study evaluates the programmatic integration feasibility of 100 canonical SaaS applications for autonomous AI agent toolkits. Using a live, verifiable research engine with zero-fabrication guarantees, each application was analyzed across its authentication mechanisms, credential accessibility, API surface, Model Context Protocol (MCP) ecosystem, and native Composio toolkit coverage.
+This report evaluates the programmatic integration feasibility of 100 canonical SaaS applications for autonomous AI agent toolkits. The research was conducted using direct HTTP retrieval against official documentation, algorithmic classification heuristics, and cross-referencing with Composio's verified toolkit catalog.
 
-### Key Headline Findings
-- **Composio Market Coverage**: **66 of the 100 applications (66.0%)** have verified, native Composio toolkits with pre-built actions and triggers.
-- **Feasibility Readiness**: **13 applications (13.0%)** are immediately `BUILDABLE_NOW` with self-serve free developer access and documented REST APIs. **87 applications (87.0%)** are `BUILDABLE_WITH_LIMITATIONS` primarily due to rate limits, enterprise licensing tiers, or OAuth partner governance. **0 applications** are permanently blocked.
-- **Authentication Realities**: Among verified SaaS APIs, **OAuth2 dominates enterprise integrations (20.0% primary)**, while **API Keys dominate developer infrastructure and scraping tools (15.0% primary)**.
-- **Evidence Integrity**: 395 live HTTP citations were retrieved. Across 541 audited claims, 22.4% are directly backed by live HTTP text (`LIVE_FETCHED`), 56.0% represent verified architectural inferences (`INFERRED`), and 21.6% are honestly marked `UNKNOWN` due to developer portal paywalls or SPA client shells. Zero claims were synthesized from hardcoded test fixtures.
+### Key Headline Metrics
+- **Native Composio Toolkit Coverage**: **66 of the 100 applications (66.0%)** have verified, native Composio toolkits with pre-built actions and triggers.
+- **Independent MCP Server Footprint**: **12 applications (12.0%)** feature independently verified Model Context Protocol (MCP) servers outside Composio (5 official vendor-published servers, 7 community/reference servers). 54 applications are accessible via Composio's managed MCP bridge, and 34 applications currently have no verified MCP server.
+- **Feasibility Readiness**: **13 applications (13.0%)** are classified as `BUILDABLE_NOW` with self-serve free developer access and documented public APIs. **87 applications (87.0%)** are classified as `BUILDABLE_WITH_LIMITATIONS` primarily due to request rate limits, enterprise licensing requirements, or OAuth approval governance.
+- **Authentication Distribution (Known Denominator N=66)**: Among the 66 applications where primary authentication was verified, **OAuth 2.0 represents 30.3% (20 apps)**, **API Keys represent 22.7% (15 apps)**, **CLI / Local Process execution represents 43.9% (29 apps)**, and **Personal Access Tokens represent 3.0% (2 apps)**. 34 applications remain unverified (`UNKNOWN`) due to enterprise paywalls or bot mitigations.
+- **Evidence Provenance**: 395 live HTTP citations were retrieved across 82 distinct documentation endpoints. Across 541 evaluated claims, **121 claims (22.4%)** are directly corroborated by live HTTP 200 text (`LIVE_FETCHED`), **303 claims (56.0%)** are algorithmic classifications (`INFERRED`), and **117 claims (21.6%)** are preserved as `UNKNOWN` due to unverified documentation. Zero claims were derived from test mock fixtures.
+- **Automated Verification Status**: **65 applications passed automated corroboration checks** (`AUTOMATED_PASS`). **35 applications are flagged for human review** (`REQUIRES_HUMAN_REVIEW`) due to bot protection or paywalled developer portals.
 
 ---
 
@@ -24,54 +26,61 @@ This study evaluates the programmatic integration feasibility of 100 canonical S
 
 ### 1. Which authentication methods dominate?
 Across the 100 applications investigated:
-- **OAuth 2.0**: The single most dominant protocol for production and customer-facing multi-tenant SaaS. Supported by at least 21 verified applications, and serving as the primary auth mechanism for 20 applications (20.0% of total dataset; **30.3% of apps with verified auth**).
-- **API Keys / Bearer Tokens**: Dominant for developer-first infrastructure, developer tools, and data enrichment platforms. Supported by 23 applications, serving as the primary auth mechanism for 15 applications (15.0% of total dataset).
-- **Personal Access Tokens (PATs)**: Supported by 7 applications (e.g. GitHub, Shopify, GitLab, Airtable) as a self-serve bridge for developer automations.
-- **Command-Line / Local Execution (`OTHER`)**: 29 applications (29.0%) represent local OSINT utilities (e.g. Sherlock, Mermaid CLI), client-only tools, or require environment-specific invocation rather than standard HTTP SaaS bearer tokens.
-- **Unverified (`UNKNOWN`)**: 34 applications (34.0%) had developer portals protected by bot gates (e.g., Cloudflare WAF on Salesforce Developer Portal) or did not expose public unauthenticated documentation.
+- **Total Dataset View (N=100)**:
+  - Unverified / WAF-Gated (`UNKNOWN`): 34 apps (34.0%)
+  - CLI / Local Process (`OTHER`): 29 apps (29.0%)
+  - OAuth 2.0: 20 apps (20.0%)
+  - API Key / Token: 15 apps (15.0%)
+  - Personal Access Token: 2 apps (2.0%)
+- **Verified Denominator View (N=66 Known)**:
+  - **CLI / Local Execution**: 43.9% (29 of 66) — concentrated in OSINT scraping tools (Sherlock), command-line engines (Mermaid CLI), and local client scripts.
+  - **OAuth 2.0**: 30.3% (20 of 66) — dominant protocol for multi-tenant, user-facing SaaS applications.
+  - **API Keys**: 22.7% (15 of 66) — dominant for headless developer platforms, web scrapers, and infrastructure APIs.
+  - **Personal Access Tokens**: 3.0% (2 of 66) — developer-scoped bridges for automation (e.g. GitHub, Shopify custom apps).
 
 ### 2. Which categories most commonly use OAuth?
-OAuth2 is concentrated in multi-tenant collaborative SaaS where user-delegated authorization and granular scopes are mandatory:
-1. **CRM and Sales**: 70% of verified apps use OAuth2 (Salesforce, HubSpot, Pipedrive, Zoho CRM, Attio, Twenty).
-2. **Support and Helpdesk**: 60% use OAuth2 (Zendesk, Intercom, Freshdesk, Front, Gorgias).
-3. **Communications and Messaging**: 50% use OAuth2 (Slack, Zoom, Discord, Zoho Cliq).
-4. **Productivity and Project Management**: 50% use OAuth2 (Notion, Asana, Monday.com, Linear, Jira).
+OAuth2 is concentrated in collaborative, multi-user SaaS where granular scopes and user authorization are standard:
+1. **CRM and Sales**: 7 of 10 apps (Salesforce, HubSpot, Pipedrive, Zoho CRM, Attio, Twenty, Podio).
+2. **Support and Helpdesk**: 6 of 10 apps (Zendesk, Intercom, Freshdesk, Front, Gorgias, LiveAgent).
+3. **Communications and Messaging**: 5 of 10 apps (Slack, Twilio, Discord, Zoho Cliq, Aircall).
+4. **Productivity and Project Management**: 5 of 10 apps (Notion, Asana, Monday.com, Linear, Jira).
 
 ### 3. Which categories predominantly use API keys?
-API Keys dominate headless, data-centric, and utility services where programmatic machine-to-machine throughput is prioritized over user delegation:
-1. **Data, SEO and Scraping**: 60% of verified platforms (DataForSEO, Apify, Firecrawl, Bright Data).
-2. **Developer, Infra and Data platforms**: 50% of verified platforms (Supabase, Datadog, Sentry, Vercel, Netlify).
+API Keys dominate headless and data-centric platforms prioritizing machine-to-machine throughput:
+1. **Data, SEO and Scraping**: 6 of 10 apps (DataForSEO, Apify, Firecrawl, Bright Data, SE Ranking, Ahrefs).
+2. **Developer, Infra and Data platforms**: 5 of 10 apps (Supabase, Datadog, Sentry, Vercel, Netlify).
 3. **Marketing & Email Platforms**: (SendGrid, Mailchimp, Klaviyo).
 
 ### 4. How many apps have self-serve access?
-- **16 applications (16.0% verified self-serve free)** provide immediate self-serve developer access without administrative gatekeeping or mandatory upfront credit cards. Examples include **GitHub**, **Shopify** (via free Partner development stores), **Salesforce** (via free Developer Edition orgs), **Twenty**, **Supabase**, **Vercel**, and open-source OSINT projects like **Sherlock**.
-- The remaining 84 applications fall into `UNKNOWN` / unverified tiers because pricing and developer account provisioning could not be definitively validated from unauthenticated live HTTP crawls.
+- **16 applications (16.0% verified self-serve free)** provide immediate self-serve developer access without mandatory upfront sales contracts or administrative barriers. Examples include **GitHub**, **Shopify** (via free Partner development stores), **Salesforce** (via free Developer Edition orgs), **Twenty CRM**, **Supabase**, **Vercel**, and open-source tools like **Sherlock**.
+- The remaining 84 applications fall into `UNKNOWN` / unverified tiers because pricing and developer provisioning could not be definitively validated from unauthenticated live HTTP crawls.
 
 ### 5. How many are gated by admin approval, partnership or sales?
-- **Enterprise / Partner Gated Workloads**: High-value categories such as **Finance and Fintech** (Plaid, Brex, Ramp, PitchBook, DealCloud) and **Enterprise CRM** (Salesforce Commerce Cloud, Magento Enterprise) enforce strict partner vetting, KYC compliance, or sales contact before developer keys are granted.
-- **Safety Rule Enforced**: Rather than assuming `CONTACT_SALES` for unverified apps (as in the audited pilot), our engine strictly reserved `CONTACT_SALES` for explicitly cited enterprise gates, marking unresolved portals as `UNKNOWN` with `REQUIRES_HUMAN_REVIEW`.
+- **Enterprise / Partner Gated Workloads**: High-value categories such as **Finance and Fintech** (Plaid, Brex, Ramp, PitchBook, DealCloud) and **Enterprise Ecommerce** (Salesforce Commerce Cloud, Magento Enterprise) enforce partner onboarding, business verification, or sales outreach.
+- **Classification Restraint**: Rather than assuming `CONTACT_SALES` for unverified platforms, the system recorded unverified access tiers as `UNKNOWN` with a `REQUIRES_HUMAN_REVIEW` flag.
 
 ### 6. How many have public REST APIs?
 - **31 applications (31.0%)** have verified, actively documented public REST APIs corroborated by live HTTP 200 responses.
-- The highest concentrations of documented REST APIs exist in **Developer Platforms (6/10)**, **CRM & Sales (4/10)**, **Ecommerce (4/10)**, and **Productivity (4/10)**.
+- The highest concentrations exist in **Developer Platforms (6/10)**, **CRM & Sales (4/10)**, **Ecommerce (4/10)**, and **Productivity (4/10)**.
 
 ### 7. How many have GraphQL APIs?
-- **10 applications (10.0%)** officially expose GraphQL APIs alongside or in place of REST.
-- Key platforms include **Shopify** (which mandated GraphQL Admin API as the primary public surface starting 2025), **GitHub** (GraphQL API v4), **Linear**, **Attio**, and **Saleor**.
+- **10 applications (10.0%)** officially expose GraphQL APIs.
+- Key platforms include **Shopify** (GraphQL Admin API is primary since 2025), **GitHub** (GraphQL API v4), **Linear**, **Attio**, and **Saleor**.
 
 ### 8. How many have existing MCP servers?
-- **70 applications (70.0%)** have available Model Context Protocol solutions:
-  - **Composio Native Toolkits**: **66 applications** are accessible via Composio's pre-built MCP bridge.
-  - **Community / Reference MCP Servers**: **4 applications** have independently maintained open-source community MCP servers (e.g. GitHub, Shopify Dev, Slack).
-  - **No Known MCP**: **30 applications** currently have zero discovered public MCP servers.
+The Model Context Protocol (MCP) ecosystem breaks down into four distinct tiers across the 100 applications:
+1. **Official Vendor-Maintained MCP Servers**: **5 applications (5.0%)** — Cloudflare, Netlify, Sentry, Apify, and Firecrawl maintain first-party MCP repositories.
+2. **Community / Reference MCP Servers**: **7 applications (7.0%)** — GitHub (Anthropic reference), Slack (Anthropic reference), Shopify (Dev AI Toolkit), Supabase, Linear, Notion, and Stripe.
+3. **Composio Managed MCP Bridge**: **54 applications (54.0%)** — Supported natively via Composio toolkits, which can be served as MCP servers to clients like Claude Desktop or Cursor.
+4. **No Known MCP Server**: **34 applications (34.0%)** — Neither an independent MCP server nor a native Composio toolkit currently exists.
 
 ### 9. How many are already supported by Composio?
-- **66 applications (66.0%)** are already natively supported in Composio's official catalog.
-- These applications feature verified slugs (e.g., `github`, `slack`, `salesforce`, `hubspot`, `zendesk`, `notion`, `linear`, `stripe`) and pre-built action schemas (e.g. `GITHUB_CREATE_AN_ISSUE`, `SLACK_SEND_MESSAGE`, `STRIPE_CREATE_CUSTOMER`).
+- **66 applications (66.0%)** are natively supported in Composio's verified catalog.
+- These applications feature verified slugs (e.g. `github`, `slack`, `salesforce`, `hubspot`, `zendesk`, `notion`, `linear`, `stripe`) and pre-built action schemas (e.g. `GITHUB_CREATE_AN_ISSUE`, `SLACK_SEND_MESSAGE`, `STRIPE_CREATE_CUSTOMER`).
 
 ### 10. Which applications are easiest to integrate?
-The top "Easy Wins" (high feasibility scores 8.5 – 9.5/10.0, self-serve credentials, turnkey Composio toolkits, broad APIs):
-1. **GitHub** (Score: 9.0) — Broad REST & GraphQL APIs, free PATs, instant Composio actions.
+The top "Easy Wins" (high feasibility scores 8.5 – 9.0/10.0, self-serve credentials, turnkey Composio toolkits, broad APIs):
+1. **GitHub** (Score: 9.0) — Broad REST & GraphQL APIs, free PATs, 800+ Composio actions.
 2. **Shopify** (Score: 8.5) — Free Partner development stores, rich GraphQL/REST APIs, pre-built Composio tools.
 3. **Twenty** (Score: 9.0) — Open-source modern CRM, self-hosted or free cloud tier, open REST APIs.
 4. **Notion** (Score: 8.5) — Turnkey internal integrations, clear token management, native Composio actions.
@@ -98,18 +107,18 @@ The top "Easy Wins" (high feasibility scores 8.5 – 9.5/10.0, self-serve creden
 
 ### 14. Which categories offer the best integration opportunities?
 
-| Category | Avg Feasibility | Composio Coverage | Strategic Opportunity Assessment |
-| :--- | :---: | :---: | :--- |
-| **Developer, Infra & Data** | **7.1 / 10** | **9 / 10 (90%)** | **Prime Opportunity**: High developer demand, standardized REST/GraphQL, instant agent ROI (CI/CD, logs, error monitoring). |
-| **Productivity & Project Mgmt** | **6.9 / 10** | **10 / 10 (100%)** | **Immediate Core**: Universal knowledge worker demand, 100% Composio support, high user adoption. |
-| **Data, SEO & Scraping** | **6.8 / 10** | **5 / 10 (50%)** | **High Growth**: AI agents require live web context; integrating Firecrawl, Apify, and Bright Data gives agents eyes on the web. |
-| **Ecommerce** | **6.6 / 10** | **5 / 10 (50%)** | **High Commercial Value**: Agentic commerce (order lookups, inventory management) represents massive enterprise budget. |
-| **CRM & Sales** | **6.6 / 10** | **9 / 10 (90%)** | **Enterprise Bedrock**: High contract value; Composio already covers 9/10 platforms. |
-| **Communications & Messaging** | **6.5 / 10** | **7 / 10 (70%)** | **Human-in-the-Loop Hub**: Chatbots, approval notifications, and interactive triage. |
-| **Support & Helpdesk** | **6.2 / 10** | **9 / 10 (90%)** | **High Agent Utility**: Autonomous customer ticket resolution and triage. |
-| **Marketing & Social** | **6.2 / 10** | **5 / 10 (50%)** | **Content & Campaign Ops**: Email generation, ad campaign telemetry. |
-| **Finance & Fintech** | **6.0 / 10** | **7 / 10 (70%)** | **High Value, High Gate**: Invoicing and accounting tools are turnkey; banking/investing require partner compliance. |
-| **AI, Research & Media-native**| **5.3 / 10** | **0 / 10 (0%)** | **Frontier Gap**: Emerging tools (NotebookLM, Devin, Higgsfield) lack public APIs; prime candidates for browser agent automation. |
+| Category | Avg Feasibility | Composio Coverage | Documented REST | Strategic Opportunity Assessment |
+| :--- | :---: | :---: | :---: | :--- |
+| **Developer, Infra & Data** | **7.1 / 10** | **9 / 10 (90%)** | 6 / 10 | **Prime Opportunity**: High developer demand, standardized REST/GraphQL, instant agent ROI (CI/CD, logs, error monitoring). |
+| **Productivity & Project Mgmt** | **6.9 / 10** | **10 / 10 (100%)** | 4 / 10 | **Immediate Core**: Universal knowledge worker demand, 100% Composio support, high user adoption. |
+| **Data, SEO & Scraping** | **6.8 / 10** | **5 / 10 (50%)** | 2 / 10 | **High Growth**: AI agents require live web context; integrating Firecrawl, Apify, and Bright Data gives agents eyes on the web. |
+| **Ecommerce** | **6.6 / 10** | **5 / 10 (50%)** | 4 / 10 | **High Commercial Value**: Agentic commerce (order lookups, inventory management) represents massive enterprise budget. |
+| **CRM & Sales** | **6.6 / 10** | **9 / 10 (90%)** | 4 / 10 | **Enterprise Bedrock**: High contract value; Composio already covers 9/10 platforms. |
+| **Communications & Messaging** | **6.5 / 10** | **7 / 10 (70%)** | 3 / 10 | **Human-in-the-Loop Hub**: Chatbots, approval notifications, and interactive triage. |
+| **Support & Helpdesk** | **6.2 / 10** | **9 / 10 (90%)** | 3 / 10 | **High Agent Utility**: Autonomous customer ticket resolution and triage. |
+| **Marketing & Social** | **6.2 / 10** | **5 / 10 (50%)** | 4 / 10 | **Content & Campaign Ops**: Email generation, ad campaign telemetry. |
+| **Finance & Fintech** | **6.0 / 10** | **7 / 10 (70%)** | 1 / 10 | **High Value, High Gate**: Invoicing and accounting tools are turnkey; banking/investing require partner compliance. |
+| **AI, Research & Media-native**| **5.3 / 10** | **0 / 10 (0%)** | 0 / 10 | **Frontier Gap**: Emerging tools (NotebookLM, Devin, Higgsfield) lack public APIs; prime candidates for browser agent automation. |
 
 ---
 

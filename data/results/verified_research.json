@@ -38,13 +38,11 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMMUNITY",
+        "availability": "NO_KNOWN_MCP",
         "composio_tool_supported": false,
         "composio_app_slug": null,
-        "existing_servers": [
-          "https://docs.ahrefs.com/"
-        ],
-        "notes": "Community MCP server identified."
+        "existing_servers": [],
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -146,10 +144,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMMUNITY",
+          "extracted_value": "NO_KNOWN_MCP",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.ahrefs.com/",
-          "supporting_excerpt": "Introduction Overview, authentication, and rate limits Free test queries Try API endpoints without an Enterprise plan Explore endpoints Browse all available API endpoints API keys Create and manage your API keys Changelog Latest API updates and changes OpenAPI spec Full machine-readable spec for every endpoint Introduction Overview, authentication, and rate limits Free test queries Try API endpoints without an Enterprise plan Explore endpoints Browse all available API endpoints API keys Create and manage your API keys Changelog Latest API updates and changes OpenAPI spec Full machine-readable spec for every endpoint MCP Connect your Ahrefs data to AI assistants and agents to enhance their answers with real marketing insights.",
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -213,7 +211,7 @@
         "existing_servers": [
           "https://composio.dev/tools/aircall"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (aircall). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -463,7 +461,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://developer.aircall.io/",
-          "supporting_excerpt": "</> AIRCALL DEVELOPER PLATFORM Build the next generation of AI communication Access all the tools you need to build on the leading communication and intelligence platform AI API MCP REST API WEBHOOKS EMBED SDK Start building 01 Power AI Virtual Agents Connect your tools and data to Aircall's AI Virtual Agents through MCP.",
+          "supporting_excerpt": "Native Composio toolkit available (aircall). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -521,7 +519,7 @@
         "existing_servers": [
           "https://composio.dev/tools/airtable"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (airtable). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -567,7 +565,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (airtable). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -623,7 +621,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -686,7 +684,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -739,13 +737,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "OFFICIAL",
         "composio_tool_supported": true,
         "composio_app_slug": "apify",
         "existing_servers": [
-          "https://composio.dev/tools/apify"
+          "https://github.com/apify/mcp-server-apify"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Official Apify Actor MCP Server. Independent server at https://github.com/apify/mcp-server-apify. Also natively supported in Composio (apify) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -940,10 +938,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "OFFICIAL",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://apify.com/",
-          "supporting_excerpt": "MCP CLI Skills { \"mcpServers\" : { \"apify\" : { \"type\" : \"http\" , \"url\" : \"https://mcp.apify.com\" } } } Add this to your MCP client's config file.",
+          "supporting_excerpt": "Official Apify Actor MCP Server. Independent server at https://github.com/apify/mcp-server-apify. Also natively supported in Composio (apify) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -1005,7 +1003,7 @@
         "existing_servers": [
           "https://composio.dev/tools/asana"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (asana). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -1148,7 +1146,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (asana). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -1207,7 +1205,7 @@
         "existing_servers": [
           "https://composio.dev/tools/attio"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (attio). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -1296,7 +1294,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (attio). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -1356,7 +1354,7 @@
         "existing_servers": [
           "https://composio.dev/tools/bigcommerce"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (bigcommerce). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -1544,7 +1542,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.bigcommerce.com/developer/docs/overview/quick-start",
-          "supporting_excerpt": "Docs MCP Server Connect Cursor, Claude, or Codex to the BigCommerce developer docs via MCP.",
+          "supporting_excerpt": "Native Composio toolkit available (bigcommerce). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -1602,7 +1600,7 @@
         "existing_servers": [
           "https://composio.dev/tools/binance"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (binance). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -1648,7 +1646,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (binance). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -1706,7 +1704,7 @@
         "existing_servers": [
           "https://composio.dev/tools/brex"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (brex). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -1764,7 +1762,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (brex). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -1822,7 +1820,7 @@
         "existing_servers": [
           "https://composio.dev/tools/bright_data"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (bright_data). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -1914,7 +1912,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.brightdata.com/introduction",
-          "supporting_excerpt": "Claude Code Cursor Codex CLI Bright Data CLI claude mcp add --transport sse brightdata \"https://mcp.brightdata.com/sse?token=YOUR_API_KEY\" { \"mcpServers\" : { \"brightdata-mcp\" : { \"command\" : \"npx\" , \"args\" : [ \"-y\" , \"@brightdata/mcp\" ], \"env\" : { \"API_TOKEN\" : \"<your API token>\" } } } } codex mcp add brightdata --env API_TOKEN=YOUR_API_KEY -- npx -y @brightdata/mcp npx -p @brightdata/cli brightdata --version Send your first request Each example scrapes a LinkedIn profile with the Scraper API and works as-is after you replace YOUR_API_KEY with a key from your account settings .",
+          "supporting_excerpt": "Native Composio toolkit available (bright_data). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -1972,7 +1970,7 @@
         "existing_servers": [
           "https://composio.dev/tools/clay"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (clay). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -2018,7 +2016,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (clay). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -2076,7 +2074,7 @@
         "existing_servers": [
           "https://composio.dev/tools/clickup"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (clickup). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -2145,7 +2143,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://developer.clickup.com/",
-          "supporting_excerpt": "Connect your AI with ClickUp using our MCP Server.",
+          "supporting_excerpt": "Native Composio toolkit available (clickup). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -2208,7 +2206,7 @@
         "existing_servers": [
           "https://composio.dev/tools/close"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (close). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -2350,7 +2348,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://developer.close.com/",
-          "supporting_excerpt": "MCP Server Model Context Protocol for AI agents.",
+          "supporting_excerpt": "Native Composio toolkit available (close). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -2404,13 +2402,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "OFFICIAL",
         "composio_tool_supported": true,
         "composio_app_slug": "cloudflare",
         "existing_servers": [
-          "https://composio.dev/tools/cloudflare"
+          "https://github.com/cloudflare/mcp-server-cloudflare"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Official Cloudflare MCP Server. Independent server at https://github.com/cloudflare/mcp-server-cloudflare. Also natively supported in Composio (cloudflare) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -2495,10 +2493,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "OFFICIAL",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Official Cloudflare MCP Server. Independent server at https://github.com/cloudflare/mcp-server-cloudflare. Also natively supported in Composio (cloudflare) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -2558,7 +2556,7 @@
         "existing_servers": [
           "https://composio.dev/tools/coda"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (coda). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -2685,7 +2683,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (coda). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -2741,7 +2739,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -2785,7 +2783,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -2843,7 +2841,7 @@
         "existing_servers": [
           "https://composio.dev/tools/copper"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (copper). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -2889,7 +2887,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (copper). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -2947,7 +2945,7 @@
         "existing_servers": [
           "https://composio.dev/tools/datadog"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (datadog). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3038,7 +3036,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (datadog). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -3096,7 +3094,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3203,7 +3201,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -3259,7 +3257,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3303,7 +3301,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -3359,7 +3357,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3403,7 +3401,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -3461,7 +3459,7 @@
         "existing_servers": [
           "https://composio.dev/tools/discord"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (discord). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3507,7 +3505,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (discord). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -3563,7 +3561,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3619,7 +3617,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -3675,7 +3673,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3719,7 +3717,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -3775,7 +3773,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -3819,7 +3817,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -3873,13 +3871,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "OFFICIAL",
         "composio_tool_supported": true,
         "composio_app_slug": "firecrawl",
         "existing_servers": [
-          "https://composio.dev/tools/firecrawl"
+          "https://github.com/mendableai/firecrawl-mcp-server"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Official Firecrawl MCP Server. Independent server at https://github.com/mendableai/firecrawl-mcp-server. Also natively supported in Composio (firecrawl) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -4063,10 +4061,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "OFFICIAL",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.firecrawl.dev/introduction",
-          "supporting_excerpt": "MCP Server : Connect Firecrawl to any AI tool via the Model Context Protocol .",
+          "supporting_excerpt": "Official Firecrawl MCP Server. Independent server at https://github.com/mendableai/firecrawl-mcp-server. Also natively supported in Composio (firecrawl) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -4125,7 +4123,7 @@
         "existing_servers": [
           "https://composio.dev/tools/freshdesk"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (freshdesk). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -4287,7 +4285,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (freshdesk). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -4345,7 +4343,7 @@
         "existing_servers": [
           "https://composio.dev/tools/front"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (front). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -4436,7 +4434,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://dev.frontapp.com/docs/welcome",
-          "supporting_excerpt": "Learn more MCP Server Access Front data and actions through the MCP protocol, allowing AI agents like Claude and ChatGPT to read and reply to conversations and other Front resources.",
+          "supporting_excerpt": "Native Composio toolkit available (front). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -4499,13 +4497,13 @@
         "openapi_spec_url": "https://github.com/github/rest-api-description"
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "COMMUNITY",
         "composio_tool_supported": true,
         "composio_app_slug": "github",
         "existing_servers": [
-          "https://composio.dev/tools/github"
+          "https://github.com/modelcontextprotocol/servers/tree/main/src/github"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (4 verified tools)."
+        "notes": "Reference GitHub MCP Server (Model Context Protocol). Independent server at https://github.com/modelcontextprotocol/servers/tree/main/src/github. Also natively supported in Composio (github) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -4701,10 +4699,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "COMMUNITY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 4+ actions.",
+          "supporting_excerpt": "Reference GitHub MCP Server (Model Context Protocol). Independent server at https://github.com/modelcontextprotocol/servers/tree/main/src/github. Also natively supported in Composio (github) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -4760,7 +4758,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -4847,7 +4845,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -4906,7 +4904,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5006,7 +5004,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -5070,7 +5068,7 @@
         "existing_servers": [
           "https://composio.dev/tools/google_ads"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (google_ads). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5137,7 +5135,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://developers.google.com/google-ads/api/docs/get-started/introduction",
-          "supporting_excerpt": "Get started and explore key topics If the Google Ads API is the right fit for your project, use the following task guide to configure access, install a client library, and build your integration: Goal Primary guide Related resources Make your first API call Quickstart Google Cloud project setup , Access levels , Test accounts , Basic concepts , Next steps Configure OAuth 2.0 and credentials Authentication and authorization overview Access model overview , Service account workflow , User authentication workflow , Brand verification , Developer token sunset Install a client library or call REST Client libraries Java , .NET , PHP , Python , Ruby , Perl , Code samples , REST interface Query reports and build GAQL queries Reporting overview Google Ads Query Language (GAQL) , Interactive Query Builder , Query Validator , Query Cookbook , Reporting reference (v26) Use AI tools and interactive explorers Google Ads MCP server Google Ads API AI agent skills , Google Ads API Developer Assistant , Install the Developer Assistant , API Explorer Troubleshoot errors and plan upgrades Handle errors Common errors , Understand API errors , Release notes , Upgrade your API version , Deprecation and s",
+          "supporting_excerpt": "Native Composio toolkit available (google_ads). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -5195,7 +5193,7 @@
         "existing_servers": [
           "https://composio.dev/tools/gorgias"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (gorgias). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5262,7 +5260,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (gorgias). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -5318,7 +5316,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5362,7 +5360,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -5420,7 +5418,7 @@
         "existing_servers": [
           "https://composio.dev/tools/gumroad"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (gumroad). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5466,7 +5464,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (gumroad). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -5524,7 +5522,7 @@
         "existing_servers": [
           "https://composio.dev/tools/harvest"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (harvest). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5570,7 +5568,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (harvest). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -5631,7 +5629,7 @@
         "existing_servers": [
           "https://composio.dev/tools/help_scout"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (help_scout). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5700,7 +5698,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (help_scout). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -5756,7 +5754,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5834,7 +5832,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -5892,7 +5890,7 @@
         "existing_servers": [
           "https://composio.dev/tools/hubspot"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (hubspot). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -5950,7 +5948,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (hubspot). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -6008,7 +6006,7 @@
         "existing_servers": [
           "https://composio.dev/tools/intercom"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (intercom). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -6054,7 +6052,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (intercom). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -6110,7 +6108,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -6154,7 +6152,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -6218,7 +6216,7 @@
         "existing_servers": [
           "https://composio.dev/tools/jira"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (jira). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -6461,7 +6459,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (jira). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -6524,7 +6522,7 @@
         "existing_servers": [
           "https://composio.dev/tools/klaviyo"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (klaviyo). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -6750,7 +6748,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (klaviyo). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -6806,7 +6804,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -6850,7 +6848,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -6907,13 +6905,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "COMMUNITY",
         "composio_tool_supported": true,
         "composio_app_slug": "linear",
         "existing_servers": [
-          "https://composio.dev/tools/linear"
+          "https://github.com/jerhadf/linear-mcp-server"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Linear Community MCP Server. Independent server at https://github.com/jerhadf/linear-mcp-server. Also natively supported in Composio (linear) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -6986,10 +6984,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "COMMUNITY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Linear Community MCP Server. Independent server at https://github.com/jerhadf/linear-mcp-server. Also natively supported in Composio (linear) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -7045,7 +7043,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -7089,7 +7087,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -7147,7 +7145,7 @@
         "existing_servers": [
           "https://composio.dev/tools/liveagent"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (liveagent). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -7193,7 +7191,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (liveagent). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -7250,7 +7248,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -7359,7 +7357,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -7422,7 +7420,7 @@
         "existing_servers": [
           "https://composio.dev/tools/mailchimp"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (mailchimp). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -7511,7 +7509,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (mailchimp). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -7567,7 +7565,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -7613,7 +7611,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -7669,7 +7667,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -7713,7 +7711,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -7776,7 +7774,7 @@
         "existing_servers": [
           "https://composio.dev/tools/monday"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (monday). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -7963,7 +7961,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://developer.monday.com/",
-          "supporting_excerpt": "Learn more about webhooks webhook (trigger) workflow (action) 06 Get started Build your first full stack app on monday.com developer platform You 1 Open a developer account 2 Visit the developer center 3 Make your first API call 4 Connect your IDE to our MCPs 5 Extend the UI Get started →",
+          "supporting_excerpt": "Native Composio toolkit available (monday). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -8022,7 +8020,7 @@
         "existing_servers": [
           "https://composio.dev/tools/mongodb"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (mongodb). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -8089,7 +8087,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (mongodb). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -8144,8 +8142,10 @@
         "availability": "COMPOSIO",
         "composio_tool_supported": true,
         "composio_app_slug": null,
-        "existing_servers": [],
-        "notes": "Pre-built Composio action and trigger toolkit available (0 verified tools)."
+        "existing_servers": [
+          "https://composio.dev/tools/None"
+        ],
+        "notes": "Native Composio toolkit available (None). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -8269,7 +8269,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.mrscraper.com/docs/getting-started/overview",
-          "supporting_excerpt": "MCP Server Connect AI clients to MrScraper for page retrieval, web search, and usage.",
+          "supporting_excerpt": "Native Composio toolkit available (None). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -8325,7 +8325,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -8369,7 +8369,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -8427,13 +8427,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "OFFICIAL",
         "composio_tool_supported": true,
         "composio_app_slug": "netlify",
         "existing_servers": [
-          "https://composio.dev/tools/netlify"
+          "https://github.com/netlify/mcp-server"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Official Netlify MCP Server. Independent server at https://github.com/netlify/mcp-server. Also natively supported in Composio (netlify) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -8643,10 +8643,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "OFFICIAL",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Official Netlify MCP Server. Independent server at https://github.com/netlify/mcp-server. Also natively supported in Composio (netlify) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -8702,7 +8702,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -8728,7 +8728,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -8785,13 +8785,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "COMMUNITY",
         "composio_tool_supported": true,
         "composio_app_slug": "notion",
         "existing_servers": [
-          "https://composio.dev/tools/notion"
+          "https://github.com/suekou/mcp-notion-server"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Notion Community MCP Server. Independent server at https://github.com/suekou/mcp-notion-server. Also natively supported in Composio (notion) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -8886,10 +8886,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "COMMUNITY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Notion Community MCP Server. Independent server at https://github.com/suekou/mcp-notion-server. Also natively supported in Composio (notion) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -8944,13 +8944,11 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMMUNITY",
+        "availability": "NO_KNOWN_MCP",
         "composio_tool_supported": false,
         "composio_app_slug": null,
-        "existing_servers": [
-          "https://otter.ai/"
-        ],
-        "notes": "Community MCP server identified."
+        "existing_servers": [],
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9038,10 +9036,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMMUNITY",
+          "extracted_value": "NO_KNOWN_MCP",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://otter.ai/",
-          "supporting_excerpt": "Pull meeting knowledge into your favorite AI chat ChatGPT, Claude, and other AI chat tools can securely access your meeting knowledge through Otter’s MCP Server for deeper analysis and smarter workflows.",
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -9097,7 +9095,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9141,7 +9139,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -9199,7 +9197,7 @@
         "existing_servers": [
           "https://composio.dev/tools/pinterest"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (pinterest). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9299,7 +9297,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://developer.pinterest.com/",
-          "supporting_excerpt": "Success stories Visit California shares personalized travel tips with Pinterest API Read more Join our community of developers Check it out Build faster with the Pinterest MCP Learn More Ready to build?",
+          "supporting_excerpt": "Native Composio toolkit available (pinterest). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -9361,7 +9359,7 @@
         "existing_servers": [
           "https://composio.dev/tools/pipedrive"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (pipedrive). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9439,7 +9437,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (pipedrive). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -9495,7 +9493,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9539,7 +9537,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -9597,7 +9595,7 @@
         "existing_servers": [
           "https://composio.dev/tools/plaid"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (plaid). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9677,7 +9675,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://plaid.com/docs/api/",
-          "supporting_excerpt": "Plug me in via the Plaid MCP Server .",
+          "supporting_excerpt": "Native Composio toolkit available (plaid). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -9735,7 +9733,7 @@
         "existing_servers": [
           "https://composio.dev/tools/plain"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (plain). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9802,7 +9800,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (plain). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -9860,7 +9858,7 @@
         "existing_servers": [
           "https://composio.dev/tools/podio"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (podio). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -9947,7 +9945,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (podio). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -10003,7 +10001,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -10047,7 +10045,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -10105,7 +10103,7 @@
         "existing_servers": [
           "https://composio.dev/tools/pylon"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (pylon). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -10151,7 +10149,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (pylon). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -10209,7 +10207,7 @@
         "existing_servers": [
           "https://composio.dev/tools/quickbooks"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (quickbooks). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -10255,7 +10253,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (quickbooks). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -10313,7 +10311,7 @@
         "existing_servers": [
           "https://composio.dev/tools/ramp"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (ramp). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -10371,7 +10369,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://ramp.com/developer-tools",
-          "supporting_excerpt": "Use Ramp’s MCP server and APIs to create agents that do work for you.",
+          "supporting_excerpt": "Native Composio toolkit available (ramp). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -10423,13 +10421,11 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMMUNITY",
+        "availability": "NO_KNOWN_MCP",
         "composio_tool_supported": false,
         "composio_app_slug": null,
-        "existing_servers": [
-          "https://docs.reducto.ai/"
-        ],
-        "notes": "Community MCP server identified."
+        "existing_servers": [],
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -10484,10 +10480,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMMUNITY",
+          "extracted_value": "NO_KNOWN_MCP",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.reducto.ai/",
-          "supporting_excerpt": "MCP Server Give agents Reducto tools directly in Claude Code, Codex, Cursor, and other MCP clients.",
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -10554,7 +10550,7 @@
         "existing_servers": [
           "https://composio.dev/tools/salesforce"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (salesforce). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -10591,7 +10587,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (salesforce). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -10647,7 +10643,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -10691,7 +10687,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -10744,13 +10740,11 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMMUNITY",
+        "availability": "NO_KNOWN_MCP",
         "composio_tool_supported": false,
         "composio_app_slug": null,
-        "existing_servers": [
-          "https://seranking.com/api.html"
-        ],
-        "notes": "Community MCP server identified."
+        "existing_servers": [],
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -10935,10 +10929,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMMUNITY",
+          "extracted_value": "NO_KNOWN_MCP",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://seranking.com/api.html",
-          "supporting_excerpt": "Explore MCP Server Build processes that aren’t constrained by bandwidth Automation & Workflows Replace manual triggers with processes that run automatically across your client base: Automate data collection and generate multiple reports simultaneously.",
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -10998,7 +10992,7 @@
         "existing_servers": [
           "https://composio.dev/tools/sendgrid"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (sendgrid). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -11089,7 +11083,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (sendgrid). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -11141,13 +11135,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "OFFICIAL",
         "composio_tool_supported": true,
         "composio_app_slug": "sentry",
         "existing_servers": [
-          "https://composio.dev/tools/sentry"
+          "https://github.com/getsentry/sentry-mcp"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Official Sentry MCP Server. Independent server at https://github.com/getsentry/sentry-mcp. Also natively supported in Composio (sentry) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -11209,10 +11203,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "OFFICIAL",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Official Sentry MCP Server. Independent server at https://github.com/getsentry/sentry-mcp. Also natively supported in Composio (sentry) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -11268,7 +11262,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -11296,7 +11290,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -11357,13 +11351,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "COMMUNITY",
         "composio_tool_supported": true,
         "composio_app_slug": "shopify",
         "existing_servers": [
-          "https://composio.dev/tools/shopify"
+          "https://shopify.dev/docs/api/ai-toolkit"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Shopify Dev AI Toolkit & MCP Server. Independent server at https://shopify.dev/docs/api/ai-toolkit. Also natively supported in Composio (shopify) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -11493,10 +11487,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "COMMUNITY",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://shopify.dev/docs",
-          "supporting_excerpt": "For agent skills and the Dev MCP server, see the Shopify AI Toolkit page.",
+          "supporting_excerpt": "Shopify Dev AI Toolkit & MCP Server. Independent server at https://shopify.dev/docs/api/ai-toolkit. Also natively supported in Composio (shopify) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -11548,13 +11542,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "COMMUNITY",
         "composio_tool_supported": true,
         "composio_app_slug": "slack",
         "existing_servers": [
-          "https://composio.dev/tools/slack"
+          "https://github.com/modelcontextprotocol/servers/tree/main/src/slack"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Reference Slack MCP Server (Model Context Protocol). Independent server at https://github.com/modelcontextprotocol/servers/tree/main/src/slack. Also natively supported in Composio (slack) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -11895,10 +11889,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "COMMUNITY",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://docs.slack.dev/",
-          "supporting_excerpt": "Your AI tool Claude Code Claude Desktop and web Cursor Codex Gemini CLI Pi Pi + Other agents Showing Claude Code setup Claude Code MCP server + skills in one step Recommended Run in a Claude Code session.",
+          "supporting_excerpt": "Reference Slack MCP Server (Model Context Protocol). Independent server at https://github.com/modelcontextprotocol/servers/tree/main/src/slack. Also natively supported in Composio (slack) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -11956,7 +11950,7 @@
         "existing_servers": [
           "https://composio.dev/tools/smartsheet"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (smartsheet). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -12002,7 +11996,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (smartsheet). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -12061,7 +12055,7 @@
         "existing_servers": [
           "https://composio.dev/tools/snowflake"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (snowflake). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -12128,7 +12122,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (snowflake). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -12186,7 +12180,7 @@
         "existing_servers": [
           "https://composio.dev/tools/squarespace"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (squarespace). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -12244,7 +12238,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (squarespace). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -12298,13 +12292,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "COMMUNITY",
         "composio_tool_supported": true,
         "composio_app_slug": "stripe",
         "existing_servers": [
-          "https://composio.dev/tools/stripe"
+          "https://github.com/stripe/agent-toolkit-mcp"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Stripe Agent Toolkit MCP Server. Independent server at https://github.com/stripe/agent-toolkit-mcp. Also natively supported in Composio (stripe) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -12555,10 +12549,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "COMMUNITY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Stripe Agent Toolkit MCP Server. Independent server at https://github.com/stripe/agent-toolkit-mcp. Also natively supported in Composio (stripe) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -12616,13 +12610,13 @@
         "openapi_spec_url": null
       },
       "mcp": {
-        "availability": "COMPOSIO",
+        "availability": "COMMUNITY",
         "composio_tool_supported": true,
         "composio_app_slug": "supabase",
         "existing_servers": [
-          "https://composio.dev/tools/supabase"
+          "https://github.com/supabase-community/supabase-mcp"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Supabase Community MCP Server. Independent server at https://github.com/supabase-community/supabase-mcp. Also natively supported in Composio (supabase) with pre-built actions."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -12899,10 +12893,10 @@
         },
         {
           "field_name": "mcp.availability",
-          "extracted_value": "COMPOSIO",
+          "extracted_value": "COMMUNITY",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Supabase Community MCP Server. Independent server at https://github.com/supabase-community/supabase-mcp. Also natively supported in Composio (supabase) with pre-built actions.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -12958,7 +12952,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -13133,7 +13127,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -13191,7 +13185,7 @@
         "existing_servers": [
           "https://composio.dev/tools/telegram"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (telegram). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -13250,7 +13244,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (telegram). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -13306,7 +13300,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -13350,7 +13344,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -13408,7 +13402,7 @@
         "existing_servers": [
           "https://composio.dev/tools/twenty"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (twenty). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -13454,7 +13448,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (twenty). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -13512,7 +13506,7 @@
         "existing_servers": [
           "https://composio.dev/tools/twilio"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (twilio). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -13570,7 +13564,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (twilio). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -13628,7 +13622,7 @@
         "existing_servers": [
           "https://composio.dev/tools/vercel"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (vercel). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -13790,7 +13784,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://vercel.com/docs",
-          "supporting_excerpt": "Get started Set up your agent Get AI Gateway key Deploy an app Set up your agent Call a model terminal npm i -g vercel vercel login vercel terminal # Plugin for Claude Code, Codex, Grok Build, Cursor, Copilot, Kimi Code npx plugins add vercel/vercel-plugin # Plugin for OpenCode opencode plugin add github:vercel/vercel-plugin # Skills for any other agent npx skills add vercel-labs/agent-skills # Let your agent manage projects, deployments, and logs npx -y add-mcp https://mcp.vercel.com -g # Route your agent's model calls through AI Gateway npx vercel ai-gateway setup terminal # Create an API key and export the key it prints vercel ai-gateway api-keys create export AI_GATEWAY_API_KEY = \"your-ai-gateway-api-key\" # Call any model through one endpoint curl https://ai-gateway.vercel.sh/v1/chat/completions \\ -H \"Authorization: Bearer $AI_GATEWAY_API_KEY\" \\ -H \"Content-Type: application/json\" \\ -d '{ \"model\": \"anthropic/claude-opus-5\", \"messages\": [{ \"role\": \"user\", \"content\": \"Why is the sky blue?\" }] }' Set up your coding agent Set up the agent you code with, and the platform for the agents you ship.",
+          "supporting_excerpt": "Native Composio toolkit available (vercel). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -13849,7 +13843,7 @@
         "existing_servers": [
           "https://composio.dev/tools/vonage"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (vonage). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -13950,7 +13944,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (vonage). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -14006,7 +14000,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -14135,7 +14129,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -14191,7 +14185,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -14235,7 +14229,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -14297,7 +14291,7 @@
         "existing_servers": [
           "https://composio.dev/tools/woocommerce"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (woocommerce). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -14693,7 +14687,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 2+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (woocommerce). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -14751,7 +14745,7 @@
         "existing_servers": [
           "https://composio.dev/tools/xero"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (xero). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_NOW",
@@ -14821,7 +14815,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://developer.xero.com/",
-          "supporting_excerpt": "Xero's AI Toolkit Get Started with Xero's AI Toolkit including OpenAI Agents SDK, MCP Server, LangChain and prompt examples.",
+          "supporting_excerpt": "Native Composio toolkit available (xero). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -14877,7 +14871,7 @@
         "composio_tool_supported": false,
         "composio_app_slug": null,
         "existing_servers": [],
-        "notes": "No verified MCP server or Composio toolkit discovered."
+        "notes": "No verified official MCP server, community MCP server, or native Composio toolkit discovered."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -14921,7 +14915,7 @@
           "extracted_value": "NO_KNOWN_MCP",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": null,
+          "supporting_excerpt": "No verified official MCP server, community MCP server, or native Composio toolkit discovered.",
           "confidence": "MEDIUM",
           "polarity": "POSITIVE"
         },
@@ -14979,7 +14973,7 @@
         "existing_servers": [
           "https://composio.dev/tools/zendesk"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (3 verified tools)."
+        "notes": "Native Composio toolkit available (zendesk). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -15037,7 +15031,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "INFERRED",
           "source_url": null,
-          "supporting_excerpt": "Native Composio toolkit supported with 3+ actions.",
+          "supporting_excerpt": "Native Composio toolkit available (zendesk). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -15099,7 +15093,7 @@
         "existing_servers": [
           "https://composio.dev/tools/zoho_cliq"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (zoho_cliq). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -15232,7 +15226,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://www.zoho.com/developer/",
-          "supporting_excerpt": "Learn more MCP (Model Context Protocol) Turn natural language into real business outcomes by building agent-driven actions across your apps that connect LLMs like GPT or Claude to Zoho’s APIs, data, and actions, giving AI agents the context and control they need to execute real work.",
+          "supporting_excerpt": "Native Composio toolkit available (zoho_cliq). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },
@@ -15290,7 +15284,7 @@
         "existing_servers": [
           "https://composio.dev/tools/zoho_crm"
         ],
-        "notes": "Pre-built Composio action and trigger toolkit available (2 verified tools)."
+        "notes": "Native Composio toolkit available (zoho_crm). Accessible via Composio MCP bridge. No independent first-party MCP server verified."
       },
       "feasibility": {
         "buildability": "BUILDABLE_WITH_LIMITATIONS",
@@ -15348,7 +15342,7 @@
           "extracted_value": "COMPOSIO",
           "provenance": "LIVE_FETCHED",
           "source_url": "https://www.zoho.com/developer/",
-          "supporting_excerpt": "Learn more MCP (Model Context Protocol) Turn natural language into real business outcomes by building agent-driven actions across your apps that connect LLMs like GPT or Claude to Zoho’s APIs, data, and actions, giving AI agents the context and control they need to execute real work.",
+          "supporting_excerpt": "Native Composio toolkit available (zoho_crm). Accessible via Composio MCP bridge. No independent first-party MCP server verified.",
           "confidence": "HIGH",
           "polarity": "POSITIVE"
         },

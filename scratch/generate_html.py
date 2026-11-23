@@ -324,10 +324,10 @@ html_template = """<!DOCTYPE html>
         <p>AI Product Operations Take-Home Project &bull; Composio</p>
       </div>
       <div class="badge-bar">
-        <span class="badge badge-success">100 / 100 Apps Researched</span>
+        <span class="badge badge-success">100 Canonical Apps Audited</span>
         <span class="badge badge-primary">66 Native Composio Toolkits</span>
-        <span class="badge badge-accent">395 Live HTTP 200 Citations</span>
-        <span class="badge">Zero Synthetic Data</span>
+        <span class="badge badge-accent">12 Independent MCP Servers</span>
+        <span class="badge">65 Passed Automated Checks</span>
       </div>
     </div>
   </header>
@@ -378,47 +378,59 @@ html_template = """<!DOCTYPE html>
           <div class="bar-row">
             <span class="bar-label">OAuth 2.0</span>
             <div class="bar-track"><div class="bar-fill" style="width: 20%; background: #6366f1;"></div></div>
-            <span class="bar-value">20 (20%)</span>
+            <span class="bar-value">20 (30.3%*)</span>
           </div>
           <div class="bar-row">
-            <span class="bar-label">API Key / Token</span>
+            <span class="bar-label">API Key</span>
             <div class="bar-track"><div class="bar-fill" style="width: 15%; background: #38bdf8;"></div></div>
-            <span class="bar-value">15 (15%)</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">PAT (Token)</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 2%; background: #10b981;"></div></div>
-            <span class="bar-value">2 (2%)</span>
+            <span class="bar-value">15 (22.7%*)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">CLI / Local Exec</span>
             <div class="bar-track"><div class="bar-fill" style="width: 29%; background: #f59e0b;"></div></div>
-            <span class="bar-value">29 (29%)</span>
+            <span class="bar-value">29 (43.9%*)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">PAT (Token)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 2%; background: #10b981;"></div></div>
+            <span class="bar-value">2 (3.0%*)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Unverified / WAF Gated</span>
             <div class="bar-track"><div class="bar-fill" style="width: 34%; background: #64748b;"></div></div>
-            <span class="bar-value">34 (34%)</span>
+            <span class="bar-value">34 (34.0%)</span>
           </div>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">*Percentages with asterisk exclude 34 unverified records from denominator (N=66 known).</p>
         </div>
 
         <div class="chart-box">
-          <h3>Composio & MCP Availability (100 Apps)</h3>
+          <h3>Composio & Independent MCP Taxonomy (100 Apps)</h3>
           <div class="bar-row">
-            <span class="bar-label">Composio Native Tool</span>
+            <span class="bar-label">Native Composio Toolkit</span>
             <div class="bar-track"><div class="bar-fill" style="width: 66%; background: #38bdf8;"></div></div>
-            <span class="bar-value">66 (66%)</span>
+            <span class="bar-value">66 (66.0%)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Composio Bridge Only</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 54%; background: #818cf8;"></div></div>
+            <span class="bar-value">54 (54.0%)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Official Vendor MCP</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 5%; background: #10b981;"></div></div>
+            <span class="bar-value">5 (5.0%)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Community MCP Server</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 4%; background: #10b981;"></div></div>
-            <span class="bar-value">4 (4%)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 7%; background: #34d399;"></div></div>
+            <span class="bar-value">7 (7.0%)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">No Known MCP Server</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 30%; background: #64748b;"></div></div>
-            <span class="bar-value">30 (30%)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 34%; background: #64748b;"></div></div>
+            <span class="bar-value">34 (34.0%)</span>
           </div>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">Composio natively supports 66 toolkits; 12 platforms also feature separate independent MCP servers.</p>
         </div>
       </div>
 
@@ -504,10 +516,16 @@ html_template = """<!DOCTYPE html>
             <option value="">All Categories (10)</option>
           </select>
           <select id="composio-filter" class="filter-select" onchange="filterApps()">
-            <option value="">All MCP / Composio Status</option>
-            <option value="COMPOSIO">Composio Supported</option>
-            <option value="COMMUNITY">Community MCP</option>
-            <option value="NO_KNOWN_MCP">No Known MCP</option>
+            <option value="">All MCP Availability (100)</option>
+            <option value="COMPOSIO">Composio Bridge Only (54)</option>
+            <option value="OFFICIAL">Official Vendor MCP (5)</option>
+            <option value="COMMUNITY">Community / Reference MCP (7)</option>
+            <option value="NO_KNOWN_MCP">No Known MCP (34)</option>
+          </select>
+          <select id="toolkit-filter" class="filter-select" onchange="filterApps()">
+            <option value="">All Composio Toolkits</option>
+            <option value="true">Native Composio Toolkit (66)</option>
+            <option value="false">No Native Toolkit (34)</option>
           </select>
           <select id="feasibility-filter" class="filter-select" onchange="filterApps()">
             <option value="">All Feasibilities</option>
@@ -717,6 +735,7 @@ html_template = """<!DOCTYPE html>
       const q = document.getElementById('search-input').value.toLowerCase().trim();
       const catFilter = document.getElementById('category-filter').value;
       const compFilter = document.getElementById('composio-filter').value;
+      const toolkitFilter = document.getElementById('toolkit-filter').value;
       const feasFilter = document.getElementById('feasibility-filter').value;
 
       const tbody = document.getElementById('apps-table-body');
@@ -726,8 +745,9 @@ html_template = """<!DOCTYPE html>
         const matchesQuery = !q || app.name.toLowerCase().includes(q) || app.app_id.toLowerCase().includes(q) || (app.one_line_description || '').toLowerCase().includes(q);
         const matchesCat = !catFilter || app.category === catFilter;
         const matchesComp = !compFilter || (app.mcp && app.mcp.availability === compFilter);
+        const matchesToolkit = !toolkitFilter || (toolkitFilter === 'true' ? (app.mcp && app.mcp.composio_tool_supported) : !(app.mcp && app.mcp.composio_tool_supported));
         const matchesFeas = !feasFilter || (app.feasibility && app.feasibility.buildability === feasFilter);
-        return matchesQuery && matchesCat && matchesComp && matchesFeas;
+        return matchesQuery && matchesCat && matchesComp && matchesToolkit && matchesFeas;
       });
 
       filtered.forEach(app => {
