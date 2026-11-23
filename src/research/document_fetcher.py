@@ -111,7 +111,7 @@ class DocumentFetcher:
 
     def __init__(
         self,
-        timeout: float = 15.0,
+        timeout: float = 6.0,
         allow_mock_kb: bool = False,
         max_redirects: int = 5,
     ) -> None:

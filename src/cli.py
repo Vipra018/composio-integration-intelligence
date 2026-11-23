@@ -139,7 +139,7 @@ def handle_research(args: argparse.Namespace, orchestrator: ResearchOrchestrator
 
     if args.all:
         print("\nInitiating FULL research run for all 100 applications ...")
-        results = orchestrator.research_all(force=args.force)
+        results = orchestrator.research_all(force=args.force, output_filepath=args.output)
         print(f"\nFull dataset research complete. {len(results)} applications evaluated.")
         return 0
 

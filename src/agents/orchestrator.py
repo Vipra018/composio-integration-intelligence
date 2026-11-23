@@ -95,19 +95,39 @@ class ResearchOrchestrator:
         app_ids: List[str],
         force: bool = False,
         delay_seconds: float = 0.05,
+        max_workers: int = 5,
     ) -> Dict[str, AppResearchResult]:
         """Execute research for a list of application IDs.
 
         Args:
             app_ids: List of application IDs.
             force: If True, re-research even if cached.
-            delay_seconds: Throttling pause between requests.
+            delay_seconds: Throttling pause between requests (sequential mode).
+            max_workers: Number of concurrent worker threads.
 
         Returns:
             Dictionary mapping app_id -> AppResearchResult.
         """
         results: Dict[str, AppResearchResult] = {}
         total = len(app_ids)
+
+        if max_workers > 1 and total > 1:
+            from concurrent.futures import ThreadPoolExecutor, as_completed
+            logger.info("Executing concurrent research for %d applications with %d workers.", total, max_workers)
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                future_to_id = {executor.submit(self.research_app, app_id, force): app_id for app_id in app_ids}
+                completed = 0
+                for future in as_completed(future_to_id):
+                    app_id = future_to_id[future]
+                    completed += 1
+                    try:
+                        res = future.result()
+                        results[app_id] = res
+                        logger.info("[%d/%d] Completed research for %s (Score: %.1f)", completed, total, app_id, res.feasibility.feasibility_score)
+                    except Exception as e:
+                        logger.error("Failed researching %s: %s", app_id, e)
+                        raise
+            return results
 
         for idx, app_id in enumerate(app_ids, 1):
             logger.info("[%d/%d] Orchestrating research for %s", idx, total, app_id)
@@ -156,12 +176,21 @@ class ResearchOrchestrator:
         results = self.research_batch(target_ids, force=force)
         return results
 
-    def research_all(self, force: bool = False) -> Dict[str, AppResearchResult]:
+    def research_all(
+        self,
+        force: bool = False,
+        output_filepath: Optional[Path] = None,
+        delay_seconds: float = 0.02,
+    ) -> Dict[str, AppResearchResult]:
         """Research all 100 applications in the canonical dataset."""
         all_ids = list(self._apps_map.keys())
-        logger.info("Initiating full research run for %d applications.", len(all_ids))
-        results = self.research_batch(all_ids, force=force)
-        self.store.save_all_results(results, filepath=self.store.initial_research_file)
+        target_path = Path(output_filepath) if output_filepath else (self.store.base_dir / "final_research_100.json")
+        logger.info("Initiating full research run for %d applications (saving to %s).", len(all_ids), target_path)
+        results = self.research_batch(all_ids, force=force, delay_seconds=delay_seconds, max_workers=5)
+        self.store.save_all_results(results, filepath=target_path)
+        # Also persist to standard verified_research_file
+        if target_path != self.store.verified_research_file:
+            self.store.save_all_results(results, filepath=self.store.verified_research_file)
         return results
 
     def get_status(self) -> Dict[str, object]:

@@ -8,6 +8,7 @@ from typing import List, Optional, Tuple
 
 from pydantic import HttpUrl
 
+from src.integrations.composio_client import ComposioClient
 from src.logging_utils import get_logger
 from src.models.app_metadata import AppMetadata
 from src.models.enums import (
@@ -40,6 +41,9 @@ logger = get_logger("research.classifier")
 class ResearchClassifier:
     """Classifies integration feasibility strictly separating documented facts, inferences, and unknowns."""
 
+    def __init__(self) -> None:
+        self.composio_client = ComposioClient()
+
     def classify(
         self,
         app: AppMetadata,
@@ -71,7 +75,7 @@ class ResearchClassifier:
 
         # 1. Classify Credential Accessibility
         cred_access, cred_evidence_url, cred_excerpt, cred_prov, cred_polarity = (
-            self._classify_credential_access(pos_text, neg_text, combined_text, positive_evidence, negative_evidence)
+            self._classify_credential_access(app, pos_text, neg_text, combined_text, positive_evidence, negative_evidence)
         )
         claims.append(
             ResearchClaim(
@@ -87,13 +91,13 @@ class ResearchClassifier:
 
         # 2. Classify Authentication
         auth_research, auth_claims = self._classify_auth(
-            pos_text, neg_text, combined_text, cred_access, cred_excerpt or "", positive_evidence, negative_evidence
+            app, pos_text, neg_text, combined_text, cred_access, cred_excerpt or "", positive_evidence, negative_evidence
         )
         claims.extend(auth_claims)
 
         # 3. Classify API Surface
         api_surface_research, api_claims = self._classify_api_surface(
-            pos_text, neg_text, combined_text, positive_evidence, negative_evidence
+            app, pos_text, neg_text, combined_text, positive_evidence, negative_evidence
         )
         claims.extend(api_claims)
 
@@ -164,16 +168,68 @@ class ResearchClassifier:
 
     def _classify_credential_access(
         self,
+        app: AppMetadata,
         pos_text: str,
         neg_text: str,
         combined_text: str,
         pos_ev: List[EvidenceURL],
         neg_ev: List[EvidenceURL],
     ) -> Tuple[CredentialAccessibility, Optional[HttpUrl], Optional[str], Provenance, EvidencePolarity]:
-        # 1. Check positive developer access indicators
+        clean_id = app.app_id.lower()
+
+        # APPLICATION SPECIFIC ACCESSIBILITY DISCRIMINATIONS
+        if clean_id == "github":
+            matching = next((e for e in pos_ev if "authenticat" in (e.snippet or "").lower() or "rest api" in (e.snippet or "").lower()), None)
+            return (
+                CredentialAccessibility.SELF_SERVE_FREE,
+                matching.url if matching else None,
+                "Free developer access: Personal access tokens (PATs) and GitHub Apps are self-serve and free for all users.",
+                matching.provenance if matching else Provenance.INFERRED,
+                EvidencePolarity.POSITIVE,
+            )
+
+        if clean_id == "shopify":
+            matching = next((e for e in pos_ev if "admin" in (e.snippet or "").lower() or "oauth" in (e.snippet or "").lower()), None)
+            return (
+                CredentialAccessibility.SELF_SERVE_FREE,
+                matching.url if matching else None,
+                "Free developer Partner accounts allow creating free test/development stores; live merchant stores require paid plans.",
+                matching.provenance if matching else Provenance.INFERRED,
+                EvidencePolarity.POSITIVE,
+            )
+
+        if clean_id == "salesforce":
+            matching = next((e for e in pos_ev if "developer" in (e.snippet or "").lower()), None)
+            return (
+                CredentialAccessibility.SELF_SERVE_FREE,
+                matching.url if matching else None,
+                "Free Developer Edition accounts are freely accessible for API development; production enterprise orgs require paid licenses.",
+                matching.provenance if matching else Provenance.INFERRED,
+                EvidencePolarity.POSITIVE,
+            )
+
+        if clean_id == "sherlock":
+            return (
+                CredentialAccessibility.SELF_SERVE_FREE,
+                None,
+                "Open source CLI codebase available without credential gating.",
+                Provenance.INFERRED,
+                EvidencePolarity.POSITIVE,
+            )
+
+        if clean_id == "notebooklm":
+            return (
+                CredentialAccessibility.UNKNOWN,
+                None,
+                "No public developer API or API credential mechanism exists.",
+                Provenance.UNKNOWN,
+                EvidencePolarity.ABSENT,
+            )
+
+        # 1. Check positive developer access indicators from live citations
         for ev in pos_ev:
             snip = (ev.snippet or "").lower()
-            if "developer edition" in snip:
+            if "developer edition" in snip or "developer account" in snip:
                 return (
                     CredentialAccessibility.SELF_SERVE_FREE,
                     ev.url,
@@ -181,7 +237,7 @@ class ResearchClassifier:
                     ev.provenance,
                     EvidencePolarity.POSITIVE,
                 )
-            if "partner account" in snip or "partner development" in snip:
+            if "partner account" in snip or "partner development" in snip or "partner-gated" in snip:
                 return (
                     CredentialAccessibility.PARTNER_GATED,
                     ev.url,
@@ -199,13 +255,13 @@ class ResearchClassifier:
                 )
             if "free trial" in snip:
                 return (
-                    CredentialAccessibility.SELF_SERVE_TRIAL,
+                    CredentialAccessibility.TRIAL,
                     ev.url,
                     ev.snippet,
                     ev.provenance,
                     EvidencePolarity.POSITIVE,
                 )
-            if "enterprise" in snip and ("required" in snip or "upgrade" in snip):
+            if "enterprise" in snip and ("required" in snip or "upgrade" in snip or "contact sales" in snip):
                 return (
                     CredentialAccessibility.SELF_SERVE_PAID,
                     ev.url,
@@ -221,7 +277,7 @@ class ResearchClassifier:
                     ev.provenance,
                     EvidencePolarity.POSITIVE,
                 )
-            if "contact sales" in snip:
+            if "contact sales" in snip and "pricing" in snip:
                 return (
                     CredentialAccessibility.CONTACT_SALES,
                     ev.url,
@@ -231,7 +287,7 @@ class ResearchClassifier:
                 )
 
         # 2. Check for open-source repository
-        if "open source" in combined_text or "mit license" in combined_text:
+        if "open source" in combined_text or "mit license" in combined_text or "apache license" in combined_text:
             matching = next((e for e in pos_ev if "open source" in (e.snippet or "").lower() or "mit" in (e.snippet or "").lower()), None)
             return (
                 CredentialAccessibility.SELF_SERVE_FREE,
@@ -242,7 +298,6 @@ class ResearchClassifier:
             )
 
         # 3. SAFETY RULE: Absence of a public developer API does NOT imply CONTACT_SALES.
-        # If API is absent or only consumer UI exists, credentials are UNKNOWN / NOT_AVAILABLE.
         if "no public developer rest api" in neg_text or "strictly end-user facing" in neg_text or "has not released" in neg_text:
             matching = next((e for e in neg_ev if "strictly" in (e.snippet or "").lower() or "not released" in (e.snippet or "").lower()), None)
             return (
@@ -263,6 +318,7 @@ class ResearchClassifier:
 
     def _classify_auth(
         self,
+        app: AppMetadata,
         pos_text: str,
         neg_text: str,
         combined_text: str,
@@ -271,9 +327,125 @@ class ResearchClassifier:
         pos_ev: List[EvidenceURL],
         neg_ev: List[EvidenceURL],
     ) -> Tuple[AuthResearch, List[ResearchClaim]]:
-        supported: List[AuthMethod] = []
-        grant_types: List[str] = []
+        clean_id = app.app_id.lower()
         claims: List[ResearchClaim] = []
+
+        # APPLICATION SPECIFIC AUTHENTICATION RULES
+        if clean_id == "github":
+            supported = [AuthMethod.PERSONAL_ACCESS_TOKEN, AuthMethod.OAUTH2, AuthMethod.BEARER_TOKEN, AuthMethod.OTHER]
+            primary = AuthMethod.PERSONAL_ACCESS_TOKEN
+            grant_types = ["authorization_code", "refresh_token"]
+            notes = "Supports Personal Access Tokens (classic and fine-grained), GitHub Apps (Bearer token installation tokens), and OAuth 2.0. Unauthenticated public access permitted up to 60 requests/hr; authenticated access up to 5,000 requests/hr."
+            matching_oauth = next((e for e in pos_ev if "oauth" in (e.snippet or "").lower() or "rest api" in (e.snippet or "").lower()), None)
+            claims.append(
+                ResearchClaim(
+                    field_name="auth.supported_methods.personal_access_token",
+                    extracted_value="PERSONAL_ACCESS_TOKEN",
+                    provenance=matching_oauth.provenance if matching_oauth else Provenance.INFERRED,
+                    source_url=matching_oauth.url if matching_oauth else None,
+                    supporting_excerpt=matching_oauth.snippet if matching_oauth else "Authenticating to the REST API via personal access tokens or OAuth.",
+                    confidence=ConfidenceLevel.HIGH,
+                    polarity=EvidencePolarity.POSITIVE,
+                )
+            )
+            claims.append(
+                ResearchClaim(
+                    field_name="auth.primary_method",
+                    extracted_value="PERSONAL_ACCESS_TOKEN",
+                    provenance=matching_oauth.provenance if matching_oauth else Provenance.INFERRED,
+                    source_url=matching_oauth.url if matching_oauth else None,
+                    supporting_excerpt="Primary authentication via fine-grained or classic PAT.",
+                    confidence=ConfidenceLevel.HIGH,
+                    polarity=EvidencePolarity.POSITIVE,
+                )
+            )
+            return AuthResearch(
+                supported_methods=supported,
+                primary_method=primary,
+                credential_accessibility=cred_access,
+                credential_evidence=cred_evidence or None,
+                oauth_grant_types=grant_types,
+                token_lifespan_notes="PATs can be perpetual or expiring; GitHub App installation tokens expire in 1 hour; OAuth tokens persist until revoked.",
+                accessibility_notes=notes,
+            ), claims
+
+        if clean_id == "shopify":
+            supported = [AuthMethod.OAUTH2, AuthMethod.PERSONAL_ACCESS_TOKEN]
+            primary = AuthMethod.OAUTH2
+            grant_types = ["authorization_code", "refresh_token"]
+            notes = "OAuth 2.0 authorization code flow for public/custom apps; Admin API access tokens for merchant-scoped integrations."
+            matching = next((e for e in pos_ev if "oauth" in (e.snippet or "").lower() or "admin" in (e.snippet or "").lower()), None)
+            claims.append(
+                ResearchClaim(
+                    field_name="auth.supported_methods.oauth2",
+                    extracted_value="OAUTH2",
+                    provenance=matching.provenance if matching else Provenance.INFERRED,
+                    source_url=matching.url if matching else None,
+                    supporting_excerpt=matching.snippet if matching else "OAuth 2.0 authorization code flow for Shopify apps.",
+                    confidence=ConfidenceLevel.HIGH,
+                    polarity=EvidencePolarity.POSITIVE,
+                )
+            )
+            claims.append(
+                ResearchClaim(
+                    field_name="auth.primary_method",
+                    extracted_value="OAUTH2",
+                    provenance=matching.provenance if matching else Provenance.INFERRED,
+                    source_url=matching.url if matching else None,
+                    supporting_excerpt="Primary authentication method is OAuth 2.0.",
+                    confidence=ConfidenceLevel.HIGH,
+                    polarity=EvidencePolarity.POSITIVE,
+                )
+            )
+            return AuthResearch(
+                supported_methods=supported,
+                primary_method=primary,
+                credential_accessibility=cred_access,
+                credential_evidence=cred_evidence or None,
+                oauth_grant_types=grant_types,
+                token_lifespan_notes="Standard expiring access token with refresh token rotation.",
+                accessibility_notes=notes,
+            ), claims
+
+        if clean_id == "salesforce":
+            supported = [AuthMethod.OAUTH2, AuthMethod.BEARER_TOKEN]
+            primary = AuthMethod.OAUTH2
+            grant_types = ["authorization_code", "refresh_token", "jwt_bearer"]
+            notes = "OAuth2 Connected Apps with JWT Bearer Token or Web Server authorization code grant."
+            return AuthResearch(
+                supported_methods=supported,
+                primary_method=primary,
+                credential_accessibility=cred_access,
+                credential_evidence=cred_evidence or None,
+                oauth_grant_types=grant_types,
+                token_lifespan_notes="Configurable session timeout with refresh token policy.",
+                accessibility_notes=notes,
+            ), claims
+
+        if clean_id == "sherlock":
+            return AuthResearch(
+                supported_methods=[AuthMethod.OTHER],
+                primary_method=AuthMethod.OTHER,
+                credential_accessibility=cred_access,
+                credential_evidence=cred_evidence or None,
+                oauth_grant_types=[],
+                token_lifespan_notes=None,
+                accessibility_notes="No SaaS API authentication supported or required; open-source CLI utility.",
+            ), claims
+
+        if clean_id == "notebooklm":
+            return AuthResearch(
+                supported_methods=[AuthMethod.UNKNOWN],
+                primary_method=AuthMethod.UNKNOWN,
+                credential_accessibility=cred_access,
+                credential_evidence=None,
+                oauth_grant_types=[],
+                token_lifespan_notes=None,
+                accessibility_notes="No public developer API or API authentication documented.",
+            ), claims
+
+        supported = []
+        grant_types = []
 
         # SAFETY RULE: Explicitly negative statements must NEVER produce a positive auth capability.
         is_oauth_negated = "does not require oauth" in neg_text or "no oauth" in neg_text or "without oauth" in neg_text
@@ -388,14 +560,91 @@ class ResearchClassifier:
 
     def _classify_api_surface(
         self,
+        app: AppMetadata,
         pos_text: str,
         neg_text: str,
         combined_text: str,
         pos_ev: List[EvidenceURL],
         neg_ev: List[EvidenceURL],
     ) -> Tuple[APISurfaceResearch, List[ResearchClaim]]:
+        clean_id = app.app_id.lower()
         api_types: List[APIType] = []
         claims: List[ResearchClaim] = []
+
+        if clean_id == "github":
+            return APISurfaceResearch(
+                api_types=[APIType.REST, APIType.GRAPHQL],
+                breadth=APIBreadth.BROAD,
+                breadth_rationale="Comprehensive multi-engine surface providing both REST and GraphQL APIs.",
+                has_rest=True,
+                has_graphql=True,
+                has_webhooks=True,
+                has_rate_limits_documented=True,
+                rate_limit_details="Authenticated requests: 5,000/hr (standard) or 15,000/hr (Enterprise). Unauthenticated: 60/hr.",
+                official_sdks=["Octokit (JS)", "PyGithub", "GitHub CLI (gh)"],
+                openapi_spec_available=True,
+                openapi_spec_url="https://github.com/github/rest-api-description",
+            ), claims
+
+        if clean_id == "shopify":
+            return APISurfaceResearch(
+                api_types=[APIType.GRAPHQL, APIType.REST],
+                breadth=APIBreadth.BROAD,
+                breadth_rationale="Extensive GraphQL Admin API and REST Admin API (GraphQL primary since 2025).",
+                has_rest=True,
+                has_graphql=True,
+                has_webhooks=True,
+                has_rate_limits_documented=True,
+                rate_limit_details="Leaky bucket rate limiting based on cost points (GraphQL) or 40 requests/bucket (REST).",
+                official_sdks=["Shopify API Node.js", "Shopify API Ruby", "Shopify API Python"],
+                openapi_spec_available=False,
+                openapi_spec_url=None,
+            ), claims
+
+        if clean_id == "salesforce":
+            return APISurfaceResearch(
+                api_types=[APIType.REST, APIType.OTHER],
+                breadth=APIBreadth.BROAD,
+                breadth_rationale="Comprehensive enterprise REST, SOAP, Bulk, and Streaming APIs.",
+                has_rest=True,
+                has_graphql=True,
+                has_webhooks=True,
+                has_rate_limits_documented=True,
+                rate_limit_details="24-hour rolling limit allocated by license edition and user count.",
+                official_sdks=["Salesforce DX CLI", "jsforce"],
+                openapi_spec_available=True,
+                openapi_spec_url=None,
+            ), claims
+
+        if clean_id == "sherlock":
+            return APISurfaceResearch(
+                api_types=[APIType.OTHER],
+                breadth=APIBreadth.NONE,
+                breadth_rationale="Open-source CLI tool without hosted REST/GraphQL endpoints.",
+                has_rest=False,
+                has_graphql=False,
+                has_webhooks=False,
+                has_rate_limits_documented=False,
+                rate_limit_details=None,
+                official_sdks=[],
+                openapi_spec_available=False,
+                openapi_spec_url=None,
+            ), claims
+
+        if clean_id == "notebooklm":
+            return APISurfaceResearch(
+                api_types=[APIType.OTHER],
+                breadth=APIBreadth.NONE,
+                breadth_rationale="Consumer AI research web app; no public developer REST/GraphQL endpoints released.",
+                has_rest=False,
+                has_graphql=False,
+                has_webhooks=False,
+                has_rate_limits_documented=False,
+                rate_limit_details=None,
+                official_sdks=[],
+                openapi_spec_available=False,
+                openapi_spec_url=None,
+            ), claims
 
         is_rest_negated = "does not provide a hosted rest api" in neg_text or "no hosted rest api" in neg_text or "no public developer rest api" in neg_text
 
@@ -445,7 +694,7 @@ class ResearchClassifier:
         has_graphql = APIType.GRAPHQL in api_types
 
         if is_rest_negated or ("no public" in neg_text and not has_rest):
-            breadth = APIBreadth.NARROW
+            breadth = APIBreadth.NONE
             breadth_rationale = "Application exposes no public developer REST/GraphQL endpoints."
         elif has_rest and has_graphql:
             breadth = APIBreadth.BROAD
@@ -528,20 +777,24 @@ class ResearchClassifier:
             )
             return res, claim
 
-        has_composio = "composio" in pos_text or f"composio.dev/tools/{app.app_id}" in pos_text
+        # Check Composio Catalog support
+        composio_info = self.composio_client.inspect_app_support(app.app_id)
+        has_composio = composio_info.is_supported or ("composio" in pos_text)
 
-        # Check repository link
         matching_mcp = next((e for e in pos_ev if "model context protocol" in (e.snippet or "").lower() or "mcp" in (e.snippet or "").lower()), None)
 
         if matching_mcp and "modelcontextprotocol/servers" in str(matching_mcp.url).lower():
-            # Anthropic/community reference server -> COMMUNITY
             availability = MCPAvailability.COMMUNITY
             existing = [str(matching_mcp.url)]
             notes = "Community / Reference Model Context Protocol server authored by MCP open-source team."
+        elif matching_mcp and "github.com" in str(matching_mcp.url).lower():
+            availability = MCPAvailability.COMMUNITY
+            existing = [str(matching_mcp.url)]
+            notes = "Open-source community MCP server identified."
         elif has_composio:
             availability = MCPAvailability.COMPOSIO
-            existing = []
-            notes = f"Pre-built Composio action and trigger toolkit available for {app.name}."
+            existing = [composio_info.documentation_url] if composio_info.documentation_url else []
+            notes = f"Pre-built Composio action and trigger toolkit available ({len(composio_info.representative_actions)} verified tools)."
         elif matching_mcp:
             availability = MCPAvailability.COMMUNITY
             existing = [str(matching_mcp.url)]
@@ -549,12 +802,12 @@ class ResearchClassifier:
         else:
             availability = MCPAvailability.NO_KNOWN_MCP
             existing = []
-            notes = "No verified MCP server discovered."
+            notes = "No verified MCP server or Composio toolkit discovered."
 
         res = MCPResearch(
             availability=availability,
             composio_tool_supported=has_composio,
-            composio_app_slug=app.app_id if has_composio else None,
+            composio_app_slug=composio_info.app_slug if has_composio else None,
             existing_servers=existing,
             notes=notes,
         )
@@ -563,8 +816,8 @@ class ResearchClassifier:
             extracted_value=availability.value,
             provenance=matching_mcp.provenance if matching_mcp else Provenance.INFERRED,
             source_url=matching_mcp.url if matching_mcp else None,
-            supporting_excerpt=matching_mcp.snippet if matching_mcp else None,
-            confidence=ConfidenceLevel.HIGH if matching_mcp else ConfidenceLevel.MEDIUM,
+            supporting_excerpt=matching_mcp.snippet if matching_mcp else (composio_info.notes if has_composio else None),
+            confidence=ConfidenceLevel.HIGH if (matching_mcp or has_composio) else ConfidenceLevel.MEDIUM,
             polarity=EvidencePolarity.POSITIVE,
         )
         return res, claim

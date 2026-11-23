@@ -55,9 +55,12 @@ class AppResearcher:
 
         # 2. Fetch documents via live HTTP
         fetched_docs: List[FetchedDocument] = []
-        for url in candidate_urls[:4]:  # Top 4 candidate URLs
+        for url in candidate_urls[:3]:  # Top 3 candidate URLs
             doc = self.doc_fetcher.fetch(url)
             fetched_docs.append(doc)
+            # Stop early if we have already obtained two substantive successful documentation pages
+            if sum(1 for d in fetched_docs if d.is_success and len(d.text_content) > 500) >= 2:
+                break
 
         successful_docs = [d for d in fetched_docs if d.is_success]
         logger.info(
