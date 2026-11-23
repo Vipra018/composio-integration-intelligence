@@ -30,8 +30,9 @@ logs/
 *.log
 data/results/*
 !data/results/initial_research.json
+!data/results/stage3a_verified_research.json
 output/
-reports/
+
 
 # IDE and OS files
 .vscode/

@@ -136,3 +136,22 @@ class ConfidenceLevel(CaseInsensitiveEnum):
     MEDIUM = "MEDIUM"         # Single source or partial documentation ambiguity
     LOW = "LOW"               # Inferential, documentation incomplete, or contradictory
     UNKNOWN = "UNKNOWN"       # No reliable evidence discovered
+
+
+class Provenance(CaseInsensitiveEnum):
+    """Audit provenance of a research finding or document."""
+    LIVE_FETCHED = "LIVE_FETCHED"       # Retrieved over HTTP from external live web
+    LIVE_SEARCHED = "LIVE_SEARCHED"     # Discovered via live search engine execution
+    CACHED = "CACHED"                   # Retrieved from prior persisted execution run
+    KNOWLEDGE_BASE = "KNOWLEDGE_BASE"   # Supplied by internal hardcoded test fixture
+    INFERRED = "INFERRED"               # Derived via deterministic algorithmic rules
+    UNKNOWN = "UNKNOWN"                 # Provenance cannot be reliably verified
+
+
+class EvidencePolarity(CaseInsensitiveEnum):
+    """Semantic polarity of textual evidence supporting a claim."""
+    POSITIVE = "POSITIVE"               # Explicitly affirms capability or support
+    NEGATIVE = "NEGATIVE"               # Explicitly denies, prohibits, or notes absence
+    AMBIGUOUS = "AMBIGUOUS"             # Conditional, beta, roadmap, or conflicting
+    ABSENT = "ABSENT"                   # No statement found in analyzed documentation
+

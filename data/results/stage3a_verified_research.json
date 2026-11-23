@@ -1,0 +1,809 @@
+{
+  "count": 5,
+  "generated_at": "2026-11-23T16:35:50.001301+00:00",
+  "applications": [
+    {
+      "app_id": "github",
+      "name": "GitHub",
+      "category": "Developer, Infra and Data platforms",
+      "one_line_description": "Developer platform for distributed Git version control, pull requests, issue tracking, and CI/CD actions.",
+      "auth": {
+        "supported_methods": [
+          "OTHER"
+        ],
+        "primary_method": "OTHER",
+        "credential_accessibility": "SELF_SERVE_FREE",
+        "credential_evidence": "Authenticating to the REST API You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+        "oauth_grant_types": [],
+        "token_lifespan_notes": null,
+        "accessibility_notes": "No SaaS API authentication supported or required."
+      },
+      "api_surface": {
+        "api_types": [
+          "REST",
+          "GRAPHQL",
+          "OTHER"
+        ],
+        "breadth": "BROAD",
+        "breadth_rationale": "Comprehensive multi-engine surface providing both REST and GraphQL APIs.",
+        "has_rest": true,
+        "has_graphql": true,
+        "has_webhooks": true,
+        "has_rate_limits_documented": true,
+        "rate_limit_details": "Authenticating to the REST API You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+        "official_sdks": [],
+        "openapi_spec_available": true,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "NO_KNOWN_MCP",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [],
+        "notes": "No verified MCP server discovered."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_NOW",
+        "primary_blocker": "API Rate Limits Enforced",
+        "feasibility_score": 9.0,
+        "rationale": "Highly feasible for automated agent integration with standard OAuth2 / API keys and open APIs.",
+        "key_strengths": [
+          "Free developer accounts / self-serve access available.",
+          "Broad, well-documented REST/GraphQL API surface."
+        ],
+        "primary_blockers": [
+          {
+            "title": "API Rate Limits Enforced",
+            "description": "API enforces request rate limits requiring backoff and request throttling in agents.",
+            "severity": "LOW",
+            "blocker_type": "rate_limit"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "GitHub REST API documentation - GitHub Docs Skip to main content Skip to content Collapse sidebar Expand sidebar The REST API is now versioned.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "For more information, see \" About API versioning .\" GitHub REST API documentation Create integrations, retrieve data, and automate your workflows with the GitHub REST API.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Overview Quickstart Recommended Quickstart for GitHub REST API Learn how to get started with the GitHub REST API.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Getting started with the REST API Learn how to use the GitHub REST API.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Authenticating to the REST API You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Articles Category : All categories Learn about the REST API About the OpenAPI description for the REST API The GitHub REST API is fully described in an OpenAPI compliant document.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Learn about the REST API About the REST API Get oriented to the REST API documentation.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Learn about the REST API API Versions Learn how to specify which REST API version to use whenever you make a request to the REST API.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Authenticate API requests Authenticating to the REST API You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Learn about the REST API Best practices for using the REST API Follow these best practices when using GitHub's API.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Administer enterprises and billing Billing usage Use the REST API to get billing usage information.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Learn about the REST API Breaking changes Learn about breaking changes that were introduced in each REST API version.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API documentation - GitHub Docs",
+          "snippet": "Administer enterprises and billing Budgets Use the REST API to get budget information.",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:45.617951Z"
+        },
+        {
+          "url": "https://docs.github.com/en",
+          "title": "GitHub Docs",
+          "snippet": "/ All docs Get started Get started Migrations Account and profile Subscriptions & notifications Authentication Billing and payments Site policy Collaborative coding Codespaces Repositories Pull requests GitHub Discussions Integrations GitHub Copilot GitHub Copilot Plans Copilot cloud agent Tutorials GitHub Copilot Cookbook Customization library Copilot CLI CI/CD and DevOps GitHub Actions GitHub Packages GitHub Pages Security and code quality Security and code quality Secure your secrets Find and fix code vulnerabilities Secure your supply chain Maintain quality code Secure at scale Client apps GitHub CLI GitHub Mobile GitHub Desktop Project management GitHub Issues Projects Search on GitHub Enterprise and teams Organizations Secure at scale Enterprise onboarding Enterprise administrators Developers Apps REST API GraphQL API Webhooks Community Building communities GitHub Sponsors GitHub Education GitHub for Nonprofits GitHub Support Contribute to GitHub Docs More docs CodeQL query writing Electron npm GitHub Well-Architected",
+          "source_type": "repository",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:48.936511Z"
+        }
+      ],
+      "claims": [
+        {
+          "field_name": "auth.credential_accessibility",
+          "extracted_value": "SELF_SERVE_FREE",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://docs.github.com/en/rest",
+          "supporting_excerpt": "Authenticating to the REST API You can authenticate to the REST API to access more endpoints and have a higher rate limit.",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "auth.primary_method",
+          "extracted_value": "OTHER",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": "Application does not expose API authentication.",
+          "confidence": "HIGH",
+          "polarity": "NEGATIVE"
+        },
+        {
+          "field_name": "api_surface.has_rest",
+          "extracted_value": "True",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://docs.github.com/en/rest",
+          "supporting_excerpt": "GitHub REST API documentation - GitHub Docs Skip to main content Skip to content Collapse sidebar Expand sidebar The REST API is now versioned.",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "api_surface.has_graphql",
+          "extracted_value": "True",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://docs.github.com/en",
+          "supporting_excerpt": "/ All docs Get started Get started Migrations Account and profile Subscriptions & notifications Authentication Billing and payments Site policy Collaborative coding Codespaces Repositories Pull requests GitHub Discussions Integrations GitHub Copilot GitHub Copilot Plans Copilot cloud agent Tutorials GitHub Copilot Cookbook Customization library Copilot CLI CI/CD and DevOps GitHub Actions GitHub Packages GitHub Pages Security and code quality Security and code quality Secure your secrets Find and fix code vulnerabilities Secure your supply chain Maintain quality code Secure at scale Client apps GitHub CLI GitHub Mobile GitHub Desktop Project management GitHub Issues Projects Search on GitHub Enterprise and teams Organizations Secure at scale Enterprise onboarding Enterprise administrators Developers Apps REST API GraphQL API Webhooks Community Building communities GitHub Sponsors GitHub Education GitHub for Nonprofits GitHub Support Contribute to GitHub Docs More docs CodeQL query writing Electron npm GitHub Well-Architected",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "api_surface.breadth",
+          "extracted_value": "BROAD",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "mcp.availability",
+          "extracted_value": "NO_KNOWN_MCP",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "feasibility.buildability",
+          "extracted_value": "BUILDABLE_NOW",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        }
+      ],
+      "search_provider_used": "SEARCH_UNAVAILABLE",
+      "confidence": "HIGH",
+      "verification_status": "AUTOMATED_PASS",
+      "researched_at": "2026-11-23T16:35:50.001301Z",
+      "agent_version": "3.0.0"
+    },
+    {
+      "app_id": "notebooklm",
+      "name": "NotebookLM",
+      "category": "AI, Research and Media-native",
+      "one_line_description": "Personalized AI research assistant from Google designed to interact with, summarize, and query uploaded source notes.",
+      "auth": {
+        "supported_methods": [
+          "OTHER"
+        ],
+        "primary_method": "OTHER",
+        "credential_accessibility": "UNKNOWN",
+        "credential_evidence": null,
+        "oauth_grant_types": [],
+        "token_lifespan_notes": null,
+        "accessibility_notes": "No SaaS API authentication supported or required."
+      },
+      "api_surface": {
+        "api_types": [
+          "OTHER"
+        ],
+        "breadth": "UNKNOWN",
+        "breadth_rationale": "API breadth unverified.",
+        "has_rest": false,
+        "has_graphql": false,
+        "has_webhooks": false,
+        "has_rate_limits_documented": false,
+        "rate_limit_details": null,
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "NO_KNOWN_MCP",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [],
+        "notes": "No verified MCP server discovered."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_WITH_LIMITATIONS",
+        "primary_blocker": null,
+        "feasibility_score": 5.0,
+        "rationale": "Buildable, but requires plan upgrades, partner access, or specific rate-limit handling.",
+        "key_strengths": [],
+        "primary_blockers": []
+      },
+      "evidence": [],
+      "claims": [
+        {
+          "field_name": "auth.credential_accessibility",
+          "extracted_value": "UNKNOWN",
+          "provenance": "UNKNOWN",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "LOW",
+          "polarity": "ABSENT"
+        },
+        {
+          "field_name": "auth.primary_method",
+          "extracted_value": "OTHER",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": "Application does not expose API authentication.",
+          "confidence": "HIGH",
+          "polarity": "NEGATIVE"
+        },
+        {
+          "field_name": "api_surface.breadth",
+          "extracted_value": "UNKNOWN",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "mcp.availability",
+          "extracted_value": "NO_KNOWN_MCP",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "feasibility.buildability",
+          "extracted_value": "BUILDABLE_WITH_LIMITATIONS",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        }
+      ],
+      "search_provider_used": "SEARCH_UNAVAILABLE",
+      "confidence": "LOW",
+      "verification_status": "REQUIRES_HUMAN_REVIEW",
+      "researched_at": "2026-11-23T16:35:58.163523Z",
+      "agent_version": "3.0.0"
+    },
+    {
+      "app_id": "salesforce",
+      "name": "Salesforce",
+      "category": "CRM and Sales",
+      "one_line_description": "Enterprise cloud customer relationship management platform for sales, service, and marketing automation.",
+      "auth": {
+        "supported_methods": [
+          "UNKNOWN"
+        ],
+        "primary_method": "UNKNOWN",
+        "credential_accessibility": "UNKNOWN",
+        "credential_evidence": null,
+        "oauth_grant_types": [],
+        "token_lifespan_notes": null,
+        "accessibility_notes": "Authentication details could not be verified from available documentation."
+      },
+      "api_surface": {
+        "api_types": [
+          "OTHER"
+        ],
+        "breadth": "UNKNOWN",
+        "breadth_rationale": "API breadth unverified.",
+        "has_rest": false,
+        "has_graphql": false,
+        "has_webhooks": false,
+        "has_rate_limits_documented": false,
+        "rate_limit_details": null,
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "NO_KNOWN_MCP",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [],
+        "notes": "No verified MCP server discovered."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_WITH_LIMITATIONS",
+        "primary_blocker": null,
+        "feasibility_score": 5.0,
+        "rationale": "Buildable, but requires plan upgrades, partner access, or specific rate-limit handling.",
+        "key_strengths": [],
+        "primary_blockers": []
+      },
+      "evidence": [],
+      "claims": [
+        {
+          "field_name": "auth.credential_accessibility",
+          "extracted_value": "UNKNOWN",
+          "provenance": "UNKNOWN",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "LOW",
+          "polarity": "ABSENT"
+        },
+        {
+          "field_name": "auth.primary_method",
+          "extracted_value": "UNKNOWN",
+          "provenance": "UNKNOWN",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "LOW",
+          "polarity": "ABSENT"
+        },
+        {
+          "field_name": "api_surface.breadth",
+          "extracted_value": "UNKNOWN",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "mcp.availability",
+          "extracted_value": "NO_KNOWN_MCP",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "feasibility.buildability",
+          "extracted_value": "BUILDABLE_WITH_LIMITATIONS",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        }
+      ],
+      "search_provider_used": "SEARCH_UNAVAILABLE",
+      "confidence": "LOW",
+      "verification_status": "REQUIRES_HUMAN_REVIEW",
+      "researched_at": "2026-11-23T16:35:45.559710Z",
+      "agent_version": "3.0.0"
+    },
+    {
+      "app_id": "sherlock",
+      "name": "Sherlock",
+      "category": "Data, SEO and Scraping",
+      "one_line_description": "Open-source intelligence OSINT scraping tool hunting down social media accounts by username across hundreds of networks.",
+      "auth": {
+        "supported_methods": [
+          "OTHER"
+        ],
+        "primary_method": "OTHER",
+        "credential_accessibility": "SELF_SERVE_FREE",
+        "credential_evidence": "Open source codebase available without credential gating.",
+        "oauth_grant_types": [],
+        "token_lifespan_notes": null,
+        "accessibility_notes": "No SaaS API authentication supported or required."
+      },
+      "api_surface": {
+        "api_types": [
+          "OTHER"
+        ],
+        "breadth": "UNKNOWN",
+        "breadth_rationale": "API breadth unverified.",
+        "has_rest": false,
+        "has_graphql": false,
+        "has_webhooks": false,
+        "has_rate_limits_documented": false,
+        "rate_limit_details": null,
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "NO_KNOWN_MCP",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [],
+        "notes": "No verified MCP server discovered."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_WITH_LIMITATIONS",
+        "primary_blocker": null,
+        "feasibility_score": 7.5,
+        "rationale": "Buildable, but requires plan upgrades, partner access, or specific rate-limit handling.",
+        "key_strengths": [
+          "Free developer accounts / self-serve access available."
+        ],
+        "primary_blockers": []
+      },
+      "evidence": [],
+      "claims": [
+        {
+          "field_name": "auth.credential_accessibility",
+          "extracted_value": "SELF_SERVE_FREE",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": "Open source codebase available without credential gating.",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "auth.primary_method",
+          "extracted_value": "OTHER",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": "Application does not expose API authentication.",
+          "confidence": "HIGH",
+          "polarity": "NEGATIVE"
+        },
+        {
+          "field_name": "api_surface.breadth",
+          "extracted_value": "UNKNOWN",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "mcp.availability",
+          "extracted_value": "NO_KNOWN_MCP",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "feasibility.buildability",
+          "extracted_value": "BUILDABLE_WITH_LIMITATIONS",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        }
+      ],
+      "search_provider_used": "SEARCH_UNAVAILABLE",
+      "confidence": "LOW",
+      "verification_status": "REQUIRES_HUMAN_REVIEW",
+      "researched_at": "2026-11-23T16:35:54.351871Z",
+      "agent_version": "3.0.0"
+    },
+    {
+      "app_id": "shopify",
+      "name": "Shopify",
+      "category": "Ecommerce",
+      "one_line_description": "Global commerce platform providing online storefronts, inventory management, payments, and checkout APIs.",
+      "auth": {
+        "supported_methods": [
+          "OAUTH2",
+          "PERSONAL_ACCESS_TOKEN"
+        ],
+        "primary_method": "OAUTH2",
+        "credential_accessibility": "UNKNOWN",
+        "credential_evidence": null,
+        "oauth_grant_types": [
+          "authorization_code",
+          "refresh_token"
+        ],
+        "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
+        "accessibility_notes": "Primary authentication: OAUTH2."
+      },
+      "api_surface": {
+        "api_types": [
+          "REST",
+          "GRAPHQL",
+          "OTHER"
+        ],
+        "breadth": "BROAD",
+        "breadth_rationale": "Comprehensive multi-engine surface providing both REST and GraphQL APIs.",
+        "has_rest": true,
+        "has_graphql": true,
+        "has_webhooks": false,
+        "has_rate_limits_documented": false,
+        "rate_limit_details": null,
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "COMMUNITY",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [
+          "https://shopify.dev/docs"
+        ],
+        "notes": "Community MCP server identified."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_WITH_LIMITATIONS",
+        "primary_blocker": null,
+        "feasibility_score": 7.0,
+        "rationale": "Buildable, but requires plan upgrades, partner access, or specific rate-limit handling.",
+        "key_strengths": [
+          "Broad, well-documented REST/GraphQL API surface.",
+          "Community / Reference Model Context Protocol server available."
+        ],
+        "primary_blockers": []
+      },
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "REST Admin API reference",
+          "snippet": "Starting April 1, 2025, all new public apps must be built exclusively with the GraphQL Admin API .",
+          "source_type": "official_documentation",
+          "claim": "Confirmed supported (api_surface): graphql",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:50.060214Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "REST Admin API reference",
+          "snippet": "Some newer platform features may only be available in GraphQL .",
+          "source_type": "official_documentation",
+          "claim": "Confirmed supported (api_surface): graphql",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:50.060214Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "REST Admin API reference",
+          "snippet": "get ( path: 'shop' ) cURL curl -X GET \\ https://{shop}.myshopify.com/admin/api/2026-10/shop.json \\ -H 'Content-Type: application/json' \\ -H 'X-Shopify-Access-Token: {password}' Remix const { admin } = await authenticate.admin(request); const response = admin.rest.get({path: 'shop'}); Node.js const client = new shopify.clients.Rest({session}); const response = client.get({path: 'shop'}); Ruby session = ShopifyAPI::Auth::Session.new( shop: 'your-development-store.myshopify.com', access_token: access_token, ) ShopifyAPI::Context.setup( api_key: 'client_id', api_secret_key: 'client_secret', api_version: 'api_version', # Example: '2026-10' scope: 'read_products', is_private: false, # Set to true if you are using a private app is_embedded: true # Set to true if you are using an embedded app ) ShopifyAPI::Context.activate_session(session) client = ShopifyAPI::Clients::Rest::Admin.new( session: session ) response = client.get(path: 'shop') Anchor to Endpoints and requests Endpoints and requests Admin REST API endpoints are organized by resource type.",
+          "source_type": "official_documentation",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:50.060214Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "REST Admin API reference",
+          "snippet": "All Admin REST API endpoints follow this pattern: https://{store_name}.myshopify.com/admin/api/2026-10/{resource}.json POST Example POST request Create a new product.",
+          "source_type": "official_documentation",
+          "claim": "Confirmed supported (api_surface): rest api",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:50.060214Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "REST Admin API reference",
+          "snippet": "post ( path: \"products\" , body: body ) cURL # Create a new product record curl -X POST \\ https://{store_name}.myshopify.com/admin/api/2026-10/products.json \\ -H 'Content-Type: application/json' \\ -H 'X-Shopify-Access-Token: {access_token}' \\ -d ' { \"product\": { \"title\": \"Hiking backpack\" } } ' Node.js const body = { product: { title: \"Hiking backpack\" } }; // `session` is built as part of the OAuth process const client = new shopify.clients.Rest({session}); await client.post({ path: 'products', data: body, type: DataType.JSON, }); Ruby body = { product: { title: \"Hiking backpack\" } } # `session` is built as part of the OAuth process client = ShopifyAPI::Clients::Rest::Admin.new( session: session ) response = client.post( path: \"products\", body: body ) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 HTTP/ 1.1 200 OK { \"product\" : { \"id\" : 11235813213455 , \"title\" : \"Hiking backpack\" , \"body_html\" : null , \"vendor\" : \"\" , \"product_type\" : \"\" , \"created_at\" : \"<NOW>\" , \"handle\" : \"hiking-backpack\" , \"updated_at\" : \"<NOW>\" , \"published_at\" : \"<NOW>\" , \"templa",
+          "source_type": "official_documentation",
+          "claim": "Confirmed supported (api_surface): graphql",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:50.060214Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "REST Admin API reference",
+          "snippet": "put ( path: \"products/#{ product_id }\" , body: body ) cURL curl -X PUT \\ https://{store_name}.myshopify.com/admin/api/2026-10/products/11235813213455.json \\ -H 'Content-Type: application/json' \\ -H 'X-Shopify-Access-Token: {access_token}' \\ -d ' { \"product\": { \"title\": \"Mountaineering backpack\" } } ' Node.js const productId = 11235813213455; const body = { product: { title: \"Mountaineering backpack\" } }; // `session` is built as part of the OAuth process const client = new shopify.clients.Rest({session}); const response = await client.put({ path: `products/${productId}`, data: body, }); Ruby product_id = \"11235813213455\" body = { product: { title: \"Mountaineering backpack\" } } # `session` is built as part of the OAuth process client = ShopifyAPI::Clients::Rest::Admin.new( session: session ) response = client.put( path: \"products/#{product_id}\", body: body ) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 HTTP/ 1.1 200 OK { \"product\" : { \"id\" : 11235813213455 , \"title\" : \"Mountaineering backpack\" , \"body_html\" : null , \"vendor\" : \"\" , \"product_type\" : \"\" ,",
+          "source_type": "official_documentation",
+          "claim": "Confirmed supported (api_surface): graphql",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:50.060214Z"
+        },
+        {
+          "url": "https://shopify.dev/docs",
+          "title": "Shopify Dev Docs",
+          "snippet": "For agent skills and the Dev MCP server, see the Shopify AI Toolkit page.",
+          "source_type": "official_documentation",
+          "claim": "Confirmed supported (mcp): mcp server",
+          "provenance": "LIVE_FETCHED",
+          "polarity": "POSITIVE",
+          "http_status": 200,
+          "retrieved_at": "2026-11-23T16:35:51.858095Z"
+        }
+      ],
+      "claims": [
+        {
+          "field_name": "auth.credential_accessibility",
+          "extracted_value": "UNKNOWN",
+          "provenance": "UNKNOWN",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "LOW",
+          "polarity": "ABSENT"
+        },
+        {
+          "field_name": "auth.supported_methods.oauth2",
+          "extracted_value": "OAUTH2",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://shopify.dev/docs/api/admin-rest",
+          "supporting_excerpt": "post ( path: \"products\" , body: body ) cURL # Create a new product record curl -X POST \\ https://{store_name}.myshopify.com/admin/api/2026-10/products.json \\ -H 'Content-Type: application/json' \\ -H 'X-Shopify-Access-Token: {access_token}' \\ -d ' { \"product\": { \"title\": \"Hiking backpack\" } } ' Node.js const body = { product: { title: \"Hiking backpack\" } }; // `session` is built as part of the OAuth process const client = new shopify.clients.Rest({session}); await client.post({ path: 'products', data: body, type: DataType.JSON, }); Ruby body = { product: { title: \"Hiking backpack\" } } # `session` is built as part of the OAuth process client = ShopifyAPI::Clients::Rest::Admin.new( session: session ) response = client.post( path: \"products\", body: body ) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 HTTP/ 1.1 200 OK { \"product\" : { \"id\" : 11235813213455 , \"title\" : \"Hiking backpack\" , \"body_html\" : null , \"vendor\" : \"\" , \"product_type\" : \"\" , \"created_at\" : \"<NOW>\" , \"handle\" : \"hiking-backpack\" , \"updated_at\" : \"<NOW>\" , \"published_at\" : \"<NOW>\" , \"templa",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "auth.supported_methods.personal_access_token",
+          "extracted_value": "PERSONAL_ACCESS_TOKEN",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://shopify.dev/docs/api/admin-rest",
+          "supporting_excerpt": "get ( path: 'shop' ) cURL curl -X GET \\ https://{shop}.myshopify.com/admin/api/2026-10/shop.json \\ -H 'Content-Type: application/json' \\ -H 'X-Shopify-Access-Token: {password}' Remix const { admin } = await authenticate.admin(request); const response = admin.rest.get({path: 'shop'}); Node.js const client = new shopify.clients.Rest({session}); const response = client.get({path: 'shop'}); Ruby session = ShopifyAPI::Auth::Session.new( shop: 'your-development-store.myshopify.com', access_token: access_token, ) ShopifyAPI::Context.setup( api_key: 'client_id', api_secret_key: 'client_secret', api_version: 'api_version', # Example: '2026-10' scope: 'read_products', is_private: false, # Set to true if you are using a private app is_embedded: true # Set to true if you are using an embedded app ) ShopifyAPI::Context.activate_session(session) client = ShopifyAPI::Clients::Rest::Admin.new( session: session ) response = client.get(path: 'shop') Anchor to Endpoints and requests Endpoints and requests Admin REST API endpoints are organized by resource type.",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "api_surface.has_rest",
+          "extracted_value": "True",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://shopify.dev/docs/api/admin-rest",
+          "supporting_excerpt": "get ( path: 'shop' ) cURL curl -X GET \\ https://{shop}.myshopify.com/admin/api/2026-10/shop.json \\ -H 'Content-Type: application/json' \\ -H 'X-Shopify-Access-Token: {password}' Remix const { admin } = await authenticate.admin(request); const response = admin.rest.get({path: 'shop'}); Node.js const client = new shopify.clients.Rest({session}); const response = client.get({path: 'shop'}); Ruby session = ShopifyAPI::Auth::Session.new( shop: 'your-development-store.myshopify.com', access_token: access_token, ) ShopifyAPI::Context.setup( api_key: 'client_id', api_secret_key: 'client_secret', api_version: 'api_version', # Example: '2026-10' scope: 'read_products', is_private: false, # Set to true if you are using a private app is_embedded: true # Set to true if you are using an embedded app ) ShopifyAPI::Context.activate_session(session) client = ShopifyAPI::Clients::Rest::Admin.new( session: session ) response = client.get(path: 'shop') Anchor to Endpoints and requests Endpoints and requests Admin REST API endpoints are organized by resource type.",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "api_surface.has_graphql",
+          "extracted_value": "True",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://shopify.dev/docs/api/admin-rest",
+          "supporting_excerpt": "Starting April 1, 2025, all new public apps must be built exclusively with the GraphQL Admin API .",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "api_surface.breadth",
+          "extracted_value": "BROAD",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "MEDIUM",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "mcp.availability",
+          "extracted_value": "COMMUNITY",
+          "provenance": "LIVE_FETCHED",
+          "source_url": "https://shopify.dev/docs",
+          "supporting_excerpt": "For agent skills and the Dev MCP server, see the Shopify AI Toolkit page.",
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        },
+        {
+          "field_name": "feasibility.buildability",
+          "extracted_value": "BUILDABLE_WITH_LIMITATIONS",
+          "provenance": "INFERRED",
+          "source_url": null,
+          "supporting_excerpt": null,
+          "confidence": "HIGH",
+          "polarity": "POSITIVE"
+        }
+      ],
+      "search_provider_used": "SEARCH_UNAVAILABLE",
+      "confidence": "HIGH",
+      "verification_status": "AUTOMATED_PASS",
+      "researched_at": "2026-11-23T16:35:52.957159Z",
+      "agent_version": "3.0.0"
+    }
+  ]
+}

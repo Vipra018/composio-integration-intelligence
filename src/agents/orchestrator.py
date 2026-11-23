@@ -28,11 +28,14 @@ class ResearchOrchestrator:
         researcher: Optional[AppResearcher] = None,
         store: Optional[JSONStore] = None,
         dataset_path: Optional[Path] = None,
+        mode: str = "production",
     ) -> None:
         settings = get_settings()
-        self.researcher = researcher or AppResearcher()
+        self.mode = mode
+        self.researcher = researcher or AppResearcher(mode=mode)
         self.store = store or JSONStore()
         self.dataset_path = Path(dataset_path) if dataset_path else settings.dataset_path
+        self.stage3a_results_file = self.store.base_dir / "stage3a_verified_research.json"
         self._apps_map: Dict[str, AppMetadata] = {}
         self._load_dataset()
 
@@ -115,8 +118,12 @@ class ResearchOrchestrator:
 
         return results
 
-    def research_pilot(self, force: bool = False) -> Dict[str, AppResearchResult]:
-        """Execute pilot research on the 5 designated pilot applications and save aggregated file.
+    def research_pilot(
+        self,
+        force: bool = False,
+        output_filepath: Optional[Path] = None,
+    ) -> Dict[str, AppResearchResult]:
+        """Execute pilot research on the 5 designated pilot applications and save to verified destination.
 
         Pilot Apps:
         - salesforce
@@ -125,9 +132,14 @@ class ResearchOrchestrator:
         - sherlock
         - notebooklm
         """
-        logger.info("Executing pilot research on 5 benchmark applications: %s", self.PILOT_APP_IDS)
+        dest_path = Path(output_filepath) if output_filepath else self.stage3a_results_file
+        logger.info(
+            "Executing pilot research on 5 benchmark applications: %s (saving to %s)",
+            self.PILOT_APP_IDS,
+            dest_path,
+        )
         results = self.research_batch(self.PILOT_APP_IDS, force=force)
-        self.store.save_all_results(results, filepath=self.store.initial_research_file)
+        self.store.save_all_results(results, filepath=dest_path)
         return results
 
     def research_category(self, category_name: str, force: bool = False) -> Dict[str, AppResearchResult]:

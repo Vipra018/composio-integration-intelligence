@@ -1,167 +1,140 @@
-"""Document fetching and HTML text extraction."""
+"""Production HTTP document fetching with full provenance, redirect tracking, and HTML sanitization."""
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+import re
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Dict, Optional
-import re
+from urllib.parse import urlparse
 
 import httpx
 from bs4 import BeautifulSoup
 
 from src.logging_utils import get_logger
+from src.models.enums import Provenance
 
 logger = get_logger("research.document_fetcher")
 
 
 @dataclass
 class FetchedDocument:
-    """Represents the extracted text and metadata of a fetched webpage."""
+    """Detailed audit record of an attempted or completed document retrieval."""
 
-    url: str
-    title: str
-    text_content: str
-    status_code: int
-    fetched_at: datetime
-    content_length: int
+    requested_url: str = ""
+    final_url: str = ""
+    status_code: int = 200
+    retrieval_timestamp: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
+    content_type: str = "text/html"
+    is_success: bool = True
+    source_domain: str = ""
+    title: str = ""
+    text_content: str = ""
+    content_length: int = 0
+    failure_reason: Optional[str] = None
     meta_description: str = ""
+    provenance: Provenance = Provenance.LIVE_FETCHED
+
+    def __init__(
+        self,
+        requested_url: str = "",
+        final_url: str = "",
+        status_code: int = 200,
+        retrieval_timestamp: Optional[datetime] = None,
+        content_type: str = "text/html",
+        is_success: bool = True,
+        source_domain: str = "",
+        title: str = "",
+        text_content: str = "",
+        content_length: int = 0,
+        failure_reason: Optional[str] = None,
+        meta_description: str = "",
+        provenance: Provenance = Provenance.LIVE_FETCHED,
+        url: Optional[str] = None,
+        fetched_at: Optional[datetime] = None,
+    ) -> None:
+        if url:
+            requested_url = requested_url or url
+            final_url = final_url or url
+            if not source_domain:
+                source_domain = urlparse(url).netloc or ""
+
+        self.requested_url = requested_url
+        self.final_url = final_url
+        self.status_code = status_code
+        self.retrieval_timestamp = retrieval_timestamp or fetched_at or datetime.now(timezone.utc)
+        self.content_type = content_type
+        self.is_success = is_success
+        self.source_domain = source_domain
+        self.title = title
+        self.text_content = text_content
+        self.content_length = content_length or len(text_content)
+        self.failure_reason = failure_reason
+        self.meta_description = meta_description
+        self.provenance = provenance
+
+    @property
+    def url(self) -> str:
+        """Alias for backward compatibility."""
+        return self.final_url or self.requested_url
+
 
 
 class DocumentFetcher:
-    """HTTP fetcher with HTML parsing and sandbox/offline resilience."""
+    """Production HTTP fetcher enforcing real network retrieval and strict audit provenance."""
 
-    USER_AGENT = "ComposioIntegrationIntelligence/1.0 (ResearchAgent; +https://composio.dev)"
+    USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 (IntegrationIntelligence/2.0; +https://composio.dev)"
 
-    # Substantive knowledge base for pilot & offline evaluation
-    KNOWLEDGE_BASE: Dict[str, FetchedDocument] = {
-        "developer.salesforce.com": FetchedDocument(
-            url="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest.htm",
-            title="Salesforce REST API Developer Guide",
-            text_content=(
-                "Salesforce REST API Overview: The REST API provides a powerful, convenient, and simple RESTful "
-                "Web services interface for interacting with Salesforce. Its advantages include ease of integration "
-                "and development, and it's an excellent choice of technology for use with mobile applications and Web 2.0 projects. "
-                "Authentication is handled via OAuth 2.0 Web Server Flow or JWT Bearer Flow using Connected Apps. "
-                "API access requires an Enterprise, Unlimited, or Performance Edition, or a free Developer Edition org. "
-                "Standard Professional edition requires an add-on or admin activation. REST API supports JSON and XML payloads."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=650,
-            meta_description="Salesforce REST API documentation and developer guidance.",
-        ),
-        "composio.dev/tools/salesforce": FetchedDocument(
-            url="https://composio.dev/tools/salesforce",
-            title="Composio Salesforce Tool Integration",
-            text_content=(
-                "Composio provides a production-ready toolkit for Salesforce. It supports managed OAuth2 authentication, "
-                "automatic token refreshes, and granular actions to create, update, and search leads, contacts, opportunities, "
-                "accounts, and custom objects directly from LLM agent frameworks like LangChain, CrewAI, and Autogen."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=420,
-            meta_description="Composio Salesforce integration for AI agents.",
-        ),
-        "docs.github.com": FetchedDocument(
-            url="https://docs.github.com/en/rest",
-            title="GitHub REST API Documentation",
-            text_content=(
-                "GitHub REST API: Create integrations, retrieve data, and automate your workflows with GitHub's REST API. "
-                "Authentication options: Authenticate with a personal access token (classic or fine-grained), or with a GitHub App "
-                "using OAuth 2.0 user-to-server or installation access tokens. API is available to all users with self-serve free accounts. "
-                "GitHub also offers a comprehensive GraphQL API (v4). Rate limits: 5,000 requests per hour for authenticated users, "
-                "or 15,000 for GitHub Enterprise Cloud."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=580,
-            meta_description="Official GitHub REST API documentation.",
-        ),
-        "github.com/modelcontextprotocol/servers": FetchedDocument(
-            url="https://github.com/modelcontextprotocol/servers/tree/main/src/github",
-            title="GitHub Model Context Protocol (MCP) Server",
-            text_content=(
-                "Official Model Context Protocol (MCP) server for GitHub. Enables LLMs and AI agents to inspect repositories, "
-                "read file contents, search code, manage issues, and create pull requests using standard MCP tool specifications. "
-                "Requires GITHUB_PERSONAL_ACCESS_TOKEN."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=380,
-            meta_description="Reference GitHub MCP server.",
-        ),
-        "shopify.dev": FetchedDocument(
-            url="https://shopify.dev/docs/api/admin-rest",
-            title="Shopify Admin API Documentation",
-            text_content=(
-                "The Shopify Admin API lets you build apps and integrations for merchants. The Admin API is available in REST and GraphQL. "
-                "Authentication requires OAuth 2.0 access tokens. For private store integrations, merchant custom apps generate API access tokens. "
-                "Developers can create a free Shopify Partner account to create unlimited development stores for testing with full Admin API access. "
-                "Standard API rate limits use a leaky-bucket algorithm with 40 requests/bucket, refill 2/second."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=540,
-            meta_description="Shopify Admin REST API overview.",
-        ),
-        "composio.dev/tools/shopify": FetchedDocument(
-            url="https://composio.dev/tools/shopify",
-            title="Composio Shopify Toolkit",
-            text_content=(
-                "Connect Shopify to AI agents using Composio. Provides pre-configured tools for product catalogs, "
-                "inventory adjustments, fulfillment workflows, and order lookups. Uses standard Shopify OAuth2 and Custom App tokens."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=310,
-            meta_description="Composio Shopify tool integration.",
-        ),
-        "github.com/sherlock-project/sherlock": FetchedDocument(
-            url="https://github.com/sherlock-project/sherlock",
-            title="sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
-            text_content=(
-                "Sherlock: Hunt down social media accounts by username across 400+ social networks. "
-                "Sherlock is a command-line tool written in Python. It is an open source OSINT tool released under MIT license. "
-                "It is executed locally via terminal: `python3 sherlock user123`. It does not provide a cloud SaaS platform, "
-                "does not provide a hosted REST API, and does not require OAuth or API keys. Integration with AI agents requires "
-                "running the CLI as a subprocess or importing the Python package locally rather than invoking a SaaS API."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=530,
-            meta_description="Sherlock OSINT CLI repository.",
-        ),
-        "notebooklm.google.com": FetchedDocument(
-            url="https://notebooklm.google.com",
-            title="NotebookLM - Google's AI-First Notebook",
-            text_content=(
-                "NotebookLM is an experimental personalized AI collaborator developed by Google Labs. "
-                "Users upload PDFs, Google Docs, slides, and websites, and NotebookLM answers questions and generates audio overviews. "
-                "Current developer status: Google has not released a public developer REST API, public SDK, or OAuth developer scopes for NotebookLM. "
-                "Access is strictly end-user facing through the web UI using Google Accounts. There is no official or third-party MCP server "
-                "or public API endpoint available for external agent integration without browser scraping or unofficial reverse-engineered session cookies."
-            ),
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=570,
-            meta_description="NotebookLM home and features.",
-        ),
+    # Unit-test only fixtures - STRICTLY FOR ISOLATED OFFLINE UNIT TESTS
+    TEST_MOCK_KNOWLEDGE_BASE: Dict[str, dict] = {
+        "developer.salesforce.com": {
+            "title": "Salesforce REST API Developer Guide",
+            "text": "Salesforce REST API Overview: The REST API provides a powerful, convenient, and simple RESTful Web services interface. Authentication is handled via OAuth 2.0 Web Server Flow or JWT Bearer Flow using Connected Apps. API access requires an Enterprise, Unlimited, or Performance Edition, or a free Developer Edition org.",
+        },
+        "docs.github.com": {
+            "title": "GitHub REST API Documentation",
+            "text": "GitHub REST API: Create integrations, retrieve data, and automate your workflows with GitHub's REST API. Authenticate with a personal access token (classic or fine-grained), or with a GitHub App using OAuth 2.0. API is available to all users with self-serve free accounts. GitHub also offers a comprehensive GraphQL API (v4). Rate limits: 5,000 requests per hour.",
+        },
+        "shopify.dev": {
+            "title": "Shopify Admin API Documentation",
+            "text": "The Shopify Admin API lets you build apps and integrations for merchants. The Admin API is available in REST and GraphQL. Authentication requires OAuth 2.0 access tokens. Developers can create a free Shopify Partner account to create unlimited development stores for testing with full Admin API access. Standard API rate limits use a leaky-bucket algorithm with 40 requests/bucket, refill 2/second.",
+        },
+        "github.com/sherlock-project": {
+            "title": "sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
+            "text": "Sherlock is a command-line tool written in Python. It does not provide a cloud SaaS platform, does not provide a hosted REST API, and does not require OAuth or API keys. Integration with AI agents requires running the CLI as a subprocess or importing the Python package locally rather than invoking a SaaS API.",
+        },
+        "notebooklm.google.com": {
+            "title": "NotebookLM - Google's AI-First Notebook",
+            "text": "NotebookLM is an experimental personalized AI collaborator developed by Google Labs. Current developer status: Google has not released a public developer REST API, public SDK, or OAuth developer scopes for NotebookLM. Access is strictly end-user facing through the web UI using Google Accounts. There is no official or third-party MCP server or public API endpoint available.",
+        },
     }
 
-    def __init__(self, timeout: float = 10.0) -> None:
+    def __init__(
+        self,
+        timeout: float = 15.0,
+        allow_mock_kb: bool = False,
+        max_redirects: int = 5,
+    ) -> None:
+        """Initialize document fetcher.
+
+        Args:
+            timeout: Network request timeout in seconds.
+            allow_mock_kb: ONLY set to True in isolated offline unit tests. Defaults to False.
+            max_redirects: Maximum number of HTTP redirects to follow.
+        """
         self.timeout = timeout
+        self.allow_mock_kb = allow_mock_kb
+        self.max_redirects = max_redirects
 
     def _extract_clean_text(self, html: str) -> tuple[str, str, str]:
-        """Extract title, meta description, and clean readable text from HTML."""
+        """Sanitize HTML by stripping navigation, styles, scripts, and chrome."""
         soup = BeautifulSoup(html, "html.parser")
 
-        # Remove irrelevant tags
-        for element in soup(["script", "style", "nav", "footer", "header", "noscript", "svg", "form"]):
+        # Strip non-substantive markup
+        for element in soup(["script", "style", "nav", "header", "footer", "aside", "noscript", "svg", "form", "iframe"]):
             element.decompose()
 
-        title = soup.title.string.strip() if soup.title and soup.title.string else "Documentation"
+        title = soup.title.string.strip() if soup.title and soup.title.string else ""
 
         meta_desc = ""
         meta_tag = soup.find("meta", attrs={"name": "description"}) or soup.find(
@@ -170,57 +143,126 @@ class DocumentFetcher:
         if meta_tag and meta_tag.get("content"):
             meta_desc = str(meta_tag["content"]).strip()
 
-        # Extract text and collapse multiple spaces/newlines
+        # Extract text and collapse multiple whitespace
         text = soup.get_text(separator=" ")
         text = re.sub(r"\s+", " ", text).strip()
         return title, meta_desc, text
 
     def fetch(self, url: str) -> FetchedDocument:
-        """Fetch a URL and return a FetchedDocument, falling back to knowledge base on failure.
+        """Execute genuine HTTP retrieval and record complete provenance metadata.
 
         Args:
-            url: Target URL to fetch.
+            url: The requested target URL.
 
         Returns:
-            FetchedDocument with extracted text.
+            FetchedDocument with verifiable status code, content type, and text.
         """
-        # Check knowledge base first for sandbox-safe fallback matching
-        for pattern, doc in self.KNOWLEDGE_BASE.items():
-            if pattern in url:
-                logger.debug("Serving cached/knowledge-base document for %s", url)
-                return doc
+        parsed = urlparse(url)
+        domain = parsed.netloc or parsed.path
 
-        # Try live HTTP request
+        # Test-only short-circuit: ONLY allowed when explicitly constructed with allow_mock_kb=True
+        if self.allow_mock_kb:
+            for pattern, fixture in self.TEST_MOCK_KNOWLEDGE_BASE.items():
+                if pattern in url:
+                    logger.warning("Serving TEST MOCK knowledge base fixture for %s (allow_mock_kb=True)", url)
+                    return FetchedDocument(
+                        requested_url=url,
+                        final_url=url,
+                        status_code=200,
+                        retrieval_timestamp=datetime.now(timezone.utc),
+                        content_type="text/html; charset=utf-8",
+                        is_success=True,
+                        source_domain=domain,
+                        title=fixture["title"],
+                        text_content=fixture["text"],
+                        content_length=len(fixture["text"]),
+                        failure_reason=None,
+                        meta_description="Test mock fixture",
+                        provenance=Provenance.KNOWLEDGE_BASE,
+                    )
+
+        now = datetime.now(timezone.utc)
+
+        # Production live retrieval
         try:
             with httpx.Client(
-                headers={"User-Agent": self.USER_AGENT},
+                headers={"User-Agent": self.USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8"},
                 timeout=self.timeout,
                 follow_redirects=True,
+                max_redirects=self.max_redirects,
             ) as client:
                 response = client.get(url)
-                if response.status_code == 200:
-                    title, meta_desc, text = self._extract_clean_text(response.text)
+                final_url = str(response.url)
+                status_code = response.status_code
+                content_type = response.headers.get("content-type", "")
+
+                if status_code == 200:
+                    title, meta_desc, clean_text = self._extract_clean_text(response.text)
+                    if not title:
+                        title = f"Documentation: {domain}"
+
+                    logger.debug("Successfully fetched %s (status 200, %d chars)", final_url, len(clean_text))
                     return FetchedDocument(
-                        url=str(response.url),
-                        title=title,
-                        text_content=text[:10000],  # Limit to 10k chars for performance
+                        requested_url=url,
+                        final_url=final_url,
                         status_code=200,
-                        fetched_at=datetime.now(timezone.utc),
-                        content_length=len(text),
+                        retrieval_timestamp=now,
+                        content_type=content_type,
+                        is_success=True,
+                        source_domain=domain,
+                        title=title,
+                        text_content=clean_text[:15000],  # Cap at 15k chars for prompt/processing efficiency
+                        content_length=len(clean_text),
+                        failure_reason=None,
                         meta_description=meta_desc,
+                        provenance=Provenance.LIVE_FETCHED,
                     )
                 else:
-                    logger.warning("HTTP %d for URL %s", response.status_code, url)
-        except Exception as e:
-            logger.debug("Live fetch failed for %s (%s). Falling back.", url, e)
+                    logger.warning("Live fetch HTTP error %d for URL %s", status_code, url)
+                    return FetchedDocument(
+                        requested_url=url,
+                        final_url=final_url,
+                        status_code=status_code,
+                        retrieval_timestamp=now,
+                        content_type=content_type,
+                        is_success=False,
+                        source_domain=domain,
+                        title=f"HTTP {status_code} Error",
+                        text_content="",
+                        content_length=0,
+                        failure_reason=f"HTTP {status_code}: {response.reason_phrase}",
+                        provenance=Provenance.LIVE_FETCHED,
+                    )
 
-        # Fallback empty or default document
-        return FetchedDocument(
-            url=url,
-            title="Documentation Reference",
-            text_content=f"Documentation reference for {url}",
-            status_code=200,
-            fetched_at=datetime.now(timezone.utc),
-            content_length=50,
-            meta_description="",
-        )
+        except httpx.TimeoutException as e:
+            logger.warning("Connection timeout for %s: %s", url, e)
+            return FetchedDocument(
+                requested_url=url,
+                final_url=url,
+                status_code=0,
+                retrieval_timestamp=now,
+                content_type="",
+                is_success=False,
+                source_domain=domain,
+                title="Timeout Error",
+                text_content="",
+                content_length=0,
+                failure_reason=f"Connection timed out after {self.timeout}s: {e}",
+                provenance=Provenance.UNKNOWN,
+            )
+        except Exception as e:
+            logger.warning("Network retrieval failed for %s: %s", url, e)
+            return FetchedDocument(
+                requested_url=url,
+                final_url=url,
+                status_code=0,
+                retrieval_timestamp=now,
+                content_type="",
+                is_success=False,
+                source_domain=domain,
+                title="Network Error",
+                text_content="",
+                content_length=0,
+                failure_reason=f"Network error: {e}",
+                provenance=Provenance.UNKNOWN,
+            )

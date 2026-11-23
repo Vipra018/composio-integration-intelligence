@@ -45,6 +45,12 @@ class Settings(BaseSettings):
     llm_temperature: float = Field(default=0.1, ge=0.0, le=1.0, description="Sampling temperature for LLM")
     llm_max_tokens: int = Field(default=2500, ge=100, le=8192, description="Max generation tokens")
 
+    # Search API Settings
+    search_provider: str = Field(default="auto", description="Live search provider: tavily, serper, brave, or auto")
+    tavily_api_key: Optional[str] = Field(default=None, description="Tavily Search API key")
+    serper_api_key: Optional[str] = Field(default=None, description="Google Serper Search API key")
+    brave_api_key: Optional[str] = Field(default=None, description="Brave Search API key")
+
     # Composio Integration Settings
     composio_api_key: Optional[str] = Field(default=None, description="Composio API key")
     composio_base_url: str = Field(

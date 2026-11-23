@@ -11,7 +11,9 @@ from src.models.enums import (
     BuildabilityScore,
     ConfidenceLevel,
     CredentialAccessibility,
+    EvidencePolarity,
     MCPAvailability,
+    Provenance,
     VerificationStatus,
 )
 from src.models.research import (
@@ -22,6 +24,7 @@ from src.models.research import (
     FeasibilityEvaluation,
     IntegrationBlocker,
     MCPResearch,
+    ResearchClaim,
 )
 
 __all__ = [
@@ -35,6 +38,8 @@ __all__ = [
     "BlockerSeverity",
     "VerificationStatus",
     "ConfidenceLevel",
+    "Provenance",
+    "EvidencePolarity",
     "EvidenceURL",
     "IntegrationBlocker",
     "AuthResearch",
@@ -42,4 +47,6 @@ __all__ = [
     "MCPResearch",
     "FeasibilityEvaluation",
     "AppResearchResult",
+    "ResearchClaim",
 ]
+

@@ -57,6 +57,11 @@ class RateLimitExceededError(IntegrationIntelligenceError):
     pass
 
 
+class SearchUnavailableError(IntegrationIntelligenceError):
+    """Raised when live search provider credentials are unconfigured or unavailable."""
+    pass
+
+
 class StorageError(IntegrationIntelligenceError):
     """Raised when loading or persisting research results fails."""
     pass

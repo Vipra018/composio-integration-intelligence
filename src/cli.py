@@ -52,6 +52,19 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Bypass cached checkpoints and re-run research.",
     )
+    research_parser.add_argument(
+        "--output",
+        type=str,
+        default=None,
+        help="Custom destination filepath for aggregated results.",
+    )
+    research_parser.add_argument(
+        "--mode",
+        type=str,
+        default="production",
+        choices=["production", "test"],
+        help="Execution mode (production enforces live retrieval, test allows fixtures).",
+    )
 
     return parser
 
@@ -112,7 +125,7 @@ def handle_research(args: argparse.Namespace, orchestrator: ResearchOrchestrator
 
     if args.batch == "pilot":
         print("\nInitiating Pilot Research on 5 applications: salesforce, github, shopify, sherlock, notebooklm ...")
-        results = orchestrator.research_pilot(force=args.force)
+        results = orchestrator.research_pilot(force=args.force, output_filepath=args.output)
         print(f"\nPilot batch successfully completed. {len(results)} applications evaluated.")
         for app_id, r in results.items():
             print(f"  - {r.name:<15} Score: {r.feasibility.feasibility_score:.1f}/10  [{r.feasibility.buildability.value}]")
@@ -143,7 +156,8 @@ def main(argv: Optional[list[str]] = None) -> int:
         parser.print_help()
         return 1
 
-    orchestrator = ResearchOrchestrator()
+    mode = getattr(args, "mode", "production")
+    orchestrator = ResearchOrchestrator(mode=mode)
 
     try:
         if args.command == "list-apps":

@@ -9,7 +9,7 @@ from src.models.enums import BuildabilityScore, MCPAvailability
 
 
 def test_app_researcher_salesforce() -> None:
-    researcher = AppResearcher()
+    researcher = AppResearcher(mode="test")
     app = AppMetadata(
         id="salesforce",
         name="Salesforce",
@@ -31,7 +31,7 @@ def test_app_researcher_salesforce() -> None:
 
 
 def test_app_researcher_sherlock_cli() -> None:
-    researcher = AppResearcher()
+    researcher = AppResearcher(mode="test")
     app = AppMetadata(
         id="sherlock",
         name="Sherlock",

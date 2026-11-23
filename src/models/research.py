@@ -17,7 +17,9 @@ from src.models.enums import (
     BuildabilityScore,
     ConfidenceLevel,
     CredentialAccessibility,
+    EvidencePolarity,
     MCPAvailability,
+    Provenance,
     VerificationStatus,
 )
 
@@ -43,10 +45,37 @@ class EvidenceURL(BaseModel):
         max_length=500,
         description="The specific integration claim substantiated by this evidence.",
     )
+    provenance: Provenance = Field(
+        default=Provenance.LIVE_FETCHED,
+        description="Audit provenance origin of this evidence citation.",
+    )
+    polarity: EvidencePolarity = Field(
+        default=EvidencePolarity.POSITIVE,
+        description="Semantic polarity of this citation (positive, negative, ambiguous).",
+    )
+    http_status: Optional[int] = Field(
+        default=None,
+        description="Actual HTTP response status returned when fetching this URL.",
+    )
     retrieved_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
         description="Timestamp when the reference evidence was retrieved.",
     )
+
+
+class ResearchClaim(BaseModel):
+    """Traceable individual factual assertion regarding application integration capability."""
+
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+    field_name: str = Field(..., description="Canonical research attribute name.")
+    extracted_value: str = Field(..., description="Stringified value or enum name.")
+    provenance: Provenance = Field(default=Provenance.UNKNOWN, description="Audit provenance source classification.")
+    source_url: Optional[HttpUrl] = Field(default=None, description="URL of corroborating live page.")
+    supporting_excerpt: Optional[str] = Field(default=None, max_length=1500, description="Exact cited quotation.")
+    confidence: ConfidenceLevel = Field(default=ConfidenceLevel.MEDIUM, description="Confidence in deduction.")
+    polarity: EvidencePolarity = Field(default=EvidencePolarity.POSITIVE, description="Semantic polarity of assertion.")
+
 
 
 class IntegrationBlocker(BaseModel):
@@ -243,6 +272,14 @@ class AppResearchResult(BaseModel):
     evidence: List[EvidenceURL] = Field(
         default_factory=list,
         description="Official evidence and citation URLs.",
+    )
+    claims: List[ResearchClaim] = Field(
+        default_factory=list,
+        description="Traceable research assertions with explicit provenance classification.",
+    )
+    search_provider_used: Optional[str] = Field(
+        default=None,
+        description="Identifier of search engine utilized (or SEARCH_UNAVAILABLE).",
     )
     confidence: ConfidenceLevel = Field(
         default=ConfidenceLevel.HIGH,
