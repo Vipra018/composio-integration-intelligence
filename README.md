@@ -148,34 +148,32 @@ Run the full automated test suite to validate dataset integrity, Pydantic schema
 
 ### What the Tests Verify:
 1. **Dataset Size**: Exactly 100 SaaS applications are loaded.
-2. **Uniqueness**: Zero duplicate `id`s or `name`s across all 100 entries.
-3. **Slug Formatting**: Every application `id` follows lowercase kebab-case (`^[a-z0-9]+(?:-[a-z0-9]+)*$`).
-4. **Endpoint Validation**: Every `website` and `documentation_url` is a valid, absolute HTTP/HTTPS URL.
-5. **Quality & Depth**: Descriptions are concise, informative, and verified.
-6. **Domain Coverage**: Broad representation across CRM, Developer Tools, Collaboration, Accounting, HR, Support, and AI.
+2. **Category Balance**: Exactly 10 standardized categories with exactly 10 applications each (10x10 benchmark matrix).
+3. **Uniqueness**: Zero duplicate `id`s or `name`s across all 100 entries.
+4. **Slug Formatting**: Every application `id` follows lowercase kebab-case (`^[a-z0-9]+(?:-[a-z0-9]+)*$`).
+5. **Endpoint Validation**: Every `website` and `documentation_url` is a valid, absolute HTTP/HTTPS URL.
+6. **Quality & Depth**: Descriptions are concise, informative, and verified.
 7. **Model Contracts**: Full Pydantic validation across all schemas, edge boundaries (0.0 to 10.0 score clamping), and bidirectional JSON serialization.
 
 ---
 
-## 📊 Benchmark Dataset Summary (100 Apps)
+## 📊 Benchmark Dataset Summary (100 Apps, 10x10 Matrix)
 
-The 100 applications are distributed across key SaaS verticals:
+The 100 applications are balanced across the 10 required categories (10 applications each):
 
-| Category | Count | Sample Applications |
-| :--- | :---: | :--- |
-| **Developer Tools & Infrastructure** | 16 | GitHub, GitLab, Datadog, Sentry, Vercel, Supabase, Neon, Postman |
-| **Project Management & Collaboration** | 14 | Notion, Slack, Linear, Asana, Jira, Monday.com, ClickUp, Airtable |
-| **Customer Support & Communication** | 12 | Zendesk, Intercom, Freshdesk, Front, Twilio, SendGrid, Gorgias |
-| **Marketing & Email Automation** | 12 | Mailchimp, Klaviyo, ActiveCampaign, Braze, Brevo, Buffer, Webflow |
-| **CRM & Sales** | 10 | Salesforce, HubSpot, Pipedrive, Close, Outreach, Salesloft, Gong |
-| **HR, Payroll & Recruiting** | 10 | Gusto, BambooHR, Rippling, Deel, Workday, Greenhouse, Ashby |
-| **Accounting & Finance** | 9 | Stripe, QuickBooks Online, Xero, Brex, Ramp, Bill.com, Chargebee |
-| **Content, Design & Media** | 7 | Google Drive, Box, Dropbox, DocuSign, Figma, Canva, PandaDoc |
-| **E-Commerce & Billing** | 5 | Shopify, WooCommerce, BigCommerce, Shippo, ShipStation |
-| **Security, Identity & Compliance** | 3 | Okta, 1Password, Vanta |
-| **Analytics & Data Platforms** | 1 | Snowflake |
-| **AI & Knowledge Systems** | 1 | Pinecone |
-| **Total** | **100** | **Balanced across 12 SaaS sectors** |
+| # | Category | Count | Applications |
+| :-: | :--- | :---: | :--- |
+| 1 | **CRM and Sales** | 10 | Salesforce, HubSpot, Pipedrive, Close, Zoho CRM, Copper, Outreach, Salesloft, Apollo.io, Gong |
+| 2 | **Support and Helpdesk** | 10 | Zendesk, Freshdesk, Intercom, Front, Help Scout, Gorgias, Kustomer, Crisp, Zoho Desk, LiveAgent |
+| 3 | **Communications and Messaging** | 10 | Slack, Discord, Twilio, SendGrid, Zoom, Microsoft Teams, Telegram, WhatsApp Business, Postmark, Bird |
+| 4 | **Marketing, Ads, Email and Social** | 10 | Mailchimp, Klaviyo, ActiveCampaign, Customer.io, Braze, Kit, Brevo, Buffer, Hootsuite, Typeform |
+| 5 | **Ecommerce** | 10 | Shopify, WooCommerce, BigCommerce, Shippo, ShipStation, EasyPost, Printful, Square, Amazon Seller Central, Magento |
+| 6 | **Data, SEO and Scraping** | 10 | Ahrefs, Semrush, Moz, Bright Data, Oxylabs, Apify, ScrapingBee, SerpApi, Similarweb, Clearbit |
+| 7 | **Developer, Infra and Data Platforms** | 10 | GitHub, GitLab, Bitbucket, Sentry, Datadog, Postman, Vercel, Supabase, Neon, Snowflake |
+| 8 | **Productivity and Project Management** | 10 | Notion, Linear, Asana, Monday.com, ClickUp, Jira, Confluence, Trello, Airtable, Coda |
+| 9 | **Finance and Fintech** | 10 | Stripe, QuickBooks Online, Xero, Brex, Ramp, Bill.com, Chargebee, Recurly, Plaid, Gusto |
+| 10 | **AI, Research and Media-native** | 10 | OpenAI, Anthropic, Perplexity, Pinecone, Weaviate, Hugging Face, ElevenLabs, Replicate, Figma, Canva |
+| | **Total** | **100** | **10 categories × 10 applications = 100 benchmark SaaS platforms** |
 
 ---
 

@@ -3,12 +3,15 @@ Tests for Benchmark Applications Dataset (data/apps.json).
 
 Verifies strict dataset integrity:
 - Exactly 100 applications are present.
+- Exactly 10 categories are represented.
+- Exactly 10 applications per category (balanced 10x10 benchmark).
 - Every application occurs exactly once (no duplicate IDs or names).
 - All IDs follow canonical lowercase kebab-case naming.
 - All URLs are valid HTTP/HTTPS endpoints.
 - All fields adhere strictly to the AppMetadata Pydantic schema.
 """
 
+from collections import Counter
 import re
 from typing import Any, Dict, List
 import pytest
@@ -16,10 +19,41 @@ from pydantic import ValidationError
 
 from src.models.app_metadata import AppMetadata
 
+EXPECTED_CATEGORIES = [
+    "CRM and Sales",
+    "Support and Helpdesk",
+    "Communications and Messaging",
+    "Marketing, Ads, Email and Social",
+    "Ecommerce",
+    "Data, SEO and Scraping",
+    "Developer, Infra and Data Platforms",
+    "Productivity and Project Management",
+    "Finance and Fintech",
+    "AI, Research and Media-native",
+]
+
 
 def test_dataset_exact_count(raw_dataset: List[Dict[str, Any]]) -> None:
     """Verify that exactly 100 applications are present in the dataset."""
     assert len(raw_dataset) == 100, f"Expected exactly 100 applications, found {len(raw_dataset)}"
+
+
+def test_dataset_category_distribution_and_counts(raw_dataset: List[Dict[str, Any]]) -> None:
+    """Verify exactly 10 categories with exactly 10 applications in each category."""
+    counts = Counter(app.get("category") for app in raw_dataset)
+
+    # Verify exactly 10 unique categories
+    assert len(counts) == 10, f"Expected exactly 10 categories, found {len(counts)}: {list(counts.keys())}"
+
+    # Verify all expected categories are present
+    assert set(counts.keys()) == set(EXPECTED_CATEGORIES), (
+        f"Categories mismatch! Expected: {set(EXPECTED_CATEGORIES)}, Found: {set(counts.keys())}"
+    )
+
+    # Verify exactly 10 apps per category
+    for cat in EXPECTED_CATEGORIES:
+        count = counts[cat]
+        assert count == 10, f"Category '{cat}' has {count} applications, expected exactly 10"
 
 
 def test_dataset_unique_ids(raw_dataset: List[Dict[str, Any]]) -> None:
@@ -72,25 +106,6 @@ def test_dataset_descriptions_quality(raw_dataset: List[Dict[str, Any]]) -> None
         desc = app.get("description", "")
         assert len(desc) >= 20, f"Description too short (<20 chars) for {app.get('name')}: '{desc}'"
         assert len(desc) <= 500, f"Description too long (>500 chars) for {app.get('name')}"
-
-
-def test_dataset_category_distribution(raw_dataset: List[Dict[str, Any]]) -> None:
-    """Verify category distribution covers core business domains."""
-    categories = {app.get("category") for app in raw_dataset}
-    expected_categories = {
-        "CRM & Sales",
-        "Project Management & Collaboration",
-        "Developer Tools & Infrastructure",
-        "Customer Support & Communication",
-        "Marketing & Email Automation",
-        "Accounting & Finance",
-        "HR, Payroll & Recruiting",
-        "Content, Design & Media",
-        "E-Commerce & Billing",
-        "Security, Identity & Compliance",
-    }
-    for expected in expected_categories:
-        assert expected in categories, f"Expected category '{expected}' not found in dataset"
 
 
 def test_dataset_pydantic_validation(raw_dataset: List[Dict[str, Any]]) -> None:
