@@ -7,6 +7,9 @@ Independently and exhaustively verifies dataset integrity against the authoritat
 - Exact category assignments.
 - Exactly 10 categories.
 - Exactly 10 applications per category.
+- Preservation of original_source_hint for all 100 applications.
+- Separation of website and developer_documentation_url.
+- Null developer_documentation_url where documentation is not yet discovered.
 - No missing applications.
 - No extra applications.
 - No duplicate names or IDs.
@@ -256,7 +259,7 @@ def test_dataset_id_format(raw_dataset: List[Dict[str, Any]]) -> None:
 
 def test_dataset_required_fields_present(raw_dataset: List[Dict[str, Any]]) -> None:
     """Verify that every app contains all required non-empty fields."""
-    required_keys = ["id", "name", "category", "website", "documentation_url", "description"]
+    required_keys = ["id", "name", "category", "original_source_hint", "website", "description"]
     for idx, app in enumerate(raw_dataset):
         for key in required_keys:
             val = app.get(key)
@@ -265,16 +268,40 @@ def test_dataset_required_fields_present(raw_dataset: List[Dict[str, Any]]) -> N
             )
 
 
+def test_dataset_original_source_hint_preserved(raw_dataset: List[Dict[str, Any]]) -> None:
+    """Verify all 100 applications preserve their original_source_hint non-empty."""
+    for app in raw_dataset:
+        hint = app.get("original_source_hint")
+        assert hint is not None and len(str(hint).strip()) >= 3, (
+            f"Missing or invalid original_source_hint for {app.get('name')}"
+        )
+
+
+def test_dataset_developer_docs_separation(raw_dataset: List[Dict[str, Any]]) -> None:
+    """
+    Verify developer_documentation_url is separate from website and original_source_hint,
+    and allows null where documentation is not yet discovered or gated.
+    """
+    null_docs = [app["name"] for app in raw_dataset if app.get("developer_documentation_url") is None]
+    populated_docs = [app["name"] for app in raw_dataset if app.get("developer_documentation_url") is not None]
+
+    assert len(null_docs) > 0, "Expected some apps with null developer_documentation_url (undiscovered/gated)"
+    assert len(populated_docs) > 0, "Expected apps with verified developer_documentation_url"
+
+    for app in raw_dataset:
+        doc_url = app.get("developer_documentation_url")
+        if doc_url is not None:
+            assert str(doc_url).startswith("http://") or str(doc_url).startswith("https://"), (
+                f"Invalid developer_documentation_url format for {app.get('name')}: {doc_url}"
+            )
+
+
 def test_dataset_url_schemes(raw_dataset: List[Dict[str, Any]]) -> None:
-    """Verify all website and documentation URLs start with https:// or http://."""
+    """Verify all website URLs start with https:// or http://."""
     for app in raw_dataset:
         website = str(app.get("website", ""))
-        doc_url = str(app.get("documentation_url", ""))
         assert website.startswith("http://") or website.startswith("https://"), (
             f"Invalid website URL for {app.get('name')}: {website}"
-        )
-        assert doc_url.startswith("http://") or doc_url.startswith("https://"), (
-            f"Invalid doc URL for {app.get('name')}: {doc_url}"
         )
 
 

@@ -4,7 +4,7 @@ Integration Intelligence - Application Metadata Schema.
 Defines the structure for input applications in the benchmark dataset.
 """
 
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator
 
 
@@ -31,15 +31,21 @@ class AppMetadata(BaseModel):
         min_length=2,
         max_length=100,
         description="High-level industry or operational category.",
-        examples=["CRM & Sales", "Developer Tools & Infrastructure"],
+        examples=["CRM and Sales", "Developer, Infra and Data platforms"],
+    )
+    original_source_hint: str = Field(
+        ...,
+        min_length=3,
+        description="Exact website or documentation hint supplied in the original assignment.",
+        examples=["https://www.salesforce.com", "https://attio.com"],
     )
     website: HttpUrl = Field(
         ...,
         description="Canonical public homepage URL of the service.",
     )
-    documentation_url: HttpUrl = Field(
-        ...,
-        description="Official API reference, developer documentation, or developer portal URL.",
+    developer_documentation_url: Optional[HttpUrl] = Field(
+        default=None,
+        description="Official API reference or developer portal URL. Null where not yet discovered or gated.",
     )
     description: str = Field(
         ...,

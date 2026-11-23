@@ -3,800 +3,900 @@
     "id": "salesforce",
     "name": "Salesforce",
     "category": "CRM and Sales",
+    "original_source_hint": "https://www.salesforce.com",
     "website": "https://www.salesforce.com",
-    "documentation_url": "https://developer.salesforce.com/docs",
+    "developer_documentation_url": "https://developer.salesforce.com/docs",
     "description": "Enterprise cloud customer relationship management platform for sales, service, and marketing automation."
   },
   {
     "id": "hubspot",
     "name": "HubSpot",
     "category": "CRM and Sales",
+    "original_source_hint": "https://www.hubspot.com",
     "website": "https://www.hubspot.com",
-    "documentation_url": "https://developers.hubspot.com/docs",
+    "developer_documentation_url": "https://developers.hubspot.com/docs",
     "description": "Inbound marketing, sales pipeline management, customer service, and CRM software suite."
   },
   {
     "id": "pipedrive",
     "name": "Pipedrive",
     "category": "CRM and Sales",
+    "original_source_hint": "https://www.pipedrive.com",
     "website": "https://www.pipedrive.com",
-    "documentation_url": "https://developers.pipedrive.com/docs/api/v1",
+    "developer_documentation_url": "https://developers.pipedrive.com/docs/api/v1",
     "description": "Sales pipeline CRM designed to visualize, track, and accelerate deal progress across teams."
   },
   {
     "id": "attio",
     "name": "Attio",
     "category": "CRM and Sales",
+    "original_source_hint": "https://attio.com",
     "website": "https://attio.com",
-    "documentation_url": "https://developers.attio.com",
+    "developer_documentation_url": "https://developers.attio.com",
     "description": "Next-generation data-driven CRM built with customizable objects, real-time sync, and automated workflows."
   },
   {
     "id": "twenty",
     "name": "Twenty",
     "category": "CRM and Sales",
+    "original_source_hint": "https://twenty.com",
     "website": "https://twenty.com",
-    "documentation_url": "https://docs.twenty.com",
+    "developer_documentation_url": "https://docs.twenty.com",
     "description": "Open-source modern CRM platform providing full data transparency, customizable views, and extensible APIs."
   },
   {
     "id": "podio",
     "name": "Podio",
     "category": "CRM and Sales",
+    "original_source_hint": "https://podio.com",
     "website": "https://podio.com",
-    "documentation_url": "https://developers.podio.com",
+    "developer_documentation_url": "https://developers.podio.com",
     "description": "Customizable work and sales management software with modular app builder capabilities."
   },
   {
     "id": "zoho-crm",
     "name": "Zoho CRM",
     "category": "CRM and Sales",
+    "original_source_hint": "https://www.zoho.com/crm",
     "website": "https://www.zoho.com/crm",
-    "documentation_url": "https://www.zoho.com/crm/developer/docs/api/v6/",
+    "developer_documentation_url": "https://www.zoho.com/crm/developer/docs/api/v6/",
     "description": "Omnichannel customer relationship management suite with AI-powered sales assistance and pipeline automation."
   },
   {
     "id": "close",
     "name": "Close",
     "category": "CRM and Sales",
+    "original_source_hint": "https://www.close.com",
     "website": "https://www.close.com",
-    "documentation_url": "https://developer.close.com",
+    "developer_documentation_url": "https://developer.close.com",
     "description": "High-velocity sales CRM featuring integrated VoIP calling, two-way email sync, and automated SMS cadences."
   },
   {
     "id": "copper",
     "name": "Copper",
     "category": "CRM and Sales",
+    "original_source_hint": "https://www.copper.com",
     "website": "https://www.copper.com",
-    "documentation_url": "https://developer.copper.com",
+    "developer_documentation_url": "https://developer.copper.com",
     "description": "Google Workspace-native CRM platform that embeds relationship tracking directly inside Gmail and Google Calendar."
   },
   {
     "id": "dealcloud",
     "name": "DealCloud",
     "category": "CRM and Sales",
+    "original_source_hint": "https://dealcloud.com",
     "website": "https://dealcloud.com",
-    "documentation_url": "https://developer.dealcloud.com",
+    "developer_documentation_url": null,
     "description": "Specialized CRM and deal management platform for private equity, investment banking, and capital markets."
   },
   {
     "id": "zendesk",
     "name": "Zendesk",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://www.zendesk.com",
     "website": "https://www.zendesk.com",
-    "documentation_url": "https://developer.zendesk.com/api-reference/",
+    "developer_documentation_url": "https://developer.zendesk.com/api-reference/",
     "description": "Customer service and support ticketing platform managing omnichannel user requests and knowledge bases."
   },
   {
     "id": "intercom",
     "name": "Intercom",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://www.intercom.com",
     "website": "https://www.intercom.com",
-    "documentation_url": "https://developers.intercom.com/docs/references/rest-api/api.config.json/",
+    "developer_documentation_url": "https://developers.intercom.com/docs/references/rest-api/api.config.json/",
     "description": "AI-first customer service platform delivering interactive live chat, bots, and omnichannel ticketing."
   },
   {
     "id": "freshdesk",
     "name": "Freshdesk",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://freshdesk.com",
     "website": "https://freshdesk.com",
-    "documentation_url": "https://developers.freshdesk.com/api/",
+    "developer_documentation_url": "https://developers.freshdesk.com/api/",
     "description": "Cloud-based customer support software converting incoming emails, chats, and calls into managed tickets."
   },
   {
     "id": "front",
     "name": "Front",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://front.com",
     "website": "https://front.com",
-    "documentation_url": "https://dev.frontapp.com/docs",
+    "developer_documentation_url": "https://dev.frontapp.com/docs",
     "description": "Customer operations platform combining shared inboxes and ticketing with team collaboration."
   },
   {
     "id": "pylon",
     "name": "Pylon",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://usepylon.com",
     "website": "https://usepylon.com",
-    "documentation_url": "https://docs.usepylon.com",
+    "developer_documentation_url": "https://docs.usepylon.com",
     "description": "B2B customer support platform unifying Slack, Teams, email, and ticketing for modern support teams."
   },
   {
     "id": "liveagent",
     "name": "LiveAgent",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://www.liveagent.com",
     "website": "https://www.liveagent.com",
-    "documentation_url": "https://api.liveagent.com/docs/",
+    "developer_documentation_url": "https://api.liveagent.com/docs/",
     "description": "Omnichannel helpdesk and live chat software unifying support inquiries, call routing, and knowledge portals."
   },
   {
     "id": "plain",
     "name": "Plain",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://plain.com",
     "website": "https://plain.com",
-    "documentation_url": "https://plain.com/docs",
+    "developer_documentation_url": "https://plain.com/docs",
     "description": "API-first customer service platform engineered for modern technical teams and developer-focused support."
   },
   {
     "id": "help-scout",
     "name": "Help Scout",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://www.helpscout.com",
     "website": "https://www.helpscout.com",
-    "documentation_url": "https://developer.helpscout.com/mailbox-api/",
+    "developer_documentation_url": "https://developer.helpscout.com/mailbox-api/",
     "description": "Customer support desk platform emphasizing personalized human support, shared mailboxes, and docs."
   },
   {
     "id": "gorgias",
     "name": "Gorgias",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://www.gorgias.com",
     "website": "https://www.gorgias.com",
-    "documentation_url": "https://developers.gorgias.com/reference/introduction",
+    "developer_documentation_url": "https://developers.gorgias.com/reference/introduction",
     "description": "E-commerce customer service platform deeply integrated with Shopify, BigCommerce, and Magento store records."
   },
   {
     "id": "gladly",
     "name": "Gladly",
     "category": "Support and Helpdesk",
+    "original_source_hint": "https://www.gladly.com",
     "website": "https://www.gladly.com",
-    "documentation_url": "https://developer.gladly.com",
+    "developer_documentation_url": null,
     "description": "People-centered customer service platform delivering a lifelong, single customer conversation timeline across channels."
   },
   {
     "id": "slack",
     "name": "Slack",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://slack.com",
     "website": "https://slack.com",
-    "documentation_url": "https://api.slack.com",
+    "developer_documentation_url": "https://api.slack.com",
     "description": "Channel-based messaging platform connecting teams, automated bots, and enterprise developer toolchains."
   },
   {
     "id": "twilio",
     "name": "Twilio",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://www.twilio.com",
     "website": "https://www.twilio.com",
-    "documentation_url": "https://www.twilio.com/docs/usage/api",
+    "developer_documentation_url": "https://www.twilio.com/docs/usage/api",
     "description": "Developer communications platform for programmatic SMS, voice calling, WhatsApp messaging, and verification."
   },
   {
     "id": "zoho-cliq",
     "name": "Zoho Cliq",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://www.zoho.com/cliq/",
     "website": "https://www.zoho.com/cliq/",
-    "documentation_url": "https://www.zoho.com/cliq/help/restapi/v2/",
+    "developer_documentation_url": "https://www.zoho.com/cliq/help/restapi/v2/",
     "description": "Enterprise team communication software with real-time chat, audio/video calls, and contextual integrations."
   },
   {
     "id": "lark",
     "name": "Lark (Larksuite)",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://www.larksuite.com",
     "website": "https://www.larksuite.com",
-    "documentation_url": "https://open.larksuite.com/document",
+    "developer_documentation_url": "https://open.larksuite.com/document",
     "description": "Enterprise collaboration suite integrating chat, meetings, calendar, cloud docs, and email in a single workspace."
   },
   {
     "id": "pumble",
     "name": "Pumble",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://pumble.com",
     "website": "https://pumble.com",
-    "documentation_url": "https://pumble.com/help/integrations/pumble-api/",
+    "developer_documentation_url": "https://pumble.com/help/integrations/pumble-api/",
     "description": "Free team chat and collaboration app offering direct messages, channels, voice/video calls, and file sharing."
   },
   {
     "id": "discord",
     "name": "Discord",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://discord.com",
     "website": "https://discord.com",
-    "documentation_url": "https://discord.com/developers/docs/intro",
+    "developer_documentation_url": "https://discord.com/developers/docs/intro",
     "description": "Voice, video, and text communication platform popular with communities, gaming groups, and developer bots."
   },
   {
     "id": "telegram",
     "name": "Telegram",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://telegram.org",
     "website": "https://telegram.org",
-    "documentation_url": "https://core.telegram.org/bots/api",
+    "developer_documentation_url": "https://core.telegram.org/bots/api",
     "description": "Cloud-based messaging app with end-to-end encrypted chats, high-capacity broadcasting, and open bot APIs."
   },
   {
     "id": "whatsapp-business",
     "name": "WhatsApp Business",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://www.whatsapp.com/business",
     "website": "https://www.whatsapp.com/business",
-    "documentation_url": "https://developers.facebook.com/docs/whatsapp",
+    "developer_documentation_url": "https://developers.facebook.com/docs/whatsapp",
     "description": "Enterprise customer messaging platform allowing businesses to connect with customers globally via WhatsApp."
   },
   {
     "id": "aircall",
     "name": "Aircall",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://aircall.io",
     "website": "https://aircall.io",
-    "documentation_url": "https://developer.aircall.io/api-references/",
+    "developer_documentation_url": "https://developer.aircall.io/api-references/",
     "description": "Cloud-based call center and phone system integrating voice calling into CRM and helpdesk workflows."
   },
   {
     "id": "vonage",
     "name": "Vonage",
     "category": "Communications and Messaging",
+    "original_source_hint": "https://www.vonage.com",
     "website": "https://www.vonage.com",
-    "documentation_url": "https://developer.vonage.com/api",
+    "developer_documentation_url": "https://developer.vonage.com/api",
     "description": "Global communications API platform providing SMS, voice, video, verification, and interactive messaging."
   },
   {
     "id": "google-ads",
     "name": "Google Ads",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://ads.google.com",
     "website": "https://ads.google.com",
-    "documentation_url": "https://developers.google.com/google-ads/api/docs/start",
+    "developer_documentation_url": "https://developers.google.com/google-ads/api/docs/start",
     "description": "Online advertising platform enabling advertisers to display ads across Google search results, YouTube, and partner websites."
   },
   {
     "id": "meta-ads",
     "name": "Meta Ads",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://www.facebook.com/business/ads",
     "website": "https://www.facebook.com/business/ads",
-    "documentation_url": "https://developers.facebook.com/docs/marketing-apis",
+    "developer_documentation_url": "https://developers.facebook.com/docs/marketing-apis",
     "description": "Digital advertising platform for programmatic ad campaign creation and targeting across Facebook, Instagram, and Messenger."
   },
   {
     "id": "linkedin-ads",
     "name": "LinkedIn Ads",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://business.linkedin.com/marketing-solutions/ads",
     "website": "https://business.linkedin.com/marketing-solutions/ads",
-    "documentation_url": "https://learn.microsoft.com/en-us/linkedin/marketing/overview",
+    "developer_documentation_url": "https://learn.microsoft.com/en-us/linkedin/marketing/overview",
     "description": "B2B advertising platform targeting professional audiences by job title, company, industry, and demographic criteria."
   },
   {
     "id": "gohighlevel",
     "name": "GoHighLevel",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://www.gohighlevel.com",
     "website": "https://www.gohighlevel.com",
-    "documentation_url": "https://marketplace.gohighlevel.com/docs/",
+    "developer_documentation_url": "https://marketplace.gohighlevel.com/docs/",
     "description": "All-in-one marketing, sales automation, and CRM platform built specifically for digital marketing agencies."
   },
   {
     "id": "mailchimp",
     "name": "Mailchimp",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://mailchimp.com",
     "website": "https://mailchimp.com",
-    "documentation_url": "https://mailchimp.com/developer/marketing/api/",
+    "developer_documentation_url": "https://mailchimp.com/developer/marketing/api/",
     "description": "Marketing automation platform and email marketing service for creating campaigns, managing audiences, and analytics."
   },
   {
     "id": "klaviyo",
     "name": "Klaviyo",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://www.klaviyo.com",
     "website": "https://www.klaviyo.com",
-    "documentation_url": "https://developers.klaviyo.com/en/reference/api_overview",
+    "developer_documentation_url": "https://developers.klaviyo.com/en/reference/api_overview",
     "description": "Intelligent marketing automation platform using unified customer data for personalized SMS and email marketing."
   },
   {
     "id": "systeme-io",
     "name": "systeme.io",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://systeme.io",
     "website": "https://systeme.io",
-    "documentation_url": "https://systeme.io/api-docs",
+    "developer_documentation_url": null,
     "description": "All-in-one marketing platform for sales funnels, email marketing, online courses, and affiliate management."
   },
   {
     "id": "pinterest",
     "name": "Pinterest",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://www.pinterest.com",
     "website": "https://www.pinterest.com",
-    "documentation_url": "https://developers.pinterest.com/docs/api/v5/",
+    "developer_documentation_url": "https://developers.pinterest.com/docs/api/v5/",
     "description": "Visual discovery and bookmarking engine offering developer APIs for pin publishing, user analytics, and ad delivery."
   },
   {
     "id": "threads-meta",
     "name": "Threads (Meta)",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://www.threads.net",
     "website": "https://www.threads.net",
-    "documentation_url": "https://developers.facebook.com/docs/threads",
+    "developer_documentation_url": "https://developers.facebook.com/docs/threads",
     "description": "Text-based social conversation platform from Meta providing public publishing and engagement APIs."
   },
   {
     "id": "sendgrid",
     "name": "SendGrid",
     "category": "Marketing, Ads, Email and Social",
+    "original_source_hint": "https://sendgrid.com",
     "website": "https://sendgrid.com",
-    "documentation_url": "https://docs.sendgrid.com/api-reference",
+    "developer_documentation_url": "https://docs.sendgrid.com/api-reference",
     "description": "Cloud-based customer communication platform delivering high-volume transactional and marketing email delivery."
   },
   {
     "id": "shopify",
     "name": "Shopify",
     "category": "Ecommerce",
+    "original_source_hint": "https://www.shopify.com",
     "website": "https://www.shopify.com",
-    "documentation_url": "https://shopify.dev/docs/api/admin-rest",
+    "developer_documentation_url": "https://shopify.dev/docs/api/admin-rest",
     "description": "Global commerce platform providing online storefronts, inventory management, payments, and checkout APIs."
   },
   {
     "id": "woocommerce",
     "name": "WooCommerce",
     "category": "Ecommerce",
+    "original_source_hint": "https://woocommerce.com",
     "website": "https://woocommerce.com",
-    "documentation_url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+    "developer_documentation_url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
     "description": "Open-source, customizable e-commerce plugin built for WordPress websites managing product catalogs and checkouts."
   },
   {
     "id": "bigcommerce",
     "name": "BigCommerce",
     "category": "Ecommerce",
+    "original_source_hint": "https://www.bigcommerce.com",
     "website": "https://www.bigcommerce.com",
-    "documentation_url": "https://developer.bigcommerce.com/docs/rest",
+    "developer_documentation_url": "https://developer.bigcommerce.com/docs/rest",
     "description": "Open SaaS e-commerce platform offering enterprise storefront functionality, headless APIs, and multi-storefront routing."
   },
   {
     "id": "salesforce-commerce-cloud",
     "name": "Salesforce Commerce Cloud",
     "category": "Ecommerce",
+    "original_source_hint": "https://www.salesforce.com/products/commerce-cloud/",
     "website": "https://www.salesforce.com/products/commerce-cloud/",
-    "documentation_url": "https://developer.salesforce.com/docs/commerce/commerce-api",
+    "developer_documentation_url": "https://developer.salesforce.com/docs/commerce/commerce-api",
     "description": "Enterprise cloud commerce platform delivering AI-driven shopping experiences across digital and physical touchpoints."
   },
   {
     "id": "magento",
     "name": "Magento (Adobe Commerce)",
     "category": "Ecommerce",
+    "original_source_hint": "https://business.adobe.com/products/magento/magento-commerce.html",
     "website": "https://business.adobe.com/products/magento/magento-commerce.html",
-    "documentation_url": "https://developer.adobe.com/commerce/webapi/",
+    "developer_documentation_url": "https://developer.adobe.com/commerce/webapi/",
     "description": "Adobe Commerce enterprise e-commerce platform offering flexible architectures and extensive merchant APIs."
   },
   {
     "id": "squarespace",
     "name": "Squarespace",
     "category": "Ecommerce",
+    "original_source_hint": "https://www.squarespace.com",
     "website": "https://www.squarespace.com",
-    "documentation_url": "https://developers.squarespace.com/commerce-apis/overview",
+    "developer_documentation_url": "https://developers.squarespace.com/commerce-apis/overview",
     "description": "Website building and e-commerce platform providing design templates, store management, and order APIs."
   },
   {
     "id": "ecwid",
     "name": "Ecwid",
     "category": "Ecommerce",
+    "original_source_hint": "https://www.ecwid.com",
     "website": "https://www.ecwid.com",
-    "documentation_url": "https://api-docs.ecwid.com/reference/overview",
+    "developer_documentation_url": "https://api-docs.ecwid.com/reference/overview",
     "description": "Embeddable e-commerce shopping cart software allowing businesses to add online stores to existing websites."
   },
   {
     "id": "gumroad",
     "name": "Gumroad",
     "category": "Ecommerce",
+    "original_source_hint": "https://gumroad.com",
     "website": "https://gumroad.com",
-    "documentation_url": "https://gumroad.com/api",
+    "developer_documentation_url": "https://gumroad.com/api",
     "description": "Direct-to-consumer e-commerce platform enabling creators to sell digital products, memberships, and software."
   },
   {
     "id": "amazon-selling-partner",
     "name": "Amazon Selling Partner",
     "category": "Ecommerce",
+    "original_source_hint": "https://sell.amazon.com",
     "website": "https://sell.amazon.com",
-    "documentation_url": "https://developer-docs.amazon.com/sp-api/",
+    "developer_documentation_url": "https://developer-docs.amazon.com/sp-api/",
     "description": "Amazon Selling Partner API platform managing merchant marketplace listings, orders, payments, and fulfillment."
   },
   {
     "id": "fanbasis",
     "name": "fanbasis",
     "category": "Ecommerce",
+    "original_source_hint": "https://www.fanbasis.com",
     "website": "https://www.fanbasis.com",
-    "documentation_url": "https://www.fanbasis.com",
+    "developer_documentation_url": null,
     "description": "Monetization and digital commerce platform for creators, musicians, and athletes to sell experiences and digital content."
   },
   {
     "id": "dataforseo",
     "name": "DataForSEO",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://dataforseo.com",
     "website": "https://dataforseo.com",
-    "documentation_url": "https://docs.dataforseo.com",
+    "developer_documentation_url": "https://docs.dataforseo.com",
     "description": "Comprehensive API provider for SEO data, SERP scraping, keyword research, backlinks, and on-page audits."
   },
   {
     "id": "se-ranking",
     "name": "SE Ranking",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://seranking.com",
     "website": "https://seranking.com",
-    "documentation_url": "https://seranking.com/api.html",
+    "developer_documentation_url": "https://seranking.com/api.html",
     "description": "All-in-one SEO analysis software providing APIs for keyword rank tracking, competitor research, and site audits."
   },
   {
     "id": "ahrefs",
     "name": "Ahrefs",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://ahrefs.com",
     "website": "https://ahrefs.com",
-    "documentation_url": "https://ahrefs.com/api/documentation",
+    "developer_documentation_url": "https://ahrefs.com/api/documentation",
     "description": "SEO toolset and web link database providing APIs for backlink auditing, keyword rankings, and competitor traffic analysis."
   },
   {
     "id": "mrscraper",
     "name": "MrScraper",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://mrscraper.com",
     "website": "https://mrscraper.com",
-    "documentation_url": "https://mrscraper.com/docs",
+    "developer_documentation_url": null,
     "description": "Visual and automated web scraping platform extracting structured JSON data from web pages without coding."
   },
   {
     "id": "apify",
     "name": "Apify",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://apify.com",
     "website": "https://apify.com",
-    "documentation_url": "https://docs.apify.com/api/v2",
+    "developer_documentation_url": "https://docs.apify.com/api/v2",
     "description": "Cloud platform for web scraping, data extraction, and serverless automation running community actors and scrapers."
   },
   {
     "id": "firecrawl",
     "name": "Firecrawl",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://www.firecrawl.dev",
     "website": "https://www.firecrawl.dev",
-    "documentation_url": "https://docs.firecrawl.dev",
+    "developer_documentation_url": "https://docs.firecrawl.dev",
     "description": "API service that crawls websites and converts entire web pages into clean markdown or structured data for LLMs."
   },
   {
     "id": "bright-data",
     "name": "Bright Data",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://brightdata.com",
     "website": "https://brightdata.com",
-    "documentation_url": "https://brightdata.com/cp/api",
+    "developer_documentation_url": "https://brightdata.com/cp/api",
     "description": "Enterprise web data collection platform delivering automated proxy networks, web unlocking, and structured scraping APIs."
   },
   {
     "id": "sherlock",
     "name": "Sherlock",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://sherlockproject.xyz",
     "website": "https://sherlockproject.xyz",
-    "documentation_url": "https://github.com/sherlock-project/sherlock",
+    "developer_documentation_url": "https://github.com/sherlock-project/sherlock",
     "description": "Open-source intelligence OSINT scraping tool hunting down social media accounts by username across hundreds of networks."
   },
   {
     "id": "waterfall-io",
     "name": "Waterfall.io",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://waterfall.io",
     "website": "https://waterfall.io",
-    "documentation_url": "https://waterfall.io",
+    "developer_documentation_url": null,
     "description": "Data enrichment and waterfall API routing platform combining multiple data providers for verified B2B intelligence."
   },
   {
     "id": "clay",
     "name": "Clay",
     "category": "Data, SEO and Scraping",
+    "original_source_hint": "https://www.clay.com",
     "website": "https://www.clay.com",
-    "documentation_url": "https://docs.clay.com",
+    "developer_documentation_url": "https://docs.clay.com",
     "description": "Data enrichment and automated prospecting platform combining 50+ data providers to qualify and research leads."
   },
   {
     "id": "github",
     "name": "GitHub",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://github.com",
     "website": "https://github.com",
-    "documentation_url": "https://docs.github.com/en/rest",
+    "developer_documentation_url": "https://docs.github.com/en/rest",
     "description": "Developer platform for distributed Git version control, pull requests, issue tracking, and CI/CD actions."
   },
   {
     "id": "vercel",
     "name": "Vercel",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://vercel.com",
     "website": "https://vercel.com",
-    "documentation_url": "https://vercel.com/docs/rest-api",
+    "developer_documentation_url": "https://vercel.com/docs/rest-api",
     "description": "Frontend cloud platform for developing, previewing, and shipping Jamstack and Next.js web applications."
   },
   {
     "id": "netlify",
     "name": "Netlify",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://www.netlify.com",
     "website": "https://www.netlify.com",
-    "documentation_url": "https://docs.netlify.com/api/get-started/",
+    "developer_documentation_url": "https://docs.netlify.com/api/get-started/",
     "description": "Cloud platform for modern web projects providing continuous deployment, serverless functions, and global edge hosting."
   },
   {
     "id": "cloudflare",
     "name": "Cloudflare",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://www.cloudflare.com",
     "website": "https://www.cloudflare.com",
-    "documentation_url": "https://developers.cloudflare.com/api/",
+    "developer_documentation_url": "https://developers.cloudflare.com/api/",
     "description": "Global cloud network platform providing content delivery (CDN), DDoS security, DNS, and serverless edge computing."
   },
   {
     "id": "supabase",
     "name": "Supabase",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://supabase.com",
     "website": "https://supabase.com",
-    "documentation_url": "https://supabase.com/docs/reference/api/introduction",
+    "developer_documentation_url": "https://supabase.com/docs/reference/api/introduction",
     "description": "Open-source Firebase alternative delivering managed PostgreSQL, authentication, instant REST APIs, and edge functions."
   },
   {
     "id": "neo4j",
     "name": "Neo4j",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://neo4j.com",
     "website": "https://neo4j.com",
-    "documentation_url": "https://neo4j.com/docs/http-api/current/",
+    "developer_documentation_url": "https://neo4j.com/docs/http-api/current/",
     "description": "Graph database management system designed for optimizing connected data queries and relationship traversal."
   },
   {
     "id": "snowflake",
     "name": "Snowflake",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://www.snowflake.com",
     "website": "https://www.snowflake.com",
-    "documentation_url": "https://docs.snowflake.com/en/developer-guide/sql-api/index",
+    "developer_documentation_url": "https://docs.snowflake.com/en/developer-guide/sql-api/index",
     "description": "Cloud data warehouse and data cloud platform enabling scalable SQL querying, data sharing, and machine learning workloads."
   },
   {
     "id": "mongodb-atlas",
     "name": "MongoDB Atlas",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://www.mongodb.com/atlas",
     "website": "https://www.mongodb.com/atlas",
-    "documentation_url": "https://www.mongodb.com/docs/atlas/api/",
+    "developer_documentation_url": "https://www.mongodb.com/docs/atlas/api/",
     "description": "Fully managed multi-cloud document database service featuring automated scaling, sharding, and flexible schemas."
   },
   {
     "id": "datadog",
     "name": "Datadog",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://www.datadoghq.com",
     "website": "https://www.datadoghq.com",
-    "documentation_url": "https://docs.datadoghq.com/api/latest/",
+    "developer_documentation_url": "https://docs.datadoghq.com/api/latest/",
     "description": "Observability and security platform monitoring cloud infrastructure, application metrics, traces, and server logs."
   },
   {
     "id": "sentry",
     "name": "Sentry",
     "category": "Developer, Infra and Data platforms",
+    "original_source_hint": "https://sentry.io",
     "website": "https://sentry.io",
-    "documentation_url": "https://docs.sentry.io/api/",
+    "developer_documentation_url": "https://docs.sentry.io/api/",
     "description": "Application monitoring and error tracking software providing real-time crash stack traces and performance telemetry."
   },
   {
     "id": "notion",
     "name": "Notion",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://www.notion.so",
     "website": "https://www.notion.so",
-    "documentation_url": "https://developers.notion.com",
+    "developer_documentation_url": "https://developers.notion.com",
     "description": "Connected workspace combining docs, relational databases, wikis, project boards, and team notes."
   },
   {
     "id": "airtable",
     "name": "Airtable",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://airtable.com",
     "website": "https://airtable.com",
-    "documentation_url": "https://airtable.com/developers/web/api/introduction",
+    "developer_documentation_url": "https://airtable.com/developers/web/api/introduction",
     "description": "No-code relational database platform combining spreadsheet flexibility with rich records, views, and automations."
   },
   {
     "id": "linear",
     "name": "Linear",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://linear.app",
     "website": "https://linear.app",
-    "documentation_url": "https://developers.linear.app/docs/graphql/working-with-the-graphql-api",
+    "developer_documentation_url": "https://developers.linear.app/docs/graphql/working-with-the-graphql-api",
     "description": "Streamlined issue tracking and software project management platform for modern engineering teams."
   },
   {
     "id": "jira",
     "name": "Jira",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://www.atlassian.com/software/jira",
     "website": "https://www.atlassian.com/software/jira",
-    "documentation_url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+    "developer_documentation_url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
     "description": "Issue and agile project tracking tool used by development teams to plan, release, and monitor software."
   },
   {
     "id": "asana",
     "name": "Asana",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://asana.com",
     "website": "https://asana.com",
-    "documentation_url": "https://developers.asana.com/docs",
+    "developer_documentation_url": "https://developers.asana.com/docs",
     "description": "Work management software organizing team tasks, project timelines, strategic goals, and cross-functional operations."
   },
   {
     "id": "monday-com",
     "name": "Monday.com",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://monday.com",
     "website": "https://monday.com",
-    "documentation_url": "https://developer.monday.com/api-reference/docs",
+    "developer_documentation_url": "https://developer.monday.com/api-reference/docs",
     "description": "Configurable Work OS enabling teams to build custom workflow management boards, automations, and dashboards."
   },
   {
     "id": "clickup",
     "name": "ClickUp",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://clickup.com",
     "website": "https://clickup.com",
-    "documentation_url": "https://clickup.com/api",
+    "developer_documentation_url": "https://clickup.com/api",
     "description": "All-in-one productivity platform offering tasks, docs, goals, whiteboards, chat, and custom automations."
   },
   {
     "id": "coda",
     "name": "Coda",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://coda.io",
     "website": "https://coda.io",
-    "documentation_url": "https://coda.io/developers/apis/v1",
+    "developer_documentation_url": "https://coda.io/developers/apis/v1",
     "description": "Interactive document platform unifying word processing, relational tables, buttons, and app-like integrations."
   },
   {
     "id": "smartsheet",
     "name": "Smartsheet",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://www.smartsheet.com",
     "website": "https://www.smartsheet.com",
-    "documentation_url": "https://smartsheet.redoc.ly/",
+    "developer_documentation_url": "https://smartsheet.redoc.ly/",
     "description": "Enterprise work management platform built on dynamic spreadsheets for managing projects, processes, and programs."
   },
   {
     "id": "harvest",
     "name": "Harvest",
     "category": "Productivity and Project Management",
+    "original_source_hint": "https://www.getharvest.com",
     "website": "https://www.getharvest.com",
-    "documentation_url": "https://help.getharvest.com/api-v2/",
+    "developer_documentation_url": "https://help.getharvest.com/api-v2/",
     "description": "Time tracking and invoicing software designed to track team hours, monitor project budgets, and bill clients."
   },
   {
     "id": "stripe",
     "name": "Stripe",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://stripe.com",
     "website": "https://stripe.com",
-    "documentation_url": "https://docs.stripe.com/api",
+    "developer_documentation_url": "https://docs.stripe.com/api",
     "description": "Financial infrastructure platform facilitating online payment processing, subscription billing, and payout rails."
   },
   {
     "id": "plaid",
     "name": "Plaid",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://plaid.com",
     "website": "https://plaid.com",
-    "documentation_url": "https://plaid.com/docs/api/",
+    "developer_documentation_url": "https://plaid.com/docs/api/",
     "description": "Financial technology platform offering APIs that connect consumer bank accounts to fintech applications and payments."
   },
   {
     "id": "binance",
     "name": "Binance",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://www.binance.com",
     "website": "https://www.binance.com",
-    "documentation_url": "https://binance-docs.github.io/apidocs/spot/en/",
+    "developer_documentation_url": "https://binance-docs.github.io/apidocs/spot/en/",
     "description": "Global cryptocurrency exchange providing high-speed spot trading, derivatives, and digital asset wallet APIs."
   },
   {
     "id": "paygent-connect",
     "name": "Paygent Connect",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://www.paygent.co.jp",
     "website": "https://www.paygent.co.jp",
-    "documentation_url": "https://www.paygent.co.jp",
+    "developer_documentation_url": null,
     "description": "Japanese payment service provider offering credit card, electronic money, and bank transfer payment gateways."
   },
   {
     "id": "ipayx",
     "name": "iPayX",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://www.ipayx.com",
     "website": "https://www.ipayx.com",
-    "documentation_url": "https://www.ipayx.com",
+    "developer_documentation_url": null,
     "description": "Healthcare and enterprise electronic billing and payment processing network (Electronic Payment Exchange)."
   },
   {
     "id": "quickbooks",
     "name": "QuickBooks",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://quickbooks.intuit.com",
     "website": "https://quickbooks.intuit.com",
-    "documentation_url": "https://developer.intuit.com/app/developer/qbo/docs/api",
+    "developer_documentation_url": "https://developer.intuit.com/app/developer/qbo/docs/api",
     "description": "Cloud accounting software for small businesses to track expenses, generate invoices, and manage tax reporting."
   },
   {
     "id": "xero",
     "name": "Xero",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://www.xero.com",
     "website": "https://www.xero.com",
-    "documentation_url": "https://developer.xero.com/documentation/api/accounting/overview",
+    "developer_documentation_url": "https://developer.xero.com/documentation/api/accounting/overview",
     "description": "Cloud-based accounting platform connecting small businesses with advisors, bank feeds, and financial reporting."
   },
   {
     "id": "brex",
     "name": "Brex",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://www.brex.com",
     "website": "https://www.brex.com",
-    "documentation_url": "https://developer.brex.com/openapi/",
+    "developer_documentation_url": "https://developer.brex.com/openapi/",
     "description": "Corporate card and spend management platform unifying expense tracking, travel booking, and bill pay."
   },
   {
     "id": "ramp",
     "name": "Ramp",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://ramp.com",
     "website": "https://ramp.com",
-    "documentation_url": "https://docs.ramp.com/developer-api/rest/",
+    "developer_documentation_url": "https://docs.ramp.com/developer-api/rest/",
     "description": "Finance automation and corporate credit card platform designed to control corporate spending and automate receipts."
   },
   {
     "id": "pitchbook",
     "name": "PitchBook",
     "category": "Finance and Fintech",
+    "original_source_hint": "https://pitchbook.com",
     "website": "https://pitchbook.com",
-    "documentation_url": "https://pitchbook.com/products/data-and-analysis/direct-data",
+    "developer_documentation_url": null,
     "description": "Financial data and research platform covering global private capital markets, venture capital, and M&A deals."
   },
   {
     "id": "notebooklm",
     "name": "NotebookLM",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://notebooklm.google.com",
     "website": "https://notebooklm.google.com",
-    "documentation_url": "https://notebooklm.google.com",
+    "developer_documentation_url": null,
     "description": "Personalized AI research assistant from Google designed to interact with, summarize, and query uploaded source notes."
   },
   {
     "id": "otter-ai",
     "name": "Otter AI",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://otter.ai",
     "website": "https://otter.ai",
-    "documentation_url": "https://otter.ai",
+    "developer_documentation_url": null,
     "description": "AI transcription and meeting collaboration software capturing live voice recordings, summaries, and action items."
   },
   {
     "id": "fathom",
     "name": "Fathom",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://fathom.video",
     "website": "https://fathom.video",
-    "documentation_url": "https://developers.fathom.video",
+    "developer_documentation_url": "https://developers.fathom.video",
     "description": "AI video meeting assistant that records, transcribes, highlights, and summarizes Zoom, Google Meet, and Teams calls."
   },
   {
     "id": "consensus",
     "name": "Consensus",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://consensus.app",
     "website": "https://consensus.app",
-    "documentation_url": "https://consensus.app",
+    "developer_documentation_url": null,
     "description": "AI-powered academic search engine extracting research-backed insights and evidence directly from peer-reviewed scientific papers."
   },
   {
     "id": "reducto",
     "name": "Reducto",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://reducto.ai",
     "website": "https://reducto.ai",
-    "documentation_url": "https://docs.reducto.ai",
+    "developer_documentation_url": "https://docs.reducto.ai",
     "description": "Document parsing and OCR API engineered to convert complex PDFs and scans into clean, chunked markdown for LLMs."
   },
   {
     "id": "devin",
     "name": "Devin",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://devin.ai",
     "website": "https://devin.ai",
-    "documentation_url": "https://docs.devin.ai",
+    "developer_documentation_url": "https://docs.devin.ai",
     "description": "Autonomous AI software engineer developed by Cognition capable of executing end-to-end development tasks."
   },
   {
     "id": "higgsfield",
     "name": "higgsfield",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://higgsfield.ai",
     "website": "https://higgsfield.ai",
-    "documentation_url": "https://higgsfield.ai",
+    "developer_documentation_url": null,
     "description": "Generative video AI platform and camera control engine for creating video animations and cinema-grade character motion."
   },
   {
     "id": "mermaid-cli",
     "name": "Mermaid CLI",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://mermaid.js.org",
     "website": "https://mermaid.js.org",
-    "documentation_url": "https://github.com/mermaid-js/mermaid-cli",
+    "developer_documentation_url": "https://github.com/mermaid-js/mermaid-cli",
     "description": "Command-line interface to compile Markdown-inspired text definitions into rendered diagrams, charts, and SVG graphics."
   },
   {
     "id": "youtube-transcript",
     "name": "YouTube Transcript",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://www.youtube.com",
     "website": "https://www.youtube.com",
-    "documentation_url": "https://developers.google.com/youtube/v3",
+    "developer_documentation_url": "https://developers.google.com/youtube/v3",
     "description": "Developer interfaces and caption extraction services to access and retrieve spoken transcripts from YouTube videos."
   },
   {
     "id": "grain",
     "name": "Grain",
     "category": "AI, Research and Media-native",
+    "original_source_hint": "https://grain.com",
     "website": "https://grain.com",
-    "documentation_url": "https://grain.com/docs/api",
+    "developer_documentation_url": "https://grain.com/docs/api",
     "description": "AI meeting recording and revenue intelligence tool summarizing customer calls and sharing video highlight clips."
   }
 ]

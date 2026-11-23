@@ -36,15 +36,33 @@ def test_app_metadata_valid() -> None:
     app = AppMetadata(
         id="github",
         name="GitHub",
-        category="Developer Tools & Infrastructure",
+        category="Developer, Infra and Data platforms",
+        original_source_hint="https://github.com",
         website="https://github.com",
-        documentation_url="https://docs.github.com/en/rest",
+        developer_documentation_url="https://docs.github.com/en/rest",
         description="Developer platform for version control and collaboration.",
         target_use_cases=["repo_creation", "issue_triage", "pull_request_review"],
     )
     assert app.id == "github"
     assert str(app.website).rstrip("/") == "https://github.com"
+    assert app.original_source_hint == "https://github.com"
+    assert app.developer_documentation_url is not None
     assert len(app.target_use_cases) == 3
+
+
+def test_app_metadata_optional_dev_docs() -> None:
+    """Test AppMetadata with null developer_documentation_url."""
+    app = AppMetadata(
+        id="dealcloud",
+        name="DealCloud",
+        category="CRM and Sales",
+        original_source_hint="https://dealcloud.com",
+        website="https://dealcloud.com",
+        developer_documentation_url=None,
+        description="Specialized CRM platform for private equity and investment banking.",
+    )
+    assert app.developer_documentation_url is None
+    assert app.original_source_hint == "https://dealcloud.com"
 
 
 def test_app_metadata_invalid_id() -> None:
@@ -53,9 +71,10 @@ def test_app_metadata_invalid_id() -> None:
         AppMetadata(
             id="GitHub_App",  # Invalid uppercase and underscore
             name="GitHub",
-            category="Developer Tools",
+            category="Developer, Infra and Data platforms",
+            original_source_hint="https://github.com",
             website="https://github.com",
-            documentation_url="https://docs.github.com",
+            developer_documentation_url="https://docs.github.com",
             description="A code collaboration and CI/CD platform.",
         )
 
