@@ -43,9 +43,9 @@ Total Structured Claims:           541
 
 | Claim Provenance | Count | Percentage | Description |
 | :--- | :---: | :---: | :--- |
-| **`LIVE_FETCHED`** | **121** | **22.4%** | Factual assertions directly corroborated by live HTTP 200 DOM snippets from official developer documentation. |
-| **`INFERRED`** | **303** | **56.0%** | Deterministic classifications derived from algorithmic heuristics (e.g. multi-engine REST+GraphQL indicating broad breadth, CLI tools requiring local execution, Composio tool mappings). |
+| **`INFERRED`** | **332** | **61.4%** | Deterministic classifications derived from algorithmic heuristics, Composio catalog matching, or open-source MCP registry verification. |
 | **`UNKNOWN`** | **117** | **21.6%** | Preserved markers where developer portals were protected by WAFs/logins or lacked public developer documentation. Never counted as negative findings. |
+| **`LIVE_FETCHED`** | **92** | **17.0%** | Factual assertions directly corroborated by verbatim live HTTP 200 DOM snippets from official developer documentation. |
 | **`KNOWLEDGE_BASE`** | **0** | **0.0%** | Zero reliance on synthetic test fixtures in production mode. |
 
 ---
@@ -54,11 +54,11 @@ Total Structured Claims:           541
 
 | MCP Classification Category | App Count | Percentage | Description & Examples |
 | :--- | :---: | :---: | :--- |
-| **Native Composio Toolkits** | **66** | **66.0%** | Platforms with native actions/triggers in Composio catalog (e.g. `github`, `slack`, `salesforce`, `hubspot`, `stripe`). |
-| **Official 1st-Party MCP Servers** | **5** | **5.0%** | Vendor-authored and maintained MCP repositories: **Cloudflare**, **Netlify**, **Sentry**, **Apify**, **Firecrawl**. |
-| **Community / Reference MCP Servers** | **7** | **7.0%** | Open-source reference implementations: **GitHub** (Anthropic reference), **Slack** (Anthropic reference), **Shopify** (Dev AI Toolkit), **Supabase**, **Linear**, **Notion**, **Stripe**. |
-| **Composio MCP Bridge Only** | **54** | **54.0%** | Supported natively via Composio toolkits (accessible to MCP clients via Composio's bridge), but no separate independent vendor/community repository verified. |
-| **No Known MCP Server** | **34** | **34.0%** | Platforms with neither an independent MCP server nor a native Composio toolkit. |
+| **Native Composio Toolkits** | **66** | **66.0%** | Platforms with native actions/triggers in Composio catalog (e.g. `github`, `slack`, `salesforce`, `hubspot`, `stripe`, `aircall`). Independent of MCP classification. |
+| **Official 1st-Party MCP Servers** | **10** | **10.0%** | Vendor-authored and maintained MCP repositories or remote endpoints: **Cloudflare**, **Netlify**, **Sentry**, **Apify**, **Firecrawl**, **Ahrefs**, **Reducto**, **SE Ranking**, **Aircall**, **Neo4j**. |
+| **Community / Reference MCP Servers** | **10** | **10.0%** | Verified open-source reference implementations: **GitHub** (Anthropic reference), **Slack** (Anthropic reference), **Shopify** (Dev AI Toolkit), **Supabase**, **Linear**, **Notion**, **Stripe**, **Otter AI** (`otter-mcp`), **YouTube Transcript**, **Fathom**. |
+| **Composio MCP Bridge Only** | **53** | **53.0%** | Supported natively via Composio toolkits (accessible to MCP clients via Composio's bridge), with no separate independent vendor/community repository verified. |
+| **No Known MCP Server** | **27** | **27.0%** | Platforms with neither an independent MCP server nor a native Composio toolkit. |
 
 ---
 
@@ -131,10 +131,14 @@ Duration: 1.50s
 
 ---
 
-## 7. Audit Statement on Verification Metrics
+## 7. Audit Statement on Verification Metrics & Honest Limitations
 
-**Research Quality Statement**:
-This study does not assert generalized human ground-truth accuracy. Instead, it provides **verifiable programmatic audit metrics**:
-- **65 applications passed automated corroboration checks** (`AUTOMATED_PASS`) where live documentation was successfully fetched, parsed, and corroborated without contradictory evidence.
-- **35 applications are flagged for human review** (`REQUIRES_HUMAN_REVIEW`) due to bot protection, login requirements, or unreleased developer APIs.
-- 100% of claims are traceable to their exact origin (`LIVE_FETCHED`, `INFERRED`, or `UNKNOWN`).
+**Automated Integration-Readiness Assessment Statement**:
+This study provides an **automated integration-readiness assessment**; it does NOT assert generalized human ground-truth accuracy or manual audit completion.
+
+Key audited disclosures:
+1. **Search Provider Availability**: External search APIs were unavailable during execution (`SEARCH_UNAVAILABLE`), meaning discovery operated deterministically through canonical hint URLs rather than broad web queries.
+2. **Automated Validation vs. Human Sign-Off**: **65 applications passed automated corroboration checks** (`AUTOMATED_PASS`) where live documentation was successfully fetched, parsed, and corroborated without contradictory evidence. This indicates programmatic test satisfaction, not manual human verification.
+3. **Preserved Human Review Queue**: **35 applications remain explicitly flagged for human review** (`REQUIRES_HUMAN_REVIEW`) due to enterprise WAFs (e.g. Cloudflare HTTP 403 blocks), portal login walls, or unreleased developer APIs.
+4. **Credential Accessibility Transparency**: **84 applications are recorded as `UNKNOWN` credential access** because unauthenticated public crawlers did not visit pricing/account signup portals. This must NOT be interpreted as confirmed sales gating; it denotes that credential tiers were not verified automatically without an account.
+5. **Strict Provenance Integrity**: Every claim is strictly classified by provenance (**92 `LIVE_FETCHED`**, **332 `INFERRED`**, **117 `UNKNOWN`**) with zero mock fixture contamination in production mode. Negative findings are classified as `INFERRED` or `UNKNOWN` rather than presented as direct source quotations.

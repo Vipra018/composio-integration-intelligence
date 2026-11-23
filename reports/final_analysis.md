@@ -13,16 +13,16 @@
 This report evaluates the programmatic integration feasibility of 100 canonical SaaS applications for autonomous AI agent toolkits. The research was conducted using direct HTTP retrieval against official documentation, algorithmic classification heuristics, and cross-referencing with Composio's verified toolkit catalog.
 
 ### Key Headline Metrics
-- **Native Composio Toolkit Coverage**: **66 of the 100 applications (66.0%)** have verified, native Composio toolkits with pre-built actions and triggers.
-- **Independent MCP Server Footprint**: **12 applications (12.0%)** feature independently verified Model Context Protocol (MCP) servers outside Composio (5 official vendor-published servers, 7 community/reference servers). 54 applications are accessible via Composio's managed MCP bridge, and 34 applications currently have no verified MCP server.
+- **Native Composio Toolkit Coverage**: **66 of the 100 applications (66.0%)** have verified, native Composio toolkits with pre-built actions and triggers (e.g. `github`, `slack`, `salesforce`, `hubspot`, `zendesk`, `notion`, `linear`, `stripe`).
+- **Independent MCP Server Footprint**: **20 applications (20.0%)** feature independently verified Model Context Protocol (MCP) servers outside Composio (10 official vendor-published servers, 10 community/reference servers). 53 applications are accessible via Composio's managed MCP bridge, and 27 applications currently have no verified MCP server.
 - **Feasibility Readiness**: **13 applications (13.0%)** are classified as `BUILDABLE_NOW` with self-serve free developer access and documented public APIs. **87 applications (87.0%)** are classified as `BUILDABLE_WITH_LIMITATIONS` primarily due to request rate limits, enterprise licensing requirements, or OAuth approval governance.
 - **Authentication & Integration Taxonomy**:
   - **Integration Mode (N=100)**: **94 applications (94.0%)** expose remote API interfaces, **4 applications (4.0%)** are consumer Web-Only platforms without developer APIs, and **2 applications (2.0%)** are local CLI utilities.
   - **Authentication Applicability (N=100)**: **94 applications (94.0%)** are authentication-applicable SaaS APIs, while **6 applications (6.0%)** are not applicable (local tools and consumer web interfaces).
   - **Authentication Status (N=94 Applicable APIs)**: **60 applications (63.8%)** have verified, known authentication methods, while **34 applications (36.2%)** remain unverified (`UNKNOWN`) due to enterprise paywalls or bot mitigations.
   - **Distribution of Known Authentication Methods (N=60 Known Applicable Records)**: **API Keys represent 45.0% (27 apps)**, **OAuth 2.0 represents 40.0% (24 apps)**, **Token / PAT represents 11.7% (7 apps)**, and **HTTP Basic Auth represents 3.3% (2 apps)**. Zero applications are mislabeled as `OTHER`.
-- **Evidence Provenance**: 395 live HTTP citations were retrieved across 82 distinct documentation endpoints. Across 541 evaluated claims, **121 claims (22.4%)** are directly corroborated by live HTTP 200 text (`LIVE_FETCHED`), **303 claims (56.0%)** are algorithmic classifications (`INFERRED`), and **117 claims (21.6%)** are preserved as `UNKNOWN` due to unverified documentation. Zero claims were derived from test mock fixtures.
-- **Automated Verification Status**: **65 applications passed automated corroboration checks** (`AUTOMATED_PASS`). **35 applications are flagged for human review** (`REQUIRES_HUMAN_REVIEW`) due to bot protection or paywalled developer portals.
+- **Evidence Provenance & Integrity**: 395 live HTTP citations were retrieved across 82 distinct documentation endpoints. Across 541 evaluated claims, **92 claims (17.0%)** are verbatim quotations from live HTTP 200 text (`LIVE_FETCHED`), **332 claims (61.4%)** are deterministic algorithmic or registry classifications (`INFERRED`), and **117 claims (21.6%)** are preserved as `UNKNOWN` due to unverified documentation. Zero claims were derived from test mock fixtures.
+- **Automated Verification Status & Honest Limitations**: **65 applications passed automated corroboration checks** (`AUTOMATED_PASS`). **35 applications are flagged for human review** (`REQUIRES_HUMAN_REVIEW`) due to bot protection (Cloudflare HTTP 403 on Salesforce Dev, Pinterest Dev) or portal login gates. Note: `AUTOMATED_PASS` indicates automated algorithmic checks passed, not manual human audit. The external search provider was unavailable during the run (`SEARCH_UNAVAILABLE`), with discovery routing directly through canonical hint URLs.
 
 ---
 
@@ -68,11 +68,11 @@ API Keys dominate headless and data-centric platforms prioritizing machine-to-ma
 
 ### 4. How many apps have self-serve access?
 - **16 applications (16.0% verified self-serve free)** provide immediate self-serve developer access without mandatory upfront sales contracts or administrative barriers. Examples include **GitHub**, **Shopify** (via free Partner development stores), **Salesforce** (via free Developer Edition orgs), **Twenty CRM**, **Supabase**, **Vercel**, and open-source tools like **Sherlock**.
-- The remaining 84 applications fall into `UNKNOWN` / unverified tiers because pricing and developer provisioning could not be definitively validated from unauthenticated live HTTP crawls.
+- **The remaining 84 applications fall into `UNKNOWN` (84.0%)**: This is an honest disclosure reflecting that public, unauthenticated HTTP documentation crawling did not crawl pricing or account registration portals. It does **not** imply that access is gated by sales or enterprise contracts; it simply means credential access tiers could not be verified automatically without authentication.
 
 ### 5. How many are gated by admin approval, partnership or sales?
 - **Enterprise / Partner Gated Workloads**: High-value categories such as **Finance and Fintech** (Plaid, Brex, Ramp, PitchBook, DealCloud) and **Enterprise Ecommerce** (Salesforce Commerce Cloud, Magento Enterprise) enforce partner onboarding, business verification, or sales outreach.
-- **Classification Restraint**: Rather than assuming `CONTACT_SALES` for unverified platforms, the system recorded unverified access tiers as `UNKNOWN` with a `REQUIRES_HUMAN_REVIEW` flag.
+- **Classification Restraint**: Rather than assuming `CONTACT_SALES` for unverified platforms, the system recorded unverified access tiers as `UNKNOWN` with a `REQUIRES_HUMAN_REVIEW` flag, preserving transparency.
 
 ### 6. How many have public REST APIs?
 - **31 applications (31.0%)** have verified, actively documented public REST APIs corroborated by live HTTP 200 responses.
@@ -83,15 +83,35 @@ API Keys dominate headless and data-centric platforms prioritizing machine-to-ma
 - Key platforms include **Shopify** (GraphQL Admin API is primary since 2025), **GitHub** (GraphQL API v4), **Linear**, **Attio**, and **Saleor**.
 
 ### 8. How many have existing MCP servers?
-The Model Context Protocol (MCP) ecosystem breaks down into four distinct tiers across the 100 applications:
-1. **Official Vendor-Maintained MCP Servers**: **5 applications (5.0%)** — Cloudflare, Netlify, Sentry, Apify, and Firecrawl maintain first-party MCP repositories.
-2. **Community / Reference MCP Servers**: **7 applications (7.0%)** — GitHub (Anthropic reference), Slack (Anthropic reference), Shopify (Dev AI Toolkit), Supabase, Linear, Notion, and Stripe.
-3. **Composio Managed MCP Bridge**: **54 applications (54.0%)** — Supported natively via Composio toolkits, which can be served as MCP servers to clients like Claude Desktop or Cursor.
-4. **No Known MCP Server**: **34 applications (34.0%)** — Neither an independent MCP server nor a native Composio toolkit currently exists.
+The Model Context Protocol (MCP) ecosystem breaks down into four mutually exclusive, reconciled tiers across the 100 applications:
+1. **Official Vendor-Maintained MCP Servers**: **10 applications (10.0%)** — First-party vendor repositories and remote streamable endpoints maintained by the platforms themselves:
+   - **Cloudflare** (`@cloudflare/mcp-server-cloudflare`)
+   - **Netlify** (`@netlify/mcp`)
+   - **Sentry** (`@sentry/mcp-server`)
+   - **Apify** (Official Apify Actor MCP Server)
+   - **Firecrawl** (Official Firecrawl MCP Server)
+   - **Ahrefs** (Official remote Streamable HTTP endpoint: `https://api.ahrefs.com/mcp/mcp`)
+   - **Reducto** (Official document parsing MCP server: `docs.reducto.ai/mcp-server`)
+   - **SE Ranking** (Official remote Streamable HTTP endpoint: `https://api.seranking.com/mcp`)
+   - **Aircall** (Official first-party remote MCP server in beta: `https://mcp.aircall.io/mcp`)
+   - **Neo4j** (Official `neo4j-mcp-server` maintained by Neo4j Labs)
+2. **Community / Reference MCP Servers**: **10 applications (10.0%)** — Verified open-source reference implementations:
+   - **GitHub** (Anthropic official reference server)
+   - **Slack** (Anthropic official reference server)
+   - **Shopify** (Shopify Dev AI Toolkit & MCP Server)
+   - **Supabase** (Community Postgres/Supabase MCP)
+   - **Linear** (Community Linear MCP)
+   - **Notion** (Community Notion MCP)
+   - **Stripe** (Community Stripe agent MCP)
+   - **Otter AI** (Community `otter-mcp` transcript server)
+   - **YouTube Transcript** (Community `@kimtaeyoon83/mcp-server-youtube-transcript`)
+   - **Fathom** (Community `Dot-Fun/fathom-mcp` meeting server)
+3. **Composio Managed MCP Bridge Only**: **53 applications (53.0%)** — Platforms natively supported in Composio's tool catalog that can be served directly over Composio's MCP bridge to Claude Desktop, Cursor, and Windsurf, with no separate independent vendor/community repository.
+4. **No Known MCP Server**: **27 applications (27.0%)** — Neither an independent MCP server nor a native Composio toolkit currently exists.
 
 ### 9. How many are already supported by Composio?
-- **66 applications (66.0%)** are natively supported in Composio's verified catalog.
-- These applications feature verified slugs (e.g. `github`, `slack`, `salesforce`, `hubspot`, `zendesk`, `notion`, `linear`, `stripe`) and pre-built action schemas (e.g. `GITHUB_CREATE_AN_ISSUE`, `SLACK_SEND_MESSAGE`, `STRIPE_CREATE_CUSTOMER`).
+- **66 applications (66.0%)** are natively supported in Composio's verified catalog (independent of MCP classification: 53 bridge-only + 7 community + 6 official).
+- These applications feature verified slugs (e.g. `github`, `slack`, `salesforce`, `hubspot`, `zendesk`, `notion`, `linear`, `stripe`, `aircall`) and pre-built action schemas (e.g. `GITHUB_CREATE_AN_ISSUE`, `SLACK_SEND_MESSAGE`, `STRIPE_CREATE_CUSTOMER`).
 
 ### 10. Which applications are easiest to integrate?
 The top "Easy Wins" (high feasibility scores 8.5 – 9.0/10.0, self-serve credentials, turnkey Composio toolkits, broad APIs):

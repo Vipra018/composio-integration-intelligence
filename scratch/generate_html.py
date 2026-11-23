@@ -326,8 +326,8 @@ html_template = """<!DOCTYPE html>
       <div class="badge-bar">
         <span class="badge badge-success">100 Canonical Apps Audited</span>
         <span class="badge badge-primary">66 Native Composio Toolkits</span>
-        <span class="badge badge-accent">12 Independent MCP Servers</span>
-        <span class="badge">65 Passed Automated Checks</span>
+        <span class="badge badge-accent">20 Independent MCP Servers (10 Official, 10 Community)</span>
+        <span class="badge">Automated Integration Assessment</span>
       </div>
     </div>
   </header>
@@ -356,9 +356,9 @@ html_template = """<!DOCTYPE html>
           <div class="kpi-sub">66 apps with verified toolkits</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-title">Avg Feasibility Score</div>
-          <div class="kpi-value" style="color: #34d399;">6.43 / 10</div>
-          <div class="kpi-sub">13 turnkey &bull; 87 with friction</div>
+          <div class="kpi-title">Independent MCP Footprint</div>
+          <div class="kpi-value" style="color: #34d399;">20.0%</div>
+          <div class="kpi-sub">10 official &bull; 10 community servers</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-title">Verified Public REST APIs</div>
@@ -437,31 +437,46 @@ html_template = """<!DOCTYPE html>
           </div>
           <div class="bar-row">
             <span class="bar-label">Composio Bridge Only</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 54%; background: #818cf8;"></div></div>
-            <span class="bar-value">54 (54.0%, 54/100)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 53%; background: #818cf8;"></div></div>
+            <span class="bar-value">53 (53.0%, 53/100)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Official Vendor MCP</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 5%; background: #10b981;"></div></div>
-            <span class="bar-value">5 (5.0%, 5/100)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 10%; background: #10b981;"></div></div>
+            <span class="bar-value">10 (10.0%, 10/100)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">Community MCP Server</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 7%; background: #34d399;"></div></div>
-            <span class="bar-value">7 (7.0%, 7/100)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 10%; background: #34d399;"></div></div>
+            <span class="bar-value">10 (10.0%, 10/100)</span>
           </div>
           <div class="bar-row">
             <span class="bar-label">No Known MCP Server</span>
-            <div class="bar-track"><div class="bar-fill" style="width: 34%; background: #64748b;"></div></div>
-            <span class="bar-value">34 (34.0%, 34/100)</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 27%; background: #64748b;"></div></div>
+            <span class="bar-value">27 (27.0%, 27/100)</span>
           </div>
-          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">Composio natively supports 66 toolkits; 12 platforms also feature separate independent MCP servers.</p>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">20 platforms hold independent MCP servers (10 official, 10 community). 66 platforms feature native Composio toolkits.</p>
+        </div>
+
+        <div class="chart-box">
+          <h3>Credential Accessibility (100 Apps)</h3>
+          <div class="bar-row">
+            <span class="bar-label">Self-Serve Free Access</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 16%; background: #10b981;"></div></div>
+            <span class="bar-value">16 (16.0%, 16/100)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Unknown / Not Crawled</span>
+            <div class="bar-track"><div class="bar-fill" style="width: 84%; background: #64748b;"></div></div>
+            <span class="bar-value">84 (84.0%, 84/100)</span>
+          </div>
+          <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">Unknown credential access does not imply enterprise gating; it reflects that pricing/signup portals were not verified during unauthenticated crawling.</p>
         </div>
       </div>
 
       <div class="card">
         <h2>Executive Synthesis</h2>
-        <p>This report represents an automated, ground-truth audit of 100 enterprise and developer SaaS applications to map the agent toolkit integration frontier. Composio already commands an exceptional market footprint, offering native action toolkits for 66% of the target landscape. The primary opportunities lie in bridging Developer Infrastructure (90% Composio coverage) and expanding Scraping/Web Data pipelines (currently 50% coverage) to supply live web context to agent runtimes.</p>
+        <p>This report represents an automated integration-readiness assessment of 100 enterprise and developer SaaS applications to map the agent toolkit integration frontier. Composio already commands an exceptional market footprint, offering native action toolkits for 66% of the target landscape. The primary opportunities lie in bridging Developer Infrastructure (90% Composio coverage) and expanding Scraping/Web Data pipelines (currently 50% coverage) to supply live web context to agent runtimes.</p>
       </div>
     </section>
 
@@ -584,8 +599,8 @@ html_template = """<!DOCTYPE html>
     <!-- TAB 5: QA & PROVENANCE AUDIT -->
     <section id="qa" class="tab-content">
       <div class="card">
-        <h2>Evidence Integrity & Zero-Hallucination Audit</h2>
-        <p>The research engine operates under strict provenance tracking to ensure no synthetic claims contaminate results.</p>
+        <h2>Automated Integration-Readiness Assessment & Evidence Integrity</h2>
+        <p>This report represents an automated integration-readiness assessment based on direct HTTP retrieval against official documentation endpoints, deterministic pattern matching, and verified catalog reconciliation. It does not assert manual human ground-truth verification.</p>
         
         <div class="kpi-grid" style="margin-top: 16px;">
           <div class="kpi-card">
@@ -595,12 +610,12 @@ html_template = """<!DOCTYPE html>
           </div>
           <div class="kpi-card">
             <div class="kpi-title">Live Fetched Claims</div>
-            <div class="kpi-value" style="color: #38bdf8;">121</div>
-            <div class="kpi-sub">Backed by HTTP 200 DOM text</div>
+            <div class="kpi-value" style="color: #38bdf8;">92</div>
+            <div class="kpi-sub">Verbatim HTTP 200 DOM text</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-title">Inferred Claims</div>
-            <div class="kpi-value">303</div>
+            <div class="kpi-value">332</div>
             <div class="kpi-sub">Deterministic taxonomy logic</div>
           </div>
           <div class="kpi-card">
@@ -616,13 +631,15 @@ html_template = """<!DOCTYPE html>
         </div>
 
         <div style="margin-top: 20px; font-size: 14px; color: #cbd5e1; line-height: 1.8;">
-          <h3 style="color: #fff; margin-bottom: 8px;">Key Audited Guarantees:</h3>
+          <h3 style="color: #fff; margin-bottom: 8px;">Key Audited Guarantees & Honest Limitations:</h3>
           <ul style="padding-left: 20px;">
+            <li><strong>Search Provider Status</strong>: External search provider APIs were unavailable during the run (returned <code>SEARCH_UNAVAILABLE</code>), with discovery routing directly through canonical documentation hint URLs.</li>
+            <li><strong>Automated Pass vs. Human Verification</strong>: <code>AUTOMATED_PASS</code> (65 apps) indicates automated corroboration checks completed without contradictory findings; it does not denote manual human sign-off.</li>
+            <li><strong>Human Review Queue Preserved</strong>: 35 applications remain explicitly flagged as <code>REQUIRES_HUMAN_REVIEW</code> due to bot protection (e.g. Cloudflare HTTP 403 on Salesforce Dev, Pinterest Dev) or portal login walls.</li>
+            <li><strong>Credential Accessibility Disclosure</strong>: 84 applications are recorded as <code>UNKNOWN</code> credential access because unauthenticated public web crawling did not encounter public pricing/signup pages; this does NOT imply enterprise gating.</li>
             <li><strong>Negation Safety</strong>: Sentences containing "does not support OAuth" or "no hosted REST API" are parsed as NEGATIVE polarity and never turn into positive capabilities.</li>
-            <li><strong>Taxonomy Separation</strong>: Integration Mode (API vs CLI / LOCAL_PROCESS vs WEB_ONLY) is orthogonal to Authentication Applicability (APPLICABLE vs NOT_APPLICABLE) and Authentication Methods.</li>
-            <li><strong>CLI & Local Exec Guard</strong>: Correctly classified Sherlock and Mermaid CLI as local tools with NOT_APPLICABLE authentication, distinct from SaaS APIs.</li>
-            <li><strong>Consumer Web Guard</strong>: Identified NotebookLM, Consensus, Devin, and Fanbasis as consumer web interfaces with no public developer API credentials.</li>
-            <li><strong>Live HTTP Codes Recorded</strong>: Recorded actual 403 Forbidden on Cloudflare-protected enterprise portals instead of synthesizing a fake 200.</li>
+            <li><strong>Taxonomy Orthogonality</strong>: Integration Mode (API vs CLI vs Web-Only) is evaluated separately from Authentication Applicability (Applicable vs Not Applicable) and Authentication Methods.</li>
+            <li><strong>Live HTTP Status Tracking</strong>: Captured actual HTTP status codes (200, 403, 404, 429) rather than synthesizing fake 200 OK responses.</li>
           </ul>
         </div>
       </div>
@@ -641,20 +658,52 @@ html_template = """<!DOCTYPE html>
 
       <div class="detail-grid">
         <div class="detail-box">
+          <div class="title">Integration Mode</div>
+          <div class="value" id="modal-mode">API</div>
+        </div>
+        <div class="detail-box">
+          <div class="title">Auth Applicability</div>
+          <div class="value" id="modal-applicability">APPLICABLE</div>
+        </div>
+        <div class="detail-box">
+          <div class="title">Primary Auth Method</div>
+          <div class="value" id="modal-primary-auth">OAUTH2</div>
+        </div>
+        <div class="detail-box">
+          <div class="title">Supported Auth Methods</div>
+          <div class="value" id="modal-supported-auth">OAuth2, Bearer Token</div>
+        </div>
+        <div class="detail-box">
+          <div class="title">Credential Accessibility</div>
+          <div class="value" id="modal-cred">SELF_SERVE_FREE</div>
+        </div>
+        <div class="detail-box">
           <div class="title">Feasibility Score</div>
           <div class="value" id="modal-score">8.5 / 10.0</div>
         </div>
         <div class="detail-box">
-          <div class="title">Buildability</div>
+          <div class="title">Buildability Classification</div>
           <div class="value" id="modal-buildability">BUILDABLE_NOW</div>
         </div>
         <div class="detail-box">
-          <div class="title">Primary Auth Method</div>
-          <div class="value" id="modal-auth">OAUTH2</div>
+          <div class="title">API Architectures</div>
+          <div class="value" id="modal-api-types">REST, GRAPHQL</div>
         </div>
         <div class="detail-box">
-          <div class="title">Credential Access</div>
-          <div class="value" id="modal-cred">SELF_SERVE_FREE</div>
+          <div class="title">API Breadth & Scope</div>
+          <div class="value" id="modal-api-breadth">BROAD</div>
+        </div>
+        <div class="detail-box">
+          <div class="title">Webhooks Support</div>
+          <div class="value" id="modal-webhooks">Documented</div>
+        </div>
+        <div class="detail-box">
+          <div class="title">Rate Limits Documented</div>
+          <div class="value" id="modal-rate-limits">Documented</div>
+        </div>
+        <div class="detail-box">
+          <div class="title">Main Integration Blocker</div>
+          <div class="value" id="modal-main-blocker">None</div>
         </div>
       </div>
 
@@ -664,12 +713,17 @@ html_template = """<!DOCTYPE html>
       </div>
 
       <div class="detail-box" style="margin-bottom: 16px;">
-        <div class="title">Composio Toolkit Status</div>
+        <div class="title">Buildability & Feasibility Rationale</div>
+        <div class="value" id="modal-rationale" style="font-size: 13px; font-weight: normal; margin-top: 4px;"></div>
+      </div>
+
+      <div class="detail-box" style="margin-bottom: 16px;">
+        <div class="title">Composio Toolkit & MCP Server Status</div>
         <div class="value" id="modal-composio" style="font-size: 13px; font-weight: normal; margin-top: 4px;"></div>
       </div>
 
       <div class="detail-box" style="margin-bottom: 16px;">
-        <div class="title">Integration Blockers</div>
+        <div class="title">Identified Impediments & Blockers</div>
         <div class="value" id="modal-blockers" style="font-size: 13px; font-weight: normal; margin-top: 4px;"></div>
       </div>
 
@@ -806,28 +860,58 @@ html_template = """<!DOCTYPE html>
       const app = APPS_DATA.find(a => a.app_id === appId);
       if (!app) return;
 
+      const auth = app.auth || {};
+      const api = app.api_surface || {};
+      const feas = app.feasibility || {};
+      const mcp = app.mcp || {};
+
       document.getElementById('modal-title').textContent = app.name;
-      document.getElementById('modal-subtitle').textContent = `${app.category} • ID: ${app.app_id}`;
+      document.getElementById('modal-subtitle').textContent = `${app.category} • ID: ${app.app_id} • Verification: ${app.verification_status || 'REVIEW'}`;
       document.getElementById('modal-desc').textContent = app.one_line_description || 'No description provided.';
+
+      document.getElementById('modal-mode').textContent = auth.integration_mode || 'UNKNOWN';
+      document.getElementById('modal-applicability').textContent = auth.auth_applicability || 'UNKNOWN';
+      document.getElementById('modal-primary-auth').textContent = auth.primary_method || 'UNKNOWN';
       
-      const score = app.feasibility ? app.feasibility.feasibility_score.toFixed(1) : '5.0';
+      const supportedAuth = (auth.supported_methods && auth.supported_methods.length > 0) ? auth.supported_methods.join(', ') : 'UNKNOWN';
+      document.getElementById('modal-supported-auth').textContent = supportedAuth;
+
+      const cred = auth.credential_accessibility || 'UNKNOWN';
+      document.getElementById('modal-cred').textContent = cred === 'UNKNOWN' ? 'UNKNOWN (Not verified on public portal)' : cred;
+
+      const score = feas.feasibility_score ? feas.feasibility_score.toFixed(1) : '5.0';
       document.getElementById('modal-score').textContent = `${score} / 10.0`;
-      document.getElementById('modal-buildability').textContent = app.feasibility ? app.feasibility.buildability : 'UNKNOWN';
-      const mode = app.auth ? (app.auth.integration_mode || 'API') : 'API';
-      const applicability = app.auth ? (app.auth.auth_applicability || 'APPLICABLE') : 'APPLICABLE';
-      document.getElementById('modal-auth').textContent = app.auth ? `${app.auth.primary_method} [Mode: ${mode} | Auth: ${applicability}]` : 'UNKNOWN';
-      document.getElementById('modal-cred').textContent = app.auth ? app.auth.credential_accessibility : 'UNKNOWN';
+      document.getElementById('modal-buildability').textContent = feas.buildability || 'UNKNOWN';
+
+      const apiTypes = (api.api_types && api.api_types.length > 0) ? api.api_types.join(', ') : 'UNKNOWN';
+      document.getElementById('modal-api-types').textContent = apiTypes;
+      document.getElementById('modal-api-breadth').textContent = `${api.breadth || 'UNKNOWN'} ${api.breadth_rationale ? '— ' + api.breadth_rationale : ''}`;
+
+      document.getElementById('modal-webhooks').textContent = api.has_webhooks ? 'Supported / Documented' : (auth.integration_mode === 'API' ? 'UNKNOWN / Undocumented' : 'NOT APPLICABLE');
+      document.getElementById('modal-rate-limits').textContent = api.has_rate_limits_documented ? `Documented (${api.rate_limit_details || 'Enforced'})` : (auth.integration_mode === 'API' ? 'UNKNOWN / Undocumented' : 'NOT APPLICABLE');
+
+      document.getElementById('modal-main-blocker').textContent = feas.primary_blocker || 'None Identified';
+      document.getElementById('modal-rationale').textContent = feas.rationale || 'Feasibility evaluated based on public API documentation and authentication architecture.';
 
       const compDiv = document.getElementById('modal-composio');
-      if (app.mcp && app.mcp.composio_tool_supported) {
-        compDiv.innerHTML = `<span style="color: #38bdf8; font-weight: 700;">Native Toolkit Available:</span> Slug <code>${app.mcp.composio_app_slug}</code>. ${app.mcp.notes || ''}`;
+      let mcpText = '';
+      if (mcp.availability === 'OFFICIAL') {
+        mcpText = `<span style="color: #34d399; font-weight: 700;">Official Vendor MCP:</span> ${mcp.notes || ''} (Server: ${(mcp.existing_servers || []).join(', ')})`;
+      } else if (mcp.availability === 'COMMUNITY') {
+        mcpText = `<span style="color: #38bdf8; font-weight: 700;">Community MCP:</span> ${mcp.notes || ''} (Server: ${(mcp.existing_servers || []).join(', ')})`;
+      } else if (mcp.availability === 'COMPOSIO') {
+        mcpText = `<span style="color: #818cf8; font-weight: 700;">Composio Bridge Only:</span> ${mcp.notes || ''}`;
       } else {
-        compDiv.textContent = app.mcp ? (app.mcp.notes || 'No Composio toolkit or MCP server found.') : 'No MCP information.';
+        mcpText = `<span style="color: #94a3b8; font-weight: 600;">No Known MCP Server:</span> Neither an independent MCP server nor native Composio toolkit discovered.`;
       }
+      if (mcp.composio_tool_supported) {
+        mcpText += `<br><span style="color: #38bdf8; font-weight: 700; margin-top: 4px; display: inline-block;">Native Composio Toolkit:</span> Slug <code>${mcp.composio_app_slug}</code>.`;
+      }
+      compDiv.innerHTML = mcpText;
 
       const blockersDiv = document.getElementById('modal-blockers');
-      if (app.feasibility && app.feasibility.primary_blockers && app.feasibility.primary_blockers.length > 0) {
-        blockersDiv.innerHTML = app.feasibility.primary_blockers.map(b => `<div><strong>[${b.severity}] ${b.title}:</strong> ${b.description}</div>`).join('');
+      if (feas.primary_blockers && feas.primary_blockers.length > 0) {
+        blockersDiv.innerHTML = feas.primary_blockers.map(b => `<div><strong>[${b.severity}] ${b.title}:</strong> ${b.description}</div>`).join('');
       } else {
         blockersDiv.textContent = 'No critical integration blockers identified.';
       }

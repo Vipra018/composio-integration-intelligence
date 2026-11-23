@@ -27,7 +27,7 @@ build_counts = Counter(a["feasibility"]["buildability"] for a in apps)
 
 # 6. Composio & MCP
 mcp_avail = Counter(a["mcp"]["availability"] for a in apps)
-composio_ready = [a for a in apps if a["mcp"].get("composio_tool_count", 0) > 0]
+composio_ready = [a for a in apps if a["mcp"].get("composio_tool_supported")]
 
 print("=" * 60)
 print("AUDITED TAXONOMY & ANALYTICS BREAKDOWN")

@@ -78,8 +78,8 @@ If external search API credentials (`TAVILY_API_KEY`, `SERPER_API_KEY`) are not 
 
 ### 2.2 Strict Provenance Classification
 Every extracted claim is tagged with an immutable provenance classification:
-1. **`LIVE_FETCHED`**: Supported by an exact sentence excerpt retrieved over live HTTP 200 from official documentation.
-2. **`INFERRED`**: Algorithmic architectural conclusion derived from documented rules (e.g. multi-engine REST+GraphQL implying broad breadth).
+1. **`LIVE_FETCHED`**: Supported by an exact verbatim sentence excerpt retrieved over live HTTP 200 from official documentation. Generated conclusions (such as "no server discovered" or "Application does not expose API authentication") must NOT be presented as direct source quotations.
+2. **`INFERRED`**: Algorithmic architectural conclusion derived from documented rules (e.g. multi-engine REST+GraphQL implying broad breadth, Composio catalog matching, or MCP registry verification).
 3. **`UNKNOWN`**: Explicit marker for unverified or unavailable information.
 4. **`KNOWLEDGE_BASE`**: Strictly prohibited in production execution; isolated to offline unit tests.
 
@@ -96,18 +96,29 @@ NEGATION_PATTERNS = [
 ```
 Sentences matching these patterns are assigned `EvidencePolarity.NEGATIVE` and strictly prevented from populating positive capabilities.
 
-### 2.4 Classification Safety Guards
-- **The NotebookLM Guard**: Consumer AI applications without published APIs must NOT be labeled `CONTACT_SALES`. The absence of developer documentation simply means the API is currently unreleased, requiring `CredentialAccessibility.UNKNOWN` and `APIBreadth.NONE`.
-- **The Sherlock Guard**: Open-source Python CLI tools must NOT be classified as SaaS APIs. Primary authentication is set to `OTHER` and `has_rest=False`.
+### 2.4 Classification Safety Guards & Taxonomy Orthogonality
+- **Taxonomy Orthogonality**: Integration Mode (`API`, `CLI / LOCAL_PROCESS`, `WEB_ONLY`) is kept strictly separate from Authentication Applicability (`APPLICABLE`, `NOT_APPLICABLE`) and Authentication Methods (`OAUTH2`, `API_KEY`, `TOKEN / PAT`, `BASIC`).
+- **The NotebookLM Guard**: Consumer AI applications without published APIs must NOT be labeled `CONTACT_SALES`. They are classified as `IntegrationMode.WEB_ONLY`, `AuthApplicability.NOT_APPLICABLE`, `primary_method=NOT_APPLICABLE`, and `APIBreadth.NONE`.
+- **The Sherlock Guard**: Open-source Python CLI tools must NOT be classified as SaaS APIs. They are classified as `IntegrationMode.CLI_LOCAL_PROCESS`, `AuthApplicability.NOT_APPLICABLE`, `primary_method=NOT_APPLICABLE`, and `has_rest=False`.
 - **Developer vs. Production Separation**: For platforms like GitHub (Free PATs vs. Enterprise SAML), Shopify (Free Partner stores vs. paid merchant plans), and Salesforce (Free Developer Edition orgs vs. paid enterprise contracts), free developer onboarding is documented separately from production licensing.
 
 ---
 
-## 3. Composio Integration Methodology
+## 3. Composio Integration & MCP Ecosystem Methodology
 
 Composio's platform offers pre-built toolkits containing hundreds of actions and triggers. In Phase 3, we integrated `src/integrations/composio_client.py` which inspects Composio's verified catalog:
 1. Matches canonical app IDs against Composio's verified toolkit registry.
 2. Captures verified Composio slugs (e.g. `github`, `slack`, `salesforce`, `hubspot`, `zendesk`).
 3. Captures real tool action names (e.g. `GITHUB_CREATE_AN_ISSUE`, `SLACK_SEND_MESSAGE`, `STRIPE_CREATE_CUSTOMER`).
-4. If an app lacks a standalone MCP server but is supported in Composio, its MCP availability is designated as `MCPAvailability.COMPOSIO`.
+4. Reconciles independent MCP servers (10 official vendor-maintained, 10 community-maintained) against Composio's managed bridge (53 apps) and no-known MCP (27 apps).
 5. Operates non-blockingly: if the optional `COMPOSIO_API_KEY` is absent, the system logs the status and uses the verified catalog without interrupting the research pipeline.
+
+---
+
+## 4. Assessment Limitations & Honest Disclosures
+
+1. **Automated Assessment Scope**: This study is an **automated integration-readiness assessment**, not a manual human ground-truth audit.
+2. **Search Provider Availability**: During the research run, external search providers were unavailable (`SEARCH_UNAVAILABLE`), meaning discovery operated through canonical hint documentation URLs.
+3. **Automated Pass Meaning**: `AUTOMATED_PASS` (65 applications) signifies that automated corroboration checks completed without internal contradictions; it does NOT denote manual human sign-off.
+4. **Human Review Queue**: 35 applications remain explicitly flagged as `REQUIRES_HUMAN_REVIEW` due to bot protection (Cloudflare HTTP 403 on Salesforce Dev, Pinterest Dev) or portal login walls.
+5. **Credential Accessibility Interpretation**: 84 applications are recorded as `UNKNOWN` credential access because unauthenticated public crawlers did not visit pricing/account signup portals. This must NOT be interpreted as confirmed sales gating; it denotes that credential tiers were not verified automatically without an account.
