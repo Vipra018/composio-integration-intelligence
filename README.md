@@ -198,13 +198,121 @@ The 100 applications are balanced across the 10 required categories (10 applicat
   - Distinction between native Composio tools vs community MCP servers
 - [x] **Stage 5: Full 100-Application Research Run & QA**
   - Completed research across all 100 canonical SaaS applications (`data/results/final_research_100.json`)
-  - 44/44 automated tests passing in Pytest
+  - 49/49 automated tests passing in Pytest across schema validation, integrity checks, and audit verifications
   - Zero mock knowledge base fixtures in production results
 - [x] **Stage 6: Executive Presentation & Dashboard Deliverables**
   - `reports/final_analysis.md`: Detailed synthesis answering all 14 research questions
   - `reports/quality_assurance.md`: Comprehensive QA audit and verification proofs
   - `reports/research_methodology.md`: Complete system architecture and methodology documentation
   - `reports/index.html`: Standalone, interactive HTML presentation dashboard with live filters, charts, and modal inspector
+- [x] **Stage 7: Final Audit, Taxonomy Separation & Release Readiness**
+  - Separation of Integration Mode vs Authentication Method taxonomy (94 API, 4 Web-Only, 2 CLI)
+  - Strict MCP categorization (10 Official, 10 Community, 53 Bridge, 27 No Known; 20 Independent MCPs)
+  - Field-level provenance reconciliation (92 Live-Fetched, 332 Inferred, 117 Unknown, 0 KB)
+  - Full automated smoke testing with zero JavaScript console errors
+
+---
+
+## 🔬 Provenance Model & Evidence Integrity
+
+Every data point in the 100-app benchmark dataset is backed by an explicit provenance classification:
+
+```text
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                       FIELD-LEVEL PROVENANCE MODEL                          │
+├──────────────────┬───────┬──────────┬───────────────────────────────────────┤
+│ Classification   │ Count │ Share    │ Definition                            │
+├──────────────────┼───────┼──────────┼───────────────────────────────────────┤
+│ LIVE_FETCHED     │    92 │    17.0% │ Verbatim textual excerpt from an HTTP │
+│                  │       │          │ 200 response of an official URL       │
+│ INFERRED         │   332 │    61.4% │ Derived logically from vendor domain  │
+│                  │       │          │ context, documentation or negative    │
+│                  │       │          │ findings without verbatim DOM match   │
+│ UNKNOWN          │   117 │    21.6% │ Explicitly unverified data point; no  │
+│                  │       │          │ synthetic fallback used               │
+│ KNOWLEDGE_BASE   │     0 │     0.0% │ Zero hardcoded/mock knowledge base    │
+│                  │       │          │ values allowed in production data     │
+├──────────────────┼───────┼──────────┼───────────────────────────────────────┤
+│ TOTAL CLAIMS     │   541 │   100.0% │ Reconciled across all 100 SaaS apps   │
+└──────────────────┴───────┴──────────┴───────────────────────────────────────┘
+```
+
+### Key Integrity Rules:
+1. **Verbatim Quotation Requirement**: A claim is classified as `LIVE_FETCHED` *if and only if* the excerpt was directly parsed from the live HTTP response DOM.
+2. **Negative Claim Integrity**: Inferred negative findings (e.g., "No webhook support documented") are tagged with `NEGATIVE` or `ABSENT` polarity and classified as `INFERRED` or `UNKNOWN`, never misrepresented as positive verified facts.
+3. **No Synthetic Status**: HTTP status codes, headers, and response bodies reflect actual network responses. Cloudflare 403 or login-wall responses are recorded honestly as `REQUIRES_HUMAN_REVIEW` (35 apps) rather than faking 200 OK.
+
+---
+
+## 🧩 MCP Ecosystem & Composio Architecture
+
+To prevent category confusion, the research pipeline strictly separates:
+- **Independent MCP Servers ($N=20$)**:
+  - **Official First-Party ($N=10$)**: Maintained directly by the vendor (Cloudflare, Netlify, Sentry, Apify, Firecrawl, Ahrefs, Reducto, SE Ranking, Aircall, Neo4j).
+  - **Verified Community / Reference ($N=10$)**: Verified open-source or Model Context Protocol reference implementations (GitHub, Slack, Shopify, Supabase, Linear, Notion, Stripe, Otter AI, YouTube Transcript, Fathom).
+- **Composio Native Toolkits ($N=66$)**: Pre-built native action/trigger toolkits in Composio's catalog (e.g., `GITHUB_CREATE_AN_ISSUE`, `SLACK_SEND_MESSAGE`).
+- **Composio MCP Bridge ($N=53$)**: Platforms accessible as MCP tools *via Composio's managed MCP server bridge*, but lacking an independent community or vendor MCP server.
+- **No Known MCP ($N=27$)**: Platforms with neither independent MCP servers nor native Composio toolkits.
+
+---
+
+## 🔒 Taxonomy Separation: Integration Mode vs Authentication
+
+Authentication statistics are evaluated only over applicable, known records to ensure statistical accuracy:
+
+- **Total Applications**: 100
+- **Integration Mode**:
+  - **API-Integratable**: 94 apps (REST, GraphQL, gRPC)
+  - **Web-Only**: 4 apps (`notebooklm`, `consensus`, `devin`, `fanbasis`)
+  - **CLI / Local Process**: 2 apps (`sherlock`, `mermaid-cli`)
+- **Authentication Applicability**:
+  - **Applicable**: 94 apps
+  - **Not Applicable**: 6 apps (local CLI tools and web-only interfaces)
+- **Authentication Distribution ($N=60$ Known out of 94 Applicable)**:
+  - **API Key**: 27 (45.0% of known, 28.7% of applicable)
+  - **OAuth2**: 24 (40.0% of known, 25.5% of applicable)
+  - **Bearer Token / PAT**: 7 (11.7% of known, 7.4% of applicable)
+  - **Basic Auth**: 2 (3.3% of known, 2.1% of applicable)
+  - **Unknown / Unverified Auth**: 34 apps (36.2% of applicable)
+
+---
+
+## ⚠️ Known Limitations & Operational Disclosures
+
+1. **Search API Credentials**: When live external search engine credentials (`TAVILY_API_KEY` or `SERPAPI_API_KEY`) are not configured, the pipeline operates in transparent fallback mode (`SEARCH_UNAVAILABLE`), fetching official documentation seeds directly rather than fabricating search results.
+2. **Anti-Bot & Login Portals**: 35 applications returned HTTP 403 (Cloudflare WAF / bot-protection) or redirected to corporate SSO portals during direct HTTP fetching. These are honestly flagged as `REQUIRES_HUMAN_REVIEW` rather than claiming automated verification.
+3. **Credential Accessibility**: 16 applications have verified self-serve free tiers; 84 applications require live account signup or paid credit cards to definitively verify developer tier access.
+4. **Local Repository Remote**: The repository is currently initialized locally. Turnkey deployment instructions for static hosting (GitHub Pages, Vercel, Netlify) are provided below.
+
+---
+
+## 🌐 Deployment Instructions
+
+The presentation deliverable [`reports/index.html`](reports/index.html) is completely standalone (zero build steps, embedded CSS, vanilla JS, Chart.js CDN, responsive layout).
+
+### Option 1: GitHub Pages
+1. Create a remote GitHub repository and push your branch:
+   ```bash
+   git remote add origin https://github.com/<username>/<repo-name>.git
+   git push -u origin master
+   ```
+2. Navigate to **Repository Settings** > **Pages**.
+3. Under **Branch**, select `master` and `/ (root)` or set `/reports` as the source directory.
+4. Access the live dashboard at `https://<username>.github.io/<repo-name>/reports/`.
+
+### Option 2: Vercel (CLI or UI)
+1. Install or authenticate Vercel CLI:
+   ```bash
+   npx vercel login
+   npx vercel --prod
+   ```
+2. Select default settings; set output directory to `.` or `reports`.
+
+### Option 3: Netlify (Drag & Drop or CLI)
+1. Run `npx netlify deploy --dir=reports --prod` after authenticating.
+2. Alternatively, log in to [app.netlify.com](https://app.netlify.com), navigate to **Sites**, and drag-and-drop the `reports` directory.
+
+---
 
 ---
 
