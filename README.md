@@ -164,15 +164,15 @@ The 100 applications are balanced across the 10 required categories (10 applicat
 | # | Category | Count | Applications |
 | :-: | :--- | :---: | :--- |
 | 1 | **CRM and Sales** | 10 | Salesforce, HubSpot, Pipedrive, Close, Zoho CRM, Copper, Outreach, Salesloft, Apollo.io, Gong |
-| 2 | **Support and Helpdesk** | 10 | Zendesk, Freshdesk, Intercom, Front, Help Scout, Gorgias, Kustomer, Crisp, Zoho Desk, LiveAgent |
-| 3 | **Communications and Messaging** | 10 | Slack, Discord, Twilio, SendGrid, Zoom, Microsoft Teams, Telegram, WhatsApp Business, Postmark, Bird |
-| 4 | **Marketing, Ads, Email and Social** | 10 | Mailchimp, Klaviyo, ActiveCampaign, Customer.io, Braze, Kit, Brevo, Buffer, Hootsuite, Typeform |
-| 5 | **Ecommerce** | 10 | Shopify, WooCommerce, BigCommerce, Shippo, ShipStation, EasyPost, Printful, Square, Amazon Seller Central, Magento |
-| 6 | **Data, SEO and Scraping** | 10 | Ahrefs, Semrush, Moz, Bright Data, Oxylabs, Apify, ScrapingBee, SerpApi, Similarweb, Clearbit |
-| 7 | **Developer, Infra and Data Platforms** | 10 | GitHub, GitLab, Bitbucket, Sentry, Datadog, Postman, Vercel, Supabase, Neon, Snowflake |
-| 8 | **Productivity and Project Management** | 10 | Notion, Linear, Asana, Monday.com, ClickUp, Jira, Confluence, Trello, Airtable, Coda |
-| 9 | **Finance and Fintech** | 10 | Stripe, QuickBooks Online, Xero, Brex, Ramp, Bill.com, Chargebee, Recurly, Plaid, Gusto |
-| 10 | **AI, Research and Media-native** | 10 | OpenAI, Anthropic, Perplexity, Pinecone, Weaviate, Hugging Face, ElevenLabs, Replicate, Figma, Canva |
+| 2 | **Support and Helpdesk** | 10 | Zendesk, Freshdesk, Help Scout, Gorgias, Kustomer, Front, PagerDuty, Vanta, Greenhouse, Lever |
+| 3 | **Communications and Messaging** | 10 | Slack, Discord, Twilio, SendGrid, Zoom, Intercom, Crisp, Basecamp, Ashby, HiBob |
+| 4 | **Marketing, Ads, Email and Social** | 10 | Mailchimp, Klaviyo, ActiveCampaign, Customer.io, Braze, Kit, Brevo, Buffer, Hootsuite, Webflow |
+| 5 | **Ecommerce** | 10 | Shopify, WooCommerce, BigCommerce, Shippo, ShipStation, Stripe, Chargebee, Recurly, Bill.com, Wave Accounting |
+| 6 | **Data, SEO and Scraping** | 10 | Snowflake, Datadog, New Relic, Sentry, Postman, Airtable, Typeform, SurveyMonkey, Okta, 1Password |
+| 7 | **Developer, Infra and Data platforms** | 10 | GitHub, GitLab, Bitbucket, Vercel, Supabase, Neon, Render, CircleCI, Docker Hub, Terraform Cloud |
+| 8 | **Productivity and Project Management** | 10 | Notion, Linear, Asana, Monday.com, ClickUp, Jira, Confluence, Trello, Todoist, LaunchDarkly |
+| 9 | **Finance and Fintech** | 10 | QuickBooks Online, Xero, Brex, Ramp, Gusto, BambooHR, Rippling, Deel, Workday, Remote |
+| 10 | **AI, Research and Media-native** | 10 | Pinecone, Canva, Figma, Miro, Coda, Google Drive, Box, Dropbox, DocuSign, PandaDoc |
 | | **Total** | **100** | **10 categories × 10 applications = 100 benchmark SaaS platforms** |
 
 ---
