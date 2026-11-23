@@ -105,7 +105,7 @@ def test_app_research_result_lifecycle() -> None:
 
     api_surface = APISurfaceResearch(
         api_types=[APIType.REST, APIType.GRAPHQL],
-        breadth=APIBreadth.EXTENSIVE,
+        breadth=APIBreadth.BROAD,
         has_webhooks=True,
         has_rate_limits_documented=True,
         rate_limit_details="5,000 requests per hour for authenticated users.",
@@ -115,7 +115,7 @@ def test_app_research_result_lifecycle() -> None:
     )
 
     mcp = MCPResearch(
-        availability=MCPAvailability.COMPOSIO_SUPPORTED,
+        availability=MCPAvailability.COMPOSIO,
         composio_tool_supported=True,
         composio_app_slug="github",
         existing_servers=["@modelcontextprotocol/server-github"],
@@ -123,7 +123,7 @@ def test_app_research_result_lifecycle() -> None:
     )
 
     feasibility = FeasibilityEvaluation(
-        buildability=BuildabilityScore.HIGH,
+        buildability=BuildabilityScore.BUILDABLE_NOW,
         feasibility_score=9.5,
         rationale="Top-tier API documentation, instant self-serve token generation, and native Composio & MCP support.",
         key_strengths=["Instant self-serve tokens", "Extensive webhooks", "Official OpenAPI specification"],
@@ -140,7 +140,7 @@ def test_app_research_result_lifecycle() -> None:
         mcp=mcp,
         feasibility=feasibility,
         evidence=[evidence],
-        confidence=ConfidenceLevel.VERY_HIGH,
+        confidence=ConfidenceLevel.HIGH,
         verification_status=VerificationStatus.AUTOMATED_PASS,
         agent_version="1.0.0",
     )
@@ -163,14 +163,14 @@ def test_feasibility_score_boundaries() -> None:
     """Test feasibility score bounds (0.0 to 10.0)."""
     with pytest.raises(ValidationError):
         FeasibilityEvaluation(
-            buildability=BuildabilityScore.HIGH,
+            buildability=BuildabilityScore.BUILDABLE_NOW,
             feasibility_score=11.5,  # Exceeds max 10.0
             rationale="This should fail validation due to invalid score range.",
         )
 
     with pytest.raises(ValidationError):
         FeasibilityEvaluation(
-            buildability=BuildabilityScore.LOW,
+            buildability=BuildabilityScore.NOT_CURRENTLY_BUILDABLE,
             feasibility_score=-1.0,  # Below min 0.0
             rationale="This should fail validation due to negative score.",
         )

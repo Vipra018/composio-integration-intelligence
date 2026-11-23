@@ -55,3 +55,19 @@ class BrowserAutomationError(IntegrationIntelligenceError):
 class RateLimitExceededError(IntegrationIntelligenceError):
     """Raised when external API or search rate limits are exceeded."""
     pass
+
+
+class StorageError(IntegrationIntelligenceError):
+    """Raised when loading or persisting research results fails."""
+    pass
+
+
+class LLMServiceError(IntegrationIntelligenceError):
+    """Raised when external or local LLM execution fails."""
+    pass
+
+
+# Convenient aliases
+DatasetError = DatasetValidationError
+ResearchError = ResearchAgentError
+

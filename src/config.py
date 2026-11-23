@@ -77,3 +77,9 @@ class Settings(BaseSettings):
 
 # Singleton settings instance
 settings = Settings()
+
+
+def get_settings() -> Settings:
+    """Return the global Settings instance."""
+    return settings
+

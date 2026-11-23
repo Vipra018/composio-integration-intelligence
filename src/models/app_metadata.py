@@ -4,8 +4,8 @@ Integration Intelligence - Application Metadata Schema.
 Defines the structure for input applications in the benchmark dataset.
 """
 
-from typing import List, Optional
-from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator
+from typing import Any, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator, model_validator
 
 
 class AppMetadata(BaseModel):
@@ -19,6 +19,20 @@ class AppMetadata(BaseModel):
         pattern=r"^[a-z0-9]+(?:-[a-z0-9]+)*$",
         examples=["hubspot", "salesforce", "github"],
     )
+
+    @property
+    def app_id(self) -> str:
+        """Alias property for id to maintain consistency across modules."""
+        return self.id
+
+    @model_validator(mode="before")
+    @classmethod
+    def remap_app_id_if_provided(cls, data: Any) -> Any:
+        if isinstance(data, dict) and "app_id" in data and "id" not in data:
+            data = data.copy()
+            data["id"] = data.pop("app_id")
+        return data
+
     name: str = Field(
         ...,
         min_length=1,

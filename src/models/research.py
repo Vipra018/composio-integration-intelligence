@@ -23,16 +23,25 @@ from src.models.enums import (
 
 
 class EvidenceURL(BaseModel):
-    """Corroborating official source URL supporting research claims."""
+    """Corroborating source citation supporting specific research claims."""
 
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
-    url: HttpUrl = Field(..., description="Absolute URL to official documentation or source.")
+    url: HttpUrl = Field(..., description="Absolute URL to documentation or source page.")
     title: str = Field(..., min_length=2, description="Source page title or reference descriptor.")
     snippet: Optional[str] = Field(
         default=None,
-        max_length=1000,
-        description="Relevant text excerpt or quote from the documentation.",
+        max_length=1500,
+        description="Relevant text excerpt substantiating the claim.",
+    )
+    source_type: str = Field(
+        default="official_documentation",
+        description="Type of source: official_documentation, api_reference, pricing, repository, or search_result.",
+    )
+    claim: Optional[str] = Field(
+        default=None,
+        max_length=500,
+        description="The specific integration claim substantiated by this evidence.",
     )
     retrieved_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
@@ -41,13 +50,16 @@ class EvidenceURL(BaseModel):
 
 
 class IntegrationBlocker(BaseModel):
-    """Identified barrier or risk preventing seamless agent integration."""
+    """Identified barrier or friction point preventing seamless agent integration."""
 
     model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
 
     title: str = Field(..., min_length=3, max_length=150, description="Short summary of the blocker.")
     description: str = Field(..., min_length=10, description="Detailed explanation of the obstacle.")
-    severity: BlockerSeverity = Field(..., description="Severity level of the obstacle.")
+    severity: BlockerSeverity = Field(
+        default=BlockerSeverity.MEDIUM,
+        description="Severity level: CRITICAL, HIGH, MEDIUM, LOW.",
+    )
     blocker_type: str = Field(
         ...,
         description="Category of impediment: auth_gate, pricing_tier, rate_limit, missing_endpoints, anti_bot, etc.",
@@ -62,7 +74,7 @@ class AuthResearch(BaseModel):
     supported_methods: List[AuthMethod] = Field(
         ...,
         min_length=1,
-        description="All authentication methods supported by the SaaS platform.",
+        description="All authentication methods supported by the SaaS platform (OAuth2, API Key, Token, etc.).",
     )
     primary_method: AuthMethod = Field(
         ...,
@@ -71,6 +83,10 @@ class AuthResearch(BaseModel):
     credential_accessibility: CredentialAccessibility = Field(
         ...,
         description="Accessibility tier required to generate developer credentials or access tokens.",
+    )
+    credential_evidence: Optional[str] = Field(
+        default=None,
+        description="Detailed evidence explaining the credential accessibility classification.",
     )
     oauth_grant_types: List[str] = Field(
         default_factory=list,
@@ -98,8 +114,14 @@ class APISurfaceResearch(BaseModel):
     )
     breadth: APIBreadth = Field(
         ...,
-        description="Completeness and scope of public API endpoints relative to product functionality.",
+        description="Completeness and scope of public API endpoints: BROAD, MODERATE, NARROW, UNKNOWN.",
     )
+    breadth_rationale: Optional[str] = Field(
+        default=None,
+        description="Explanation of how the API breadth was determined.",
+    )
+    has_rest: bool = Field(default=False, description="Whether REST endpoints are provided.")
+    has_graphql: bool = Field(default=False, description="Whether GraphQL APIs are supported.")
     has_webhooks: bool = Field(
         default=False,
         description="Whether asynchronous webhook events or event streaming are supported.",
@@ -133,7 +155,7 @@ class MCPResearch(BaseModel):
 
     availability: MCPAvailability = Field(
         ...,
-        description="Status of MCP server availability.",
+        description="Status of MCP server availability: OFFICIAL, COMMUNITY, COMPOSIO, NO_KNOWN_MCP, UNKNOWN.",
     )
     composio_tool_supported: bool = Field(
         default=False,
@@ -160,7 +182,11 @@ class FeasibilityEvaluation(BaseModel):
 
     buildability: BuildabilityScore = Field(
         ...,
-        description="Synthesized feasibility assessment for building autonomous agent workflows.",
+        description="Classification: BUILDABLE_NOW, BUILDABLE_WITH_LIMITATIONS, PARTNERSHIP_REQUIRED, NOT_CURRENTLY_BUILDABLE, INSUFFICIENT_INFORMATION.",
+    )
+    primary_blocker: Optional[str] = Field(
+        default=None,
+        description="The single primary blocker or gating factor for this application.",
     )
     feasibility_score: float = Field(
         ...,

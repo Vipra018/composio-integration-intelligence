@@ -28,7 +28,8 @@ htmlcov/
 # Logs and runtime artifacts
 logs/
 *.log
-data/results/
+data/results/*
+!data/results/initial_research.json
 output/
 reports/
 

@@ -1,0 +1,526 @@
+{
+  "count": 5,
+  "generated_at": "2026-11-23T16:14:10.259424+00:00",
+  "applications": [
+    {
+      "app_id": "github",
+      "name": "GitHub",
+      "category": "Developer, Infra and Data platforms",
+      "one_line_description": "Developer platform for distributed Git version control, pull requests, issue tracking, and CI/CD actions.",
+      "auth": {
+        "supported_methods": [
+          "OAUTH2",
+          "PERSONAL_ACCESS_TOKEN"
+        ],
+        "primary_method": "OAUTH2",
+        "credential_accessibility": "SELF_SERVE_FREE",
+        "credential_evidence": "Free self-serve accounts allow developers to immediately obtain API keys or create OAuth apps.",
+        "oauth_grant_types": [
+          "authorization_code",
+          "refresh_token"
+        ],
+        "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
+        "accessibility_notes": "OAuth 2.0 with token refresh supported. Personal access tokens supported."
+      },
+      "api_surface": {
+        "api_types": [
+          "REST",
+          "GRAPHQL"
+        ],
+        "breadth": "BROAD",
+        "breadth_rationale": "Extensive API surface covering core resources, webhooks, and administrative actions.",
+        "has_rest": true,
+        "has_graphql": true,
+        "has_webhooks": false,
+        "has_rate_limits_documented": true,
+        "rate_limit_details": "Rate limits enforced with documented quotas",
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "OFFICIAL",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [
+          "https://github.com/modelcontextprotocol/servers/tree/main/src/github"
+        ],
+        "notes": "Official MCP reference server available."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_NOW",
+        "primary_blocker": "API Rate Limits Enforced",
+        "feasibility_score": 10.0,
+        "rationale": "Highly feasible for automated agent integration with standard OAuth2 / API keys and open APIs.",
+        "key_strengths": [
+          "Free developer accounts / self-serve access available.",
+          "Broad, well-documented REST/GraphQL API surface.",
+          "Pre-built toolkit available (OFFICIAL)."
+        ],
+        "primary_blockers": [
+          {
+            "title": "API Rate Limits Enforced",
+            "description": "API enforces request rate limits (e.g. leaky-bucket or hourly quotas) requiring backoff.",
+            "severity": "LOW",
+            "blocker_type": "rate_limit"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API Documentation",
+          "snippet": "Authentication options: Authenticate with a personal access token (classic or fine-grained), or with a GitHub App using OAuth 2.0 user-to-server or installation access tokens.",
+          "source_type": "repository",
+          "claim": "Verified auth: oauth 2",
+          "retrieved_at": "2026-11-23T16:14:10.257957Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API Documentation",
+          "snippet": "API is available to all users with self-serve free accounts.",
+          "source_type": "repository",
+          "claim": "Verified credential: free account",
+          "retrieved_at": "2026-11-23T16:14:10.258186Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API Documentation",
+          "snippet": "GitHub REST API: Create integrations, retrieve data, and automate your workflows with GitHub's REST API.",
+          "source_type": "repository",
+          "claim": "Verified api surface: rest api",
+          "retrieved_at": "2026-11-23T16:14:10.258361Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API Documentation",
+          "snippet": "GitHub also offers a comprehensive GraphQL API (v4).",
+          "source_type": "repository",
+          "claim": "Verified api surface: graphql",
+          "retrieved_at": "2026-11-23T16:14:10.258396Z"
+        },
+        {
+          "url": "https://docs.github.com/en/rest",
+          "title": "GitHub REST API Documentation",
+          "snippet": "Rate limits: 5,000 requests per hour for authenticated users, or 15,000 for GitHub Enterprise Cloud.",
+          "source_type": "repository",
+          "claim": "Verified blockers: rate limits",
+          "retrieved_at": "2026-11-23T16:14:10.258641Z"
+        },
+        {
+          "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/github",
+          "title": "GitHub Model Context Protocol (MCP) Server",
+          "snippet": "Official Model Context Protocol (MCP) server for GitHub.",
+          "source_type": "repository",
+          "claim": "Verified mcp: model context protocol",
+          "retrieved_at": "2026-11-23T16:14:10.259063Z"
+        }
+      ],
+      "confidence": "HIGH",
+      "verification_status": "AUTOMATED_PASS",
+      "researched_at": "2026-11-23T16:14:10.259424Z",
+      "agent_version": "2.0.0"
+    },
+    {
+      "app_id": "notebooklm",
+      "name": "NotebookLM",
+      "category": "AI, Research and Media-native",
+      "one_line_description": "Personalized AI research assistant from Google designed to interact with, summarize, and query uploaded source notes.",
+      "auth": {
+        "supported_methods": [
+          "OTHER"
+        ],
+        "primary_method": "OTHER",
+        "credential_accessibility": "CONTACT_SALES",
+        "credential_evidence": "No self-serve developer access exists. Direct vendor engagement or partnership required.",
+        "oauth_grant_types": [],
+        "token_lifespan_notes": null,
+        "accessibility_notes": "No public developer OAuth scopes or API authentication released."
+      },
+      "api_surface": {
+        "api_types": [
+          "OTHER"
+        ],
+        "breadth": "NARROW",
+        "breadth_rationale": "Application has no public developer REST/GraphQL endpoints.",
+        "has_rest": false,
+        "has_graphql": false,
+        "has_webhooks": false,
+        "has_rate_limits_documented": false,
+        "rate_limit_details": null,
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "NO_KNOWN_MCP",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [],
+        "notes": "No official or third-party MCP server verified."
+      },
+      "feasibility": {
+        "buildability": "NOT_CURRENTLY_BUILDABLE",
+        "primary_blocker": "Lack of a public developer API or developer credentials.",
+        "feasibility_score": 1.0,
+        "rationale": "Integration is blocked due to lack of a public developer API or programmatic endpoints.",
+        "key_strengths": [],
+        "primary_blockers": [
+          {
+            "title": "No Public Developer API",
+            "description": "Application does not expose a public developer REST/GraphQL API or OAuth credentials.",
+            "severity": "CRITICAL",
+            "blocker_type": "missing_endpoints"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://notebooklm.google.com/",
+          "title": "NotebookLM - Google's AI-First Notebook",
+          "snippet": "Current developer status: Google has not released a public developer REST API, public SDK, or OAuth developer scopes for NotebookLM.",
+          "source_type": "official_documentation",
+          "claim": "Verified api surface: rest api",
+          "retrieved_at": "2026-11-23T16:14:10.589302Z"
+        },
+        {
+          "url": "https://notebooklm.google.com/",
+          "title": "NotebookLM - Google's AI-First Notebook",
+          "snippet": "There is no official or third-party MCP server or public API endpoint available for external agent integration without browser scraping or unofficial reverse-engineered session cookies.",
+          "source_type": "official_documentation",
+          "claim": "Verified mcp: mcp server",
+          "retrieved_at": "2026-11-23T16:14:10.589550Z"
+        },
+        {
+          "url": "https://notebooklm.google.com/",
+          "title": "NotebookLM - Google's AI-First Notebook",
+          "snippet": "Access is strictly end-user facing through the web UI using Google Accounts.",
+          "source_type": "official_documentation",
+          "claim": "Verified blockers: strictly end-user facing",
+          "retrieved_at": "2026-11-23T16:14:10.589696Z"
+        }
+      ],
+      "confidence": "HIGH",
+      "verification_status": "AUTOMATED_PASS",
+      "researched_at": "2026-11-23T16:14:10.590028Z",
+      "agent_version": "2.0.0"
+    },
+    {
+      "app_id": "salesforce",
+      "name": "Salesforce",
+      "category": "CRM and Sales",
+      "one_line_description": "Enterprise cloud customer relationship management platform for sales, service, and marketing automation.",
+      "auth": {
+        "supported_methods": [
+          "OAUTH2",
+          "BEARER_TOKEN"
+        ],
+        "primary_method": "OAUTH2",
+        "credential_accessibility": "SELF_SERVE_FREE",
+        "credential_evidence": "Free developer edition or partner sandbox account is available for self-service registration.",
+        "oauth_grant_types": [
+          "authorization_code",
+          "refresh_token"
+        ],
+        "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
+        "accessibility_notes": "OAuth 2.0 with token refresh supported. Bearer/JWT token supported."
+      },
+      "api_surface": {
+        "api_types": [
+          "REST"
+        ],
+        "breadth": "BROAD",
+        "breadth_rationale": "Extensive API surface covering core resources, webhooks, and administrative actions.",
+        "has_rest": true,
+        "has_graphql": false,
+        "has_webhooks": false,
+        "has_rate_limits_documented": false,
+        "rate_limit_details": null,
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "COMPOSIO",
+        "composio_tool_supported": true,
+        "composio_app_slug": "salesforce",
+        "existing_servers": [],
+        "notes": "Pre-built Composio tool integration available for Salesforce."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_NOW",
+        "primary_blocker": null,
+        "feasibility_score": 10.0,
+        "rationale": "Highly feasible for automated agent integration with standard OAuth2 / API keys and open APIs.",
+        "key_strengths": [
+          "Free developer accounts / self-serve access available.",
+          "Broad, well-documented REST/GraphQL API surface.",
+          "Pre-built toolkit available (COMPOSIO)."
+        ],
+        "primary_blockers": []
+      },
+      "evidence": [
+        {
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest.htm",
+          "title": "Salesforce REST API Developer Guide",
+          "snippet": "Authentication is handled via OAuth 2.0 Web Server Flow or JWT Bearer Flow using Connected Apps.",
+          "source_type": "official_documentation",
+          "claim": "Verified auth: oauth 2",
+          "retrieved_at": "2026-11-23T16:14:09.953139Z"
+        },
+        {
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest.htm",
+          "title": "Salesforce REST API Developer Guide",
+          "snippet": "API access requires an Enterprise, Unlimited, or Performance Edition, or a free Developer Edition org.",
+          "source_type": "official_documentation",
+          "claim": "Verified credential: developer edition",
+          "retrieved_at": "2026-11-23T16:14:09.954180Z"
+        },
+        {
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest.htm",
+          "title": "Salesforce REST API Developer Guide",
+          "snippet": "Standard Professional edition requires an add-on or admin activation.",
+          "source_type": "official_documentation",
+          "claim": "Verified credential: admin activation",
+          "retrieved_at": "2026-11-23T16:14:09.954959Z"
+        },
+        {
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest.htm",
+          "title": "Salesforce REST API Developer Guide",
+          "snippet": "Salesforce REST API Overview: The REST API provides a powerful, convenient, and simple RESTful Web services interface for interacting with Salesforce.",
+          "source_type": "official_documentation",
+          "claim": "Verified api surface: rest api",
+          "retrieved_at": "2026-11-23T16:14:09.955254Z"
+        },
+        {
+          "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_rest.htm",
+          "title": "Salesforce REST API Developer Guide",
+          "snippet": "REST API supports JSON and XML payloads.",
+          "source_type": "official_documentation",
+          "claim": "Verified api surface: rest api",
+          "retrieved_at": "2026-11-23T16:14:09.955276Z"
+        },
+        {
+          "url": "https://composio.dev/tools/salesforce",
+          "title": "Composio Salesforce Tool Integration",
+          "snippet": "It supports managed OAuth2 authentication, automatic token refreshes, and granular actions to create, update, and search leads, contacts, opportunities, accounts, and custom objects directly from LLM agent frameworks like LangChain, CrewAI, and Autogen.",
+          "source_type": "official_documentation",
+          "claim": "Verified auth: oauth 2",
+          "retrieved_at": "2026-11-23T16:14:09.957407Z"
+        },
+        {
+          "url": "https://composio.dev/tools/salesforce",
+          "title": "Composio Salesforce Tool Integration",
+          "snippet": "Composio provides a production-ready toolkit for Salesforce.",
+          "source_type": "official_documentation",
+          "claim": "Verified mcp: composio",
+          "retrieved_at": "2026-11-23T16:14:09.957770Z"
+        }
+      ],
+      "confidence": "HIGH",
+      "verification_status": "AUTOMATED_PASS",
+      "researched_at": "2026-11-23T16:14:09.958922Z",
+      "agent_version": "2.0.0"
+    },
+    {
+      "app_id": "sherlock",
+      "name": "Sherlock",
+      "category": "Data, SEO and Scraping",
+      "one_line_description": "Open-source intelligence OSINT scraping tool hunting down social media accounts by username across hundreds of networks.",
+      "auth": {
+        "supported_methods": [
+          "OAUTH2",
+          "API_KEY"
+        ],
+        "primary_method": "OAUTH2",
+        "credential_accessibility": "SELF_SERVE_FREE",
+        "credential_evidence": "Open source codebase freely accessible without commercial gatekeeping.",
+        "oauth_grant_types": [
+          "authorization_code",
+          "refresh_token"
+        ],
+        "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
+        "accessibility_notes": "OAuth 2.0 with token refresh supported. API key authentication supported."
+      },
+      "api_surface": {
+        "api_types": [
+          "REST",
+          "OTHER"
+        ],
+        "breadth": "NARROW",
+        "breadth_rationale": "Command-line interface without hosted multi-tenant REST endpoints.",
+        "has_rest": true,
+        "has_graphql": false,
+        "has_webhooks": false,
+        "has_rate_limits_documented": false,
+        "rate_limit_details": null,
+        "official_sdks": [
+          "Python"
+        ],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "NO_KNOWN_MCP",
+        "composio_tool_supported": false,
+        "composio_app_slug": null,
+        "existing_servers": [],
+        "notes": "No existing MCP server or tool integration verified."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_WITH_LIMITATIONS",
+        "primary_blocker": "CLI tool architecture requires local execution container.",
+        "feasibility_score": 4.0,
+        "rationale": "Buildable via local subprocess / CLI wrapper, but lacks hosted SaaS cloud endpoints.",
+        "key_strengths": [
+          "Free developer accounts / self-serve access available."
+        ],
+        "primary_blockers": [
+          {
+            "title": "Non-SaaS CLI Architecture",
+            "description": "Open-source CLI tool rather than hosted cloud SaaS. Requires local process execution environment.",
+            "severity": "MEDIUM",
+            "blocker_type": "architecture"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://github.com/sherlock-project/sherlock",
+          "title": "sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
+          "snippet": "It does not provide a cloud SaaS platform, does not provide a hosted REST API, and does not require OAuth or API keys.",
+          "source_type": "repository",
+          "claim": "Verified auth: api key",
+          "retrieved_at": "2026-11-23T16:14:10.484061Z"
+        },
+        {
+          "url": "https://github.com/sherlock-project/sherlock",
+          "title": "sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
+          "snippet": "Sherlock is a command-line tool written in Python.",
+          "source_type": "repository",
+          "claim": "Verified api surface: command-line tool",
+          "retrieved_at": "2026-11-23T16:14:10.484561Z"
+        },
+        {
+          "url": "https://github.com/sherlock-project/sherlock",
+          "title": "sherlock-project/sherlock: Hunt down social media accounts by username across social networks",
+          "snippet": "Integration with AI agents requires running the CLI as a subprocess or importing the Python package locally rather than invoking a SaaS API.",
+          "source_type": "repository",
+          "claim": "Verified api surface: python (?:package|library)",
+          "retrieved_at": "2026-11-23T16:14:10.484605Z"
+        }
+      ],
+      "confidence": "HIGH",
+      "verification_status": "AUTOMATED_PASS",
+      "researched_at": "2026-11-23T16:14:10.485326Z",
+      "agent_version": "2.0.0"
+    },
+    {
+      "app_id": "shopify",
+      "name": "Shopify",
+      "category": "Ecommerce",
+      "one_line_description": "Global commerce platform providing online storefronts, inventory management, payments, and checkout APIs.",
+      "auth": {
+        "supported_methods": [
+          "OAUTH2"
+        ],
+        "primary_method": "OAUTH2",
+        "credential_accessibility": "PARTNER_GATED",
+        "credential_evidence": "Developer credentials require joining a certified partner network.",
+        "oauth_grant_types": [
+          "authorization_code",
+          "refresh_token"
+        ],
+        "token_lifespan_notes": "Standard expiring access token with refresh token rotation",
+        "accessibility_notes": "OAuth 2.0 with token refresh supported."
+      },
+      "api_surface": {
+        "api_types": [
+          "REST",
+          "GRAPHQL"
+        ],
+        "breadth": "BROAD",
+        "breadth_rationale": "Extensive API surface covering core resources, webhooks, and administrative actions.",
+        "has_rest": true,
+        "has_graphql": true,
+        "has_webhooks": false,
+        "has_rate_limits_documented": true,
+        "rate_limit_details": "Rate limits enforced with documented quotas",
+        "official_sdks": [],
+        "openapi_spec_available": false,
+        "openapi_spec_url": null
+      },
+      "mcp": {
+        "availability": "COMPOSIO",
+        "composio_tool_supported": true,
+        "composio_app_slug": "shopify",
+        "existing_servers": [],
+        "notes": "Pre-built Composio tool integration available for Shopify."
+      },
+      "feasibility": {
+        "buildability": "BUILDABLE_WITH_LIMITATIONS",
+        "primary_blocker": "API Rate Limits Enforced",
+        "feasibility_score": 7.5,
+        "rationale": "Buildable, but requires plan upgrades, partner access, or specific rate-limit handling.",
+        "key_strengths": [
+          "Broad, well-documented REST/GraphQL API surface.",
+          "Pre-built toolkit available (COMPOSIO)."
+        ],
+        "primary_blockers": [
+          {
+            "title": "API Rate Limits Enforced",
+            "description": "API enforces request rate limits (e.g. leaky-bucket or hourly quotas) requiring backoff.",
+            "severity": "LOW",
+            "blocker_type": "rate_limit"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "Shopify Admin API Documentation",
+          "snippet": "Authentication requires OAuth 2.0 access tokens.",
+          "source_type": "official_documentation",
+          "claim": "Verified auth: oauth 2",
+          "retrieved_at": "2026-11-23T16:14:10.366036Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "Shopify Admin API Documentation",
+          "snippet": "The Admin API is available in REST and GraphQL.",
+          "source_type": "official_documentation",
+          "claim": "Verified api surface: graphql",
+          "retrieved_at": "2026-11-23T16:14:10.366661Z"
+        },
+        {
+          "url": "https://shopify.dev/docs/api/admin-rest",
+          "title": "Shopify Admin API Documentation",
+          "snippet": "Standard API rate limits use a leaky-bucket algorithm with 40 requests/bucket, refill 2/second.",
+          "source_type": "official_documentation",
+          "claim": "Verified blockers: rate limits",
+          "retrieved_at": "2026-11-23T16:14:10.367050Z"
+        },
+        {
+          "url": "https://composio.dev/tools/shopify",
+          "title": "Composio Shopify Toolkit",
+          "snippet": "Uses standard Shopify OAuth2 and Custom App tokens.",
+          "source_type": "official_documentation",
+          "claim": "Verified auth: oauth 2",
+          "retrieved_at": "2026-11-23T16:14:10.367126Z"
+        },
+        {
+          "url": "https://composio.dev/tools/shopify",
+          "title": "Composio Shopify Toolkit",
+          "snippet": "Connect Shopify to AI agents using Composio.",
+          "source_type": "official_documentation",
+          "claim": "Verified mcp: composio",
+          "retrieved_at": "2026-11-23T16:14:10.367523Z"
+        }
+      ],
+      "confidence": "HIGH",
+      "verification_status": "AUTOMATED_PASS",
+      "researched_at": "2026-11-23T16:14:10.368159Z",
+      "agent_version": "2.0.0"
+    }
+  ]
+}

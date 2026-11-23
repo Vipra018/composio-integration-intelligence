@@ -99,3 +99,16 @@ def configure_logging(custom_settings: Optional[Settings] = None) -> None:
 
 # Auto-configure default logger on module import
 configure_logging()
+
+
+def get_logger(name: Optional[str] = None):
+    """Retrieve logger instance, optionally bound with component name."""
+    if name:
+        return logger.bind(name=name)
+    return logger
+
+
+def setup_logging(custom_settings: Optional[Settings] = None) -> None:
+    """Setup logging handler (alias for configure_logging)."""
+    configure_logging(custom_settings)
+

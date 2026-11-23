@@ -2,90 +2,137 @@
 Integration Intelligence - Enums and Taxonomy Definitions.
 
 Defines standardized enumerations for authentication mechanisms, credential accessibility,
-API surfaces, MCP availability, agent buildability, and verification statuses.
+API surfaces, MCP availability, agent buildability, confidence, and verification statuses.
 """
 
 from enum import Enum
+from typing import Any
 
 
-class AuthMethod(str, Enum):
+class CaseInsensitiveEnum(str, Enum):
+    """Base enum supporting case-insensitive lookup and string serialization."""
+
+    @classmethod
+    def _missing_(cls, value: Any) -> Any:
+        if isinstance(value, str):
+            val_clean = value.strip().upper().replace(" ", "_").replace("-", "_")
+            for member in cls:
+                if member.value == val_clean or member.name == val_clean:
+                    return member
+                # Handle common aliases
+                if val_clean in ("COMPOSIO_SUPPORTED", "COMPOSIO"):
+                    if hasattr(cls, "COMPOSIO"):
+                        return cls.COMPOSIO
+                if val_clean in ("EXTENSIVE", "BROAD"):
+                    if hasattr(cls, "BROAD"):
+                        return cls.BROAD
+                if val_clean in ("LIMITED", "MINIMAL", "NARROW"):
+                    if hasattr(cls, "NARROW"):
+                        return cls.NARROW
+                if val_clean in ("FREE_TRIAL", "SELF_SERVE_TRIAL"):
+                    if hasattr(cls, "SELF_SERVE_TRIAL"):
+                        return cls.SELF_SERVE_TRIAL
+                if val_clean in ("PAID_PLAN_REQUIRED", "SELF_SERVE_PAID"):
+                    if hasattr(cls, "SELF_SERVE_PAID"):
+                        return cls.SELF_SERVE_PAID
+                if val_clean in ("ADMIN_APPROVAL_REQUIRED", "ADMIN_APPROVAL"):
+                    if hasattr(cls, "ADMIN_APPROVAL"):
+                        return cls.ADMIN_APPROVAL
+                if val_clean in ("VERY_HIGH", "HIGH"):
+                    if hasattr(cls, "HIGH"):
+                        return cls.HIGH
+                if val_clean in ("HIGH", "BUILDABLE_NOW"):
+                    if hasattr(cls, "BUILDABLE_NOW"):
+                        return cls.BUILDABLE_NOW
+                if val_clean in ("BLOCKED", "NOT_CURRENTLY_BUILDABLE"):
+                    if hasattr(cls, "NOT_CURRENTLY_BUILDABLE"):
+                        return cls.NOT_CURRENTLY_BUILDABLE
+        return super()._missing_(value)
+
+
+class AuthMethod(CaseInsensitiveEnum):
     """Authentication mechanisms supported by SaaS APIs."""
-    OAUTH2 = "oauth2"
-    API_KEY = "api_key"
-    BEARER_TOKEN = "bearer_token"
-    BASIC_AUTH = "basic_auth"
-    SESSION_COOKIE = "session_cookie"
-    WEBHOOK_HMAC = "webhook_hmac"
-    MTLS = "mtls"
-    OTHER = "other"
+    OAUTH2 = "OAUTH2"
+    API_KEY = "API_KEY"
+    BEARER_TOKEN = "BEARER_TOKEN"
+    PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN"
+    BASIC_AUTH = "BASIC_AUTH"
+    SESSION_COOKIE = "SESSION_COOKIE"
+    WEBHOOK_HMAC = "WEBHOOK_HMAC"
+    MTLS = "MTLS"
+    OTHER = "OTHER"
+    UNKNOWN = "UNKNOWN"
 
 
-class CredentialAccessibility(str, Enum):
+class CredentialAccessibility(CaseInsensitiveEnum):
     """How developers or agents obtain API credentials."""
-    SELF_SERVE_FREE = "self_serve_free"
-    FREE_TRIAL = "free_trial"
-    PAID_PLAN_REQUIRED = "paid_plan_required"
-    ADMIN_APPROVAL_REQUIRED = "admin_approval_required"
-    PARTNER_GATED = "partner_gated"
-    CONTACT_SALES = "contact_sales"
-    INVITE_ONLY = "invite_only"
+    SELF_SERVE_FREE = "SELF_SERVE_FREE"
+    SELF_SERVE_TRIAL = "SELF_SERVE_TRIAL"
+    SELF_SERVE_PAID = "SELF_SERVE_PAID"
+    ADMIN_APPROVAL = "ADMIN_APPROVAL"
+    PARTNER_GATED = "PARTNER_GATED"
+    CONTACT_SALES = "CONTACT_SALES"
+    UNKNOWN = "UNKNOWN"
 
 
-class APIType(str, Enum):
+class APIType(CaseInsensitiveEnum):
     """Architectural style of the API surface."""
-    REST = "rest"
-    GRAPHQL = "graphql"
-    GRPC = "grpc"
-    WEBHOOKS_ONLY = "webhooks_only"
-    SDK_ONLY = "sdk_only"
-    HYBRID = "hybrid"
+    REST = "REST"
+    GRAPHQL = "GRAPHQL"
+    GRPC = "GRPC"
+    WEBHOOKS_ONLY = "WEBHOOKS_ONLY"
+    SDK_ONLY = "SDK_ONLY"
+    HYBRID = "HYBRID"
+    OTHER = "OTHER"
+    UNKNOWN = "UNKNOWN"
 
 
-class APIBreadth(str, Enum):
+class APIBreadth(CaseInsensitiveEnum):
     """Breadth and completeness of public API coverage."""
-    EXTENSIVE = "extensive"     # Full CRUD, events, webhooks, admin controls
-    MODERATE = "moderate"       # Covers primary business objects and actions
-    LIMITED = "limited"         # Narrow subset of features exposed
-    MINIMAL = "minimal"         # Very few endpoints, strictly read-only or single action
+    BROAD = "BROAD"             # Full CRUD, comprehensive data objects, events, webhooks
+    MODERATE = "MODERATE"       # Covers primary business objects and major actions
+    NARROW = "NARROW"           # Narrow or limited subset of features exposed
+    UNKNOWN = "UNKNOWN"         # Undocumented or cannot be determined
 
 
-class MCPAvailability(str, Enum):
+class MCPAvailability(CaseInsensitiveEnum):
     """Availability of Model Context Protocol (MCP) servers."""
-    OFFICIAL = "official"                         # Vendor-maintained official MCP server
-    COMMUNITY = "community"                       # Verified open-source community MCP server
-    COMPOSIO_SUPPORTED = "composio_supported"     # Available in Composio tooling/MCP catalog
-    CUSTOM_BUILD_REQUIRED = "custom_build_required" # No existing MCP server, must be built
-    NONE = "none"                                 # Impossible or completely unsupported
+    OFFICIAL = "OFFICIAL"                       # Vendor-maintained official MCP server
+    COMMUNITY = "COMMUNITY"                     # Verified open-source community MCP server
+    COMPOSIO = "COMPOSIO"                       # Available in Composio tooling / MCP catalog
+    NO_KNOWN_MCP = "NO_KNOWN_MCP"               # No known MCP server found
+    UNKNOWN = "UNKNOWN"                         # Unknown or unverified status
 
 
-class BuildabilityScore(str, Enum):
-    """Feasibility of developing an autonomous agent tool or integration."""
-    HIGH = "high"             # Standard auth, accessible sandbox, robust API docs, high developer velocity
-    MEDIUM = "medium"         # Some friction (e.g. strict rate limits, complex OAuth, or paid tier required)
-    LOW = "low"               # High friction (e.g. partner-gated, enterprise sales, legacy SOAP/XML)
-    BLOCKED = "blocked"       # Zero public API access, anti-bot gates, or explicitly forbidden in ToS
+class BuildabilityScore(CaseInsensitiveEnum):
+    """Feasibility classification for autonomous agent toolkit integration."""
+    BUILDABLE_NOW = "BUILDABLE_NOW"                             # Turnkey / accessible developer API & auth
+    BUILDABLE_WITH_LIMITATIONS = "BUILDABLE_WITH_LIMITATIONS"   # Technical friction (rate limits, complex OAuth)
+    PARTNERSHIP_REQUIRED = "PARTNERSHIP_REQUIRED"               # Partner program or enterprise contract needed
+    NOT_CURRENTLY_BUILDABLE = "NOT_CURRENTLY_BUILDABLE"         # No public API or prohibited by terms of service
+    INSUFFICIENT_INFORMATION = "INSUFFICIENT_INFORMATION"       # Inadequate evidence to determine feasibility
 
 
-class BlockerSeverity(str, Enum):
+class BlockerSeverity(CaseInsensitiveEnum):
     """Severity classification of integration impediments."""
-    CRITICAL = "critical"     # Hard blocker, prevents integration entirely
-    HIGH = "high"             # Significant barrier, requires human intervention or paid contract
-    MEDIUM = "medium"         # Technical friction (complex token refresh, tricky pagination)
-    LOW = "low"               # Minor inconvenience (rate limit caution, deprecation notices)
+    CRITICAL = "CRITICAL"     # Hard blocker, prevents integration entirely
+    HIGH = "HIGH"             # Significant barrier, requires human contract or intervention
+    MEDIUM = "MEDIUM"         # Technical friction (rate limit quotas, token refresh complexities)
+    LOW = "LOW"               # Minor inconvenience (deprecation warnings, optional webhook verification)
 
 
-class VerificationStatus(str, Enum):
+class VerificationStatus(CaseInsensitiveEnum):
     """Audit and validation status of the research findings."""
-    UNVERIFIED = "unverified"
-    AUTOMATED_PASS = "automated_pass"
-    AUTOMATED_FAIL = "automated_fail"
-    MANUALLY_VERIFIED = "manually_verified"
-    REQUIRES_HUMAN_REVIEW = "requires_human_review"
+    UNVERIFIED = "UNVERIFIED"
+    AUTOMATED_PASS = "AUTOMATED_PASS"
+    AUTOMATED_FAIL = "AUTOMATED_FAIL"
+    MANUALLY_VERIFIED = "MANUALLY_VERIFIED"
+    REQUIRES_HUMAN_REVIEW = "REQUIRES_HUMAN_REVIEW"
 
 
-class ConfidenceLevel(str, Enum):
+class ConfidenceLevel(CaseInsensitiveEnum):
     """Confidence rating in the synthesized research findings."""
-    VERY_HIGH = "very_high"   # Verified against official live API docs & Composio specs
-    HIGH = "high"             # Multiple corroborating official documentation sources
-    MEDIUM = "medium"         # Single source or partial documentation ambiguity
-    LOW = "low"               # Inferential, documentation incomplete, or contradictory
+    HIGH = "HIGH"             # Multiple corroborating official documentation sources
+    MEDIUM = "MEDIUM"         # Single source or partial documentation ambiguity
+    LOW = "LOW"               # Inferential, documentation incomplete, or contradictory
+    UNKNOWN = "UNKNOWN"       # No reliable evidence discovered
